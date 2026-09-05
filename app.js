@@ -179,10 +179,18 @@ function persistState() {
   if (!isDataLoaded) return;
   try {
     localStorage.setItem("ironlog_workouts", JSON.stringify(workouts, null, 2));
+  } catch (err) {
+    console.warn("Error storing workouts in localStorage", err);
+  }
+  try {
     localStorage.setItem("ironlog_exercises", JSON.stringify(exercises, null, 2));
+  } catch (err) {
+    console.warn("Error storing exercises in localStorage", err);
+  }
+  try {
     localStorage.setItem("ironlog_cached_images", JSON.stringify(cachedImages));
   } catch (err) {
-    console.warn("Storage quota exceeded or error storing data in localStorage", err);
+    console.warn("Image cache quota exceeded in localStorage, keeping in-memory cache", err);
   }
   updateStats();
 }
@@ -1151,7 +1159,7 @@ function renderEditExerciseScreen(context) {
       return `
         <div class="sets-builder-row edit-set-row">
           <div><span class="set-num-badge">${idx + 1}</span></div>
-          <div><input type="text" class="form-input edit-set-weight-val" value="${escapeHtml(rawWeight)}" placeholder="e.g. 2 or 80" required /></div>
+          <div><input type="text" class="form-input edit-set-weight-val" value="${escapeHtml(rawWeight)}" placeholder="e.g. 2, 80 or Bodyweight" /></div>
           <div>
             <select class="form-select edit-set-weight-unit">
               <option value="kg" ${unit === 'kg' ? 'selected' : ''}>kg</option>
@@ -1268,7 +1276,7 @@ function renderEditExerciseScreen(context) {
           <span>📸 Workout Media (Image or Animated GIF)</span>
         </div>
         <p style="font-size: 0.78rem; color: var(--text-muted);">
-          Upload a <strong>.jpg</strong>, <strong>.jpeg</strong>, or animated <strong>.gif</strong>. It automatically saves and matches this workout.
+          Select any <strong>.jpg</strong>, <strong>.jpeg</strong>, <strong>.png</strong>, or animated <strong>.gif</strong> to attach it to this workout.
         </p>
         <input type="hidden" id="editExImageVal" value="${escapeHtml(exData.image || catalogEx.image || currentImgInfo.imageName || '')}" />
         <input type="file" accept=".jpg,.jpeg,.png,.gif,.webp" id="editExFileInput" style="display: none;" onchange="handleEditImageFileSelected(this)" />
@@ -1276,12 +1284,7 @@ function renderEditExerciseScreen(context) {
           ${currentImgInfo.src ? `
             <img src="${currentImgInfo.src}" class="image-preview-thumb" alt="Preview" onerror="handleImageFallback(this, '${catalogEx.id}')" />
             <div class="image-preview-info">
-              <div>Current Media: <code>${escapeHtml(currentImgInfo.imageName)}</code></div>
-              ${cachedImages[currentImgInfo.imageName] ? `
-                <a href="${cachedImages[currentImgInfo.imageName]}" download="${escapeHtml(currentImgInfo.imageName)}" class="btn btn-secondary btn-sm" style="margin-top: 0.35rem; display: inline-block;">
-                  💾 Download "${escapeHtml(currentImgInfo.imageName)}"
-                </a>
-              ` : ''}
+              <div>Attached Media: <code>${escapeHtml(currentImgInfo.imageName)}</code></div>
             </div>
           ` : ''}
         </div>
@@ -1418,24 +1421,24 @@ function selectEditExerciseFromResult(exId) {
   if (nameInput) nameInput.value = ex.name;
   if (idInput) idInput.value = ex.id;
   if (catSelect) catSelect.value = ex.category;
-  if (varInput && !varInput.value.trim()) varInput.value = ex.variation || "Standard";
+  if (varInput) varInput.value = ex.variation || "Standard";
   if (resultsBox) resultsBox.style.display = "none";
 
   const imgInfo = getResolvedExerciseImage({ exerciseId: ex.id, exerciseName: ex.name }, ex);
   if (imgValInput) imgValInput.value = imgInfo.imageName || ex.image || "";
-  if (previewArea && imgInfo.src) {
-    previewArea.style.display = "flex";
-    previewArea.innerHTML = `
-      <img src="${imgInfo.src}" class="image-preview-thumb" alt="${escapeHtml(ex.name)}" onerror="handleImageFallback(this, '${ex.id}')" />
-      <div class="image-preview-info">
-        <div>Current Media: <code>${escapeHtml(imgInfo.imageName)}</code></div>
-        ${cachedImages[imgInfo.imageName] ? `
-          <a href="${cachedImages[imgInfo.imageName]}" download="${escapeHtml(imgInfo.imageName)}" class="btn btn-secondary btn-sm" style="margin-top: 0.35rem; display: inline-block;">
-            💾 Download "${escapeHtml(imgInfo.imageName)}"
-          </a>
-        ` : ''}
-      </div>
-    `;
+  if (previewArea) {
+    if (imgInfo.src) {
+      previewArea.style.display = "flex";
+      previewArea.innerHTML = `
+        <img src="${imgInfo.src}" class="image-preview-thumb" alt="${escapeHtml(ex.name)}" onerror="handleImageFallback(this, '${ex.id}')" />
+        <div class="image-preview-info">
+          <div>Attached Media: <code>${escapeHtml(imgInfo.imageName)}</code></div>
+        </div>
+      `;
+    } else {
+      previewArea.style.display = "none";
+      previewArea.innerHTML = "";
+    }
   }
 }
 
@@ -1464,7 +1467,7 @@ function addEditSetRow() {
   row.className = "sets-builder-row edit-set-row";
   row.innerHTML = `
     <div><span class="set-num-badge">${currentCount}</span></div>
-    <div><input type="text" class="form-input edit-set-weight-val" value="${escapeHtml(prevWeight)}" placeholder="e.g. 2 or 80" required /></div>
+    <div><input type="text" class="form-input edit-set-weight-val" value="${escapeHtml(prevWeight)}" placeholder="e.g. 2, 80 or Bodyweight" /></div>
     <div>
       <select class="form-select edit-set-weight-unit">
         <option value="kg" ${prevUnit === 'kg' ? 'selected' : ''}>kg</option>
@@ -1670,48 +1673,46 @@ function handleEditImageFileSelected(input) {
   const exName = document.getElementById("editExSearchInput")?.value || "exercise";
   const idInput = document.getElementById("editExIdVal");
   const exId = idInput && idInput.value ? idInput.value : getSanitizedFilename(exName, "");
-  const ext = file.name.split('.').pop().toLowerCase() || "gif";
-  const standardizedName = getSanitizedFilename(exName, ext);
+  const imageName = file.name;
 
   const reader = new FileReader();
   reader.onload = function(e) {
     const dataUrl = e.target.result;
 
-    // Cache under multiple keys for resilient retrieval
-    cachedImages[standardizedName] = dataUrl;
-    cachedImages[`${exId}.${ext}`] = dataUrl;
-    cachedImages[exName] = dataUrl;
+    // Cache under original name, exercise ID, exercise name, and sanitized slugs for instant display
+    cachedImages[imageName] = dataUrl;
     cachedImages[exId] = dataUrl;
-    if (ext === "gif") {
-      cachedImages[getSanitizedFilename(exName, "jpg")] = dataUrl;
-      cachedImages[`${exId}.jpg`] = dataUrl;
-    } else {
-      cachedImages[getSanitizedFilename(exName, "gif")] = dataUrl;
+    cachedImages[exName] = dataUrl;
+    if (exId) {
       cachedImages[`${exId}.gif`] = dataUrl;
+      cachedImages[`${exId}.jpg`] = dataUrl;
     }
+    const baseSlug = getSanitizedFilename(exName, "");
+    cachedImages[baseSlug] = dataUrl;
+    cachedImages[`${baseSlug}.gif`] = dataUrl;
+    cachedImages[`${baseSlug}.jpg`] = dataUrl;
 
     // Support dumbell / dumbbell typo variants in cache
-    const baseSlug = getSanitizedFilename(exName, "");
     if (baseSlug.includes("dumbell")) {
       const fixed = baseSlug.replace(/dumbell/g, "dumbbell");
-      cachedImages[`${fixed}.${ext}`] = dataUrl;
+      cachedImages[`${fixed}.gif`] = dataUrl;
       cachedImages[fixed] = dataUrl;
     } else if (baseSlug.includes("dumbbell")) {
       const typo = baseSlug.replace(/dumbbell/g, "dumbell");
-      cachedImages[`${typo}.${ext}`] = dataUrl;
+      cachedImages[`${typo}.gif`] = dataUrl;
       cachedImages[typo] = dataUrl;
     }
 
     // Update hidden input in Screen 3 form
     const imgValInput = document.getElementById("editExImageVal");
     if (imgValInput) {
-      imgValInput.value = standardizedName;
+      imgValInput.value = imageName;
     }
 
     // Update catalog exercise image attribute
     const catalogEx = getExerciseById(exId) || getExerciseByName(exName);
     if (catalogEx) {
-      catalogEx.image = standardizedName;
+      catalogEx.image = imageName;
     }
 
     // Immediately persist to localStorage
@@ -1722,14 +1723,11 @@ function handleEditImageFileSelected(input) {
       previewArea.innerHTML = `
         <img src="${dataUrl}" class="image-preview-thumb" alt="Preview" />
         <div class="image-preview-info">
-          <div>File: <code>${escapeHtml(standardizedName)}</code> <span style="color: var(--accent-emerald); font-weight: 600;">✓ Saved</span></div>
-          <a href="${dataUrl}" download="${standardizedName}" class="btn btn-secondary btn-sm" style="margin-top: 0.35rem; display: inline-block;">
-            💾 Download "${standardizedName}"
-          </a>
+          <div>File: <code>${escapeHtml(imageName)}</code> <span style="color: var(--accent-emerald); font-weight: 600;">✓ Attached</span></div>
         </div>
       `;
     }
-    showToast(`Media "${standardizedName}" saved successfully!`);
+    showToast(`Media "${imageName}" attached successfully!`);
   };
   reader.readAsDataURL(file);
 }
@@ -1987,6 +1985,7 @@ function addExerciseItemToLogger() {
           onfocus="handleExerciseSearchInput('${itemId}', this.value)"
         />
         <input type="hidden" class="exercise-id-val" value="${initialEx.id}" />
+        <input type="hidden" class="exercise-image-val" value="${escapeHtml(initialEx.image || '')}" />
         <span class="search-clear-btn" id="${itemId}_clear_btn" title="Clear input" onclick="clearExerciseSearch('${itemId}')" style="display: inline-block;">✕</span>
       </div>
 
@@ -2043,7 +2042,7 @@ function addExerciseItemToLogger() {
         <!-- Set 1 -->
         <div class="sets-builder-row">
           <div><span class="set-num-badge">1</span></div>
-          <div><input type="text" class="form-input set-weight-val" placeholder="e.g. 2 or 80" required /></div>
+          <div><input type="text" class="form-input set-weight-val" placeholder="e.g. 2, 80 or Bodyweight" /></div>
           <div>
             <select class="form-select set-weight-unit">
               <option value="kg">kg</option>
@@ -2061,13 +2060,13 @@ function addExerciseItemToLogger() {
       </button>
     </div>
 
-    <!-- Image / GIF Renaming Upload Helper -->
+    <!-- Image / GIF Upload Helper -->
     <div class="image-renamer-box">
       <div class="image-renamer-header">
-        <span>📸 Workout Image or GIF (Upload Once & Reuse)</span>
+        <span>📸 Workout Image or GIF</span>
       </div>
       <p style="font-size: 0.78rem; color: var(--text-muted);">
-        Upload a <strong>.jpg</strong>, <strong>.jpeg</strong>, or animated <strong>.gif</strong>. It is automatically renamed to match this workout.
+        Select any <strong>.jpg</strong>, <strong>.jpeg</strong>, <strong>.png</strong>, or animated <strong>.gif</strong> to attach it to this workout.
       </p>
       <input type="file" accept=".jpg,.jpeg,.png,.gif,.webp" class="image-file-input" style="display: none;" onchange="handleImageFileSelected('${itemId}', this)" />
       <div class="image-preview-area" style="display: none;"></div>
@@ -2121,7 +2120,7 @@ function addSetRow(itemId) {
   row.className = "sets-builder-row";
   row.innerHTML = `
     <div><span class="set-num-badge">${currentCount}</span></div>
-    <div><input type="text" class="form-input set-weight-val" value="${escapeHtml(prevWeight)}" placeholder="e.g. 2 or 80" required /></div>
+    <div><input type="text" class="form-input set-weight-val" value="${escapeHtml(prevWeight)}" placeholder="e.g. 2, 80 or Bodyweight" /></div>
     <div>
       <select class="form-select set-weight-unit">
         <option value="kg" ${prevUnit === 'kg' ? 'selected' : ''}>kg</option>
@@ -2253,12 +2252,16 @@ function selectExerciseFromResult(itemId, exId) {
 
   const searchInput = itemEl.querySelector(".exercise-search-input");
   const idInput = itemEl.querySelector(".exercise-id-val");
+  const imgInput = itemEl.querySelector(".exercise-image-val");
+  const varInput = itemEl.querySelector(".exercise-variation-input");
   const resultsBox = document.getElementById(`${itemId}_search_results`);
   const pillBox = document.getElementById(`${itemId}_selected_pill`);
   const clearBtn = document.getElementById(`${itemId}_clear_btn`);
 
   if (searchInput) searchInput.value = ex.name;
   if (idInput) idInput.value = ex.id;
+  if (imgInput) imgInput.value = ex.image || "";
+  if (varInput) varInput.value = ex.variation || "Standard";
   if (resultsBox) resultsBox.style.display = "none";
   if (clearBtn) clearBtn.style.display = "inline-block";
 
@@ -2329,7 +2332,7 @@ function updateExerciseImageHelper(itemId, exIdOrName) {
   if (!previewArea || !uploadBtn) return;
 
   const expectedImageName = ex.image || getSanitizedFilename(ex.name, "jpg");
-  const existingCached = cachedImages[expectedImageName];
+  const existingCached = cachedImages[expectedImageName] || (ex.id && cachedImages[ex.id]) || (ex.name && cachedImages[ex.name]);
 
   if (existingCached) {
     previewArea.style.display = "flex";
@@ -2337,24 +2340,20 @@ function updateExerciseImageHelper(itemId, exIdOrName) {
     previewArea.innerHTML = `
       <img src="${existingCached}" class="preview-thumb" alt="${escapeHtml(ex.name)}" />
       <div class="renamed-file-info">
-        <div><strong>Reused Existing Image:</strong></div>
-        <div class="renamed-badge">${expectedImageName}</div>
+        <div><strong>Attached Media:</strong></div>
+        <div class="renamed-badge">${escapeHtml(expectedImageName)} <span style="color: var(--accent-emerald); font-weight: 600;">✓</span></div>
       </div>
     `;
-    uploadBtn.textContent = "🔄 Replace Image or GIF";
+    uploadBtn.textContent = "🔄 Replace Photo or GIF";
   } else {
-    previewArea.style.display = "block";
+    previewArea.style.display = "none";
     previewArea.className = "";
-    previewArea.innerHTML = `
-      <div style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.5rem;">
-        Standard filename for this exercise: <span class="renamed-badge">${expectedImageName}</span>
-      </div>
-    `;
+    previewArea.innerHTML = "";
     uploadBtn.textContent = "📁 Attach Photo or GIF";
   }
 }
 
-// Handle File Selected & Automated Renaming
+// Handle File Selected - Accept Image As-Is Without Renaming or Download Prompts
 function handleImageFileSelected(itemId, input) {
   const file = input.files[0];
   if (!file) return;
@@ -2364,41 +2363,62 @@ function handleImageFileSelected(itemId, input) {
   const searchInput = itemEl.querySelector(".exercise-search-input");
   const exId = idInput ? idInput.value : "";
   const exName = searchInput ? searchInput.value.trim() : "";
-  const ex = getExerciseById(exId) || getExerciseByName(exName) || {
-    id: exId || "custom_exercise",
-    name: exName || "Exercise"
-  };
+  let ex = getExerciseById(exId) || getExerciseByName(exName);
+  if (!ex) {
+    ex = {
+      id: exId || getSanitizedFilename(exName || "exercise", ""),
+      name: exName || "Exercise",
+      category: "Legs",
+      variation: "Standard"
+    };
+    exercises.push(ex);
+  }
 
-  const extension = file.name.split('.').pop() || "jpg";
-  const standardizedName = getSanitizedFilename(ex.name, extension);
+  const imageName = file.name;
 
   const reader = new FileReader();
   reader.onload = function (e) {
     const dataUrl = e.target.result;
 
-    // Update state & cache
-    cachedImages[standardizedName] = dataUrl;
-    ex.image = standardizedName;
+    // Cache under original file name and exercise keys for instant rendering
+    cachedImages[imageName] = dataUrl;
+    cachedImages[ex.id] = dataUrl;
+    cachedImages[ex.name] = dataUrl;
+    if (ex.id) {
+      cachedImages[`${ex.id}.gif`] = dataUrl;
+      cachedImages[`${ex.id}.jpg`] = dataUrl;
+    }
+    const baseSlug = getSanitizedFilename(ex.name, "");
+    cachedImages[baseSlug] = dataUrl;
+    cachedImages[`${baseSlug}.gif`] = dataUrl;
+    cachedImages[`${baseSlug}.jpg`] = dataUrl;
+
+    ex.image = imageName;
+
+    // Update hidden input in itemEl
+    const imgValInput = itemEl.querySelector(".exercise-image-val");
+    if (imgValInput) {
+      imgValInput.value = imageName;
+    }
+
     persistState();
 
-    // Show preview and download button
+    // Show preview (accepted as it is, no download button)
     const previewArea = itemEl.querySelector(".image-preview-area");
     previewArea.style.display = "flex";
     previewArea.className = "image-preview-strip";
     previewArea.innerHTML = `
       <img src="${dataUrl}" class="preview-thumb" alt="${escapeHtml(ex.name)}" />
       <div class="renamed-file-info">
-        <div><strong>Renamed as:</strong></div>
-        <div class="renamed-badge">${standardizedName}</div>
-        <div style="margin-top: 0.4rem;">
-          <a class="btn btn-secondary btn-sm" href="${dataUrl}" download="${standardizedName}">
-            ⬇️ Download "${standardizedName}" for images/workouts/
-          </a>
-        </div>
+        <div><strong>Media Attached:</strong></div>
+        <div class="renamed-badge">${escapeHtml(imageName)} <span style="color: var(--accent-emerald); font-weight: 600;">✓ Attached</span></div>
       </div>
     `;
 
-    showToast(`Image renamed to "${standardizedName}"! Download it to commit.`);
+    const uploadBtn = itemEl.querySelector(".upload-btn");
+    if (uploadBtn) uploadBtn.textContent = "🔄 Replace Photo or GIF";
+
+    showToast(`Media "${imageName}" attached successfully!`);
   };
   reader.readAsDataURL(file);
 }
@@ -2417,11 +2437,12 @@ function handleSaveWorkout(e) {
     return;
   }
 
-  const exercisesLogged = [];
+  let exercisesLogged = [];
 
   builderItems.forEach((item) => {
     const idInput = item.querySelector(".exercise-id-val");
     const searchInput = item.querySelector(".exercise-search-input");
+    const imgValInput = item.querySelector(".exercise-image-val");
     const exId = idInput ? idInput.value : "";
     const exName = searchInput ? searchInput.value.trim() : "";
     let ex = getExerciseById(exId) || getExerciseByName(exName);
@@ -2432,14 +2453,16 @@ function handleSaveWorkout(e) {
       ex = {
         id: customId,
         name: exName,
-        category: "Other",
+        category: "Legs",
         variation: "Custom",
-        image: getSanitizedFilename(exName, "jpg")
+        image: getSanitizedFilename(exName, "gif")
       };
       exercises.push(ex);
       persistState();
     }
     if (!ex) return;
+
+    const chosenImage = (imgValInput && imgValInput.value) ? imgValInput.value.trim() : (ex.image || "");
 
     const setRows = item.querySelectorAll(".sets-rows-list .sets-builder-row");
     const sets = [];
@@ -2463,15 +2486,18 @@ function handleSaveWorkout(e) {
             weightStr = `${weightStr} ${unit}`;
           }
         }
+      } else if (unit === "BW") {
+        weightStr = "Bodyweight";
       } else {
         weightStr = "-";
       }
 
-      const reps = parseInt(row.querySelector(".set-reps").value, 10);
+      const repsInput = row.querySelector(".set-reps");
+      const reps = repsInput ? parseInt(repsInput.value, 10) : 10;
       sets.push({
         set: idx + 1,
         weight: weightStr,
-        reps: isNaN(reps) ? 0 : reps
+        reps: isNaN(reps) ? 10 : reps
       });
     });
 
@@ -2492,9 +2518,11 @@ function handleSaveWorkout(e) {
     const loggedExercise = {
       exerciseId: ex.id,
       exerciseName: ex.name,
+      category: ex.category || "Legs",
       variation: exVariation,
       sets: sets
     };
+    if (chosenImage) loggedExercise.image = chosenImage;
     if (startTime) loggedExercise.startTime = startTime;
     if (endTime) loggedExercise.endTime = endTime;
     if (exDuration) loggedExercise.duration = exDuration;
@@ -2590,7 +2618,7 @@ function renderLibraryCatalog() {
           </div>
           <div>
             <label class="btn btn-secondary btn-sm" style="cursor: pointer;">
-              📸 Attach/Rename Image/GIF
+              📸 Attach Image/GIF
               <input type="file" accept=".jpg,.jpeg,.png,.gif,.webp" style="display: none;" onchange="handleLibraryImageUpload('${ex.id}', this)" />
             </label>
           </div>
@@ -2607,25 +2635,29 @@ function handleLibraryImageUpload(exerciseId, input) {
   const ex = getExerciseById(exerciseId);
   if (!ex) return;
 
-  const extension = file.name.split('.').pop() || "jpg";
-  const standardizedName = getSanitizedFilename(ex.name, extension);
+  const imageName = file.name;
 
   const reader = new FileReader();
   reader.onload = function (e) {
     const dataUrl = e.target.result;
-    cachedImages[standardizedName] = dataUrl;
-    ex.image = standardizedName;
-    persistState();
+    cachedImages[imageName] = dataUrl;
+    cachedImages[ex.id] = dataUrl;
+    cachedImages[ex.name] = dataUrl;
+    if (ex.id) {
+      cachedImages[`${ex.id}.gif`] = dataUrl;
+      cachedImages[`${ex.id}.jpg`] = dataUrl;
+    }
+    const baseSlug = getSanitizedFilename(ex.name, "");
+    cachedImages[baseSlug] = dataUrl;
+    cachedImages[`${baseSlug}.gif`] = dataUrl;
+    cachedImages[`${baseSlug}.jpg`] = dataUrl;
 
-    // Trigger download of the renamed file
-    const downloadLink = document.createElement("a");
-    downloadLink.href = dataUrl;
-    downloadLink.download = standardizedName;
-    downloadLink.click();
+    ex.image = imageName;
+    persistState();
 
     renderLibraryCatalog();
     renderTimeline();
-    showToast(`Renamed & downloaded as "${standardizedName}". Put it in images/workouts/!`);
+    showToast(`Image "${imageName}" attached successfully!`);
   };
   reader.readAsDataURL(file);
 }

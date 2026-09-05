@@ -231,11 +231,32 @@
     "image": "seated_leg_curl.jpg"
   },
   {
+    "id": "leg_curl",
+    "name": "Leg Curl",
+    "category": "Legs",
+    "variation": "Lying Machine (Prone)",
+    "image": "Leg Curl.gif"
+  },
+  {
     "id": "standing_calf_raise",
     "name": "Standing Calf Raise",
     "category": "Legs",
     "variation": "Machine / Smith Machine",
     "image": "standing_calf_raise.jpg"
+  },
+  {
+    "id": "bodyweight_calf_raise",
+    "name": "Bodyweight Calf Raise",
+    "category": "Legs",
+    "variation": "Standing Bodyweight",
+    "image": "bodyweight_calf_raise.gif"
+  },
+  {
+    "id": "squats",
+    "name": "Squats",
+    "category": "Legs",
+    "variation": "Assistance for Balance",
+    "image": "squats.gif"
   },
   {
     "id": "standing_overhead_barbell_press",
