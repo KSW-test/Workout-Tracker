@@ -159,6 +159,40 @@ const DEFAULT_WORKOUTS = [
         ]
       }
     ]
+  },
+  {
+    "id": "workout_2026_08_27",
+    "date": "2026-08-27",
+    "duration": "30 mins",
+    "notes": "Back and shoulders session with strict tempo.",
+    "exercises": [
+      {
+        "exerciseId": "lat_pull_down",
+        "exerciseName": "Lat Pull Down",
+        "variation": "Wide Grip Cable",
+        "startTime": "10:00",
+        "endTime": "10:15",
+        "duration": "15 mins",
+        "sets": [
+          { "set": 1, "reps": 10, "weight": "60 kg" },
+          { "set": 2, "reps": 10, "weight": "65 kg" },
+          { "set": 3, "reps": 8, "weight": "70 kg" }
+        ]
+      },
+      {
+        "exerciseId": "dumbbell_lateral_raises",
+        "exerciseName": "Dumbbell Lateral Raises",
+        "variation": "Side Delt Dumbbell",
+        "startTime": "10:15",
+        "endTime": "10:30",
+        "duration": "15 mins",
+        "sets": [
+          { "set": 1, "reps": 15, "weight": "10 kg" },
+          { "set": 2, "reps": 12, "weight": "12 kg" },
+          { "set": 3, "reps": 10, "weight": "14 kg" }
+        ]
+      }
+    ]
   }
 ];
 
