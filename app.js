@@ -1000,8 +1000,7 @@ function renderDayDetailScreen(dateStr) {
 
           <!-- Action Footer -->
           <div class="exercise-tile-footer">
-            <span style="color: var(--text-muted);">Order #${idx + 1} (chronological)${individualDuration ? ` • ⏱️ ${escapeHtml(individualDuration)}` : ""}</span>
-            <span style="color: var(--accent-cyan);">✏️ Click to Edit Workout →</span>
+            <span style="color: var(--text-muted);">Order #${idx + 1}${individualDuration ? ` • ⏱️ ${escapeHtml(individualDuration)}` : ""}</span>
           </div>
         </div>
       `;
