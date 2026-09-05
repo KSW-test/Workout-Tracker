@@ -256,7 +256,7 @@
     "name": "Dumbbell Lateral Raises",
     "category": "Shoulders",
     "variation": "Side Delt Dumbbell",
-    "image": "dumbbell_lateral_raises.jpg"
+    "image": "dumbbell_lateral_raises.gif"
   },
   {
     "id": "cable_lateral_raises",
@@ -291,7 +291,7 @@
     "name": "Dumbbell Bicep Curl",
     "category": "Arms",
     "variation": "Standing / Seated Supinated",
-    "image": "dumbbell_bicep_curl.jpg"
+    "image": "dumbbell_bicep_curl.gif"
   },
   {
     "id": "ez_bar_preacher_curl",

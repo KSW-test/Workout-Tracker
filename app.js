@@ -41,12 +41,12 @@ const DEFAULT_EXERCISES = [
   { "id": "standing_overhead_barbell_press", "name": "Standing Overhead Barbell Press", "category": "Shoulders", "variation": "Military Press (OHP)", "image": "standing_overhead_barbell_press.jpg" },
   { "id": "seated_dumbbell_shoulder_press", "name": "Seated Dumbbell Shoulder Press", "category": "Shoulders", "variation": "90-Degree Bench Dumbbell", "image": "seated_dumbbell_shoulder_press.jpg" },
   { "id": "arnold_press", "name": "Arnold Press", "category": "Shoulders", "variation": "Rotating Dumbbell Press", "image": "arnold_press.gif" },
-  { "id": "dumbbell_lateral_raises", "name": "Dumbbell Lateral Raises", "category": "Shoulders", "variation": "Side Delt Dumbbell", "image": "dumbbell_lateral_raises.jpg" },
+  { "id": "dumbbell_lateral_raises", "name": "Dumbbell Lateral Raises", "category": "Shoulders", "variation": "Side Delt Dumbbell", "image": "dumbbell_lateral_raises.gif" },
   { "id": "cable_lateral_raises", "name": "Cable Lateral Raises", "category": "Shoulders", "variation": "Behind-the-Back / Cuff Cable", "image": "cable_lateral_raises.gif" },
   { "id": "reverse_pec_deck_flyes", "name": "Reverse Pec Deck Flyes", "category": "Shoulders", "variation": "Machine Rear Delt", "image": "reverse_pec_deck_flyes.jpg" },
   { "id": "barbell_shrugs", "name": "Barbell Shrugs", "category": "Shoulders", "variation": "Upper Traps Barbell", "image": "barbell_shrugs.jpg" },
   { "id": "barbell_bicep_curl", "name": "Barbell Bicep Curl", "category": "Arms", "variation": "Straight Bar Supinated", "image": "barbell_bicep_curl.jpg" },
-  { "id": "dumbbell_bicep_curl", "name": "Dumbbell Bicep Curl", "category": "Arms", "variation": "Standing / Seated Supinated", "image": "dumbbell_bicep_curl.jpg" },
+  { "id": "dumbbell_bicep_curl", "name": "Dumbbell Bicep Curl", "category": "Arms", "variation": "Standing / Seated Supinated", "image": "dumbbell_bicep_curl.gif" },
   { "id": "ez_bar_preacher_curl", "name": "EZ-Bar Preacher Curl", "category": "Arms", "variation": "Preacher Bench Isolated", "image": "ez_bar_preacher_curl.jpg" },
   { "id": "incline_dumbbell_curl", "name": "Incline Dumbbell Curl", "category": "Arms", "variation": "Long Head Stretch (45-deg Bench)", "image": "incline_dumbbell_curl.jpg" },
   { "id": "dumbbell_hammer_curl", "name": "Dumbbell Hammer Curl", "category": "Arms", "variation": "Neutral Grip Brachialis", "image": "dumbbell_hammer_curl.jpg" },
@@ -173,12 +173,13 @@ let selectedDateFilter = "";
 
 // Helper: Standardize exercise name into image/GIF filename
 function getSanitizedFilename(exerciseName, extension) {
-  const cleanExt = extension.replace(/^\./, '').toLowerCase();
-  const slug = exerciseName
+  const slug = (exerciseName || "")
     .trim()
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '_')
     .replace(/^_+|_+$/g, '');
+  if (!extension) return slug;
+  const cleanExt = extension.replace(/^\./, '').toLowerCase();
   return `${slug}.${cleanExt}`;
 }
 
@@ -208,7 +209,20 @@ async function loadData() {
   // Load Cached Images from LocalStorage if any
   try {
     const localCached = localStorage.getItem("ironlog_cached_images");
-    if (localCached) cachedImages = JSON.parse(localCached);
+    if (localCached) {
+      cachedImages = JSON.parse(localCached);
+      // Ensure cross-compatibility keys in cache
+      Object.keys(cachedImages).forEach((k) => {
+        const val = cachedImages[k];
+        if (k.includes("dumbell")) {
+          const fixed = k.replace(/dumbell/g, "dumbbell");
+          if (!cachedImages[fixed]) cachedImages[fixed] = val;
+        } else if (k.includes("dumbbell")) {
+          const typo = k.replace(/dumbbell/g, "dumbell");
+          if (!cachedImages[typo]) cachedImages[typo] = val;
+        }
+      });
+    }
   } catch (e) {
     console.warn("Could not load image cache from localStorage", e);
   }
@@ -220,8 +234,11 @@ async function loadData() {
       exercises = JSON.parse(localEx);
       // Ensure any newly added catalog exercises exist even with existing localStorage cache
       DEFAULT_EXERCISES.forEach((defEx) => {
-        if (!exercises.some((e) => e.id === defEx.id)) {
+        const existing = exercises.find((e) => e.id === defEx.id);
+        if (!existing) {
           exercises.push(defEx);
+        } else if (defEx.image && defEx.image.endsWith('.gif') && (!existing.image || existing.image.endsWith('.jpg'))) {
+          existing.image = defEx.image;
         }
       });
     } else {
@@ -235,6 +252,15 @@ async function loadData() {
   } catch (e) {
     console.warn("Using default exercises", e);
     exercises = DEFAULT_EXERCISES;
+  }
+
+  // Ensure dumbbell_bicep_curl in exercises uses .gif
+  if (exercises) {
+    exercises.forEach((ex) => {
+      if ((ex.id === "dumbbell_bicep_curl" || ex.name === "Dumbbell Bicep Curl" || ex.name === "Dumbell Bicep Curl") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "dumbbell_bicep_curl.gif";
+      }
+    });
   }
 
   // Load Workouts
@@ -262,6 +288,13 @@ async function loadData() {
     }
     if (w.duration && w.exercises && w.exercises.length === 1 && !w.exercises[0].duration) {
       w.exercises[0].duration = w.duration;
+    }
+    if (w.exercises) {
+      w.exercises.forEach((ex) => {
+        if ((ex.exerciseId === "dumbbell_bicep_curl" || ex.exerciseName === "Dumbbell Bicep Curl" || ex.exerciseName === "Dumbell Bicep Curl") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "dumbbell_bicep_curl.gif";
+        }
+      });
     }
   });
 
@@ -821,6 +854,79 @@ function renderDayTiles() {
     .join("");
 }
 
+// Resolve the best available image/GIF src for an exercise
+function getResolvedExerciseImage(ex, catalogEx) {
+  const cat = catalogEx || {};
+  const exercise = ex || {};
+  const name = cat.name || exercise.exerciseName || exercise.name || "exercise";
+  const exId = cat.id || exercise.exerciseId || name.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+  const baseSanitized = getSanitizedFilename(name, "");
+
+  // 1. Check in-memory / localStorage cachedImages
+  const candidateKeys = [
+    exercise.image,
+    cat.image,
+    `${baseSanitized}.gif`,
+    `${baseSanitized}.jpg`,
+    `${baseSanitized}.jpeg`,
+    `${baseSanitized}.png`,
+    `${baseSanitized}.webp`,
+    `${exId}.gif`,
+    `${exId}.jpg`,
+    `${exId}.png`,
+    name,
+    exercise.exerciseName
+  ].filter(Boolean);
+
+  if (baseSanitized.includes("dumbell")) {
+    const fixed = baseSanitized.replace(/dumbell/g, "dumbbell");
+    candidateKeys.push(`${fixed}.gif`, `${fixed}.jpg`, `${fixed}.png`, fixed);
+  } else if (baseSanitized.includes("dumbbell")) {
+    const typo = baseSanitized.replace(/dumbbell/g, "dumbell");
+    candidateKeys.push(`${typo}.gif`, `${typo}.jpg`, `${typo}.png`, typo);
+  }
+
+  for (const key of candidateKeys) {
+    if (cachedImages && cachedImages[key]) {
+      return {
+        src: cachedImages[key],
+        imageName: key,
+        isGif: key.toLowerCase().endsWith(".gif") || (typeof cachedImages[key] === "string" && cachedImages[key].startsWith("data:image/gif"))
+      };
+    }
+  }
+
+  // 2. Known local files in images/workouts/
+  const knownLocalMap = {
+    "dumbbell_bicep_curl": "dumbbell_bicep_curl.gif",
+    "dumbell_bicep_curl": "dumbbell_bicep_curl.gif",
+    "dumbbell_biceps_curl": "dumbbell_bicep_curl.gif",
+    "dumbell_biceps_curl": "dumbbell_bicep_curl.gif",
+    "dumbbell_lateral_raises": "dumbbell_lateral_raises.gif",
+    "dumbell_lateral_raises": "dumbbell_lateral_raises.gif",
+    "dumbell_lateral_raise": "dumbbell_lateral_raises.gif",
+    "lat_pull_down": "lat_pull_down.gif",
+    "lat_pulldown_wide_grip": "lat_pull_down.gif"
+  };
+
+  const matchedLocal = knownLocalMap[exId] || knownLocalMap[baseSanitized];
+  if (matchedLocal) {
+    return {
+      src: `images/workouts/${matchedLocal}`,
+      imageName: matchedLocal,
+      isGif: matchedLocal.toLowerCase().endsWith(".gif")
+    };
+  }
+
+  // 3. Fallback to specified or default filename (.gif prioritized if catalog says gif, else jpg)
+  const preferredName = exercise.image || cat.image || `${baseSanitized}.gif`;
+  return {
+    src: `images/workouts/${preferredName}`,
+    imageName: preferredName,
+    isGif: preferredName.toLowerCase().endsWith(".gif")
+  };
+}
+
 // ==========================================================================
 // SCREEN 2: Day Detail (Exercise Tiles)
 // ==========================================================================
@@ -915,17 +1021,19 @@ function renderDayDetailScreen(dateStr) {
   tilesContainer.innerHTML = dayExercises
     .map((ex, idx) => {
       const catalogEx = getExerciseById(ex.exerciseId) || getExerciseByName(ex.exerciseName) || {
+        id: ex.exerciseId || getSanitizedFilename(ex.exerciseName, ""),
         name: ex.exerciseName,
         category: ex.category || "Chest",
         variation: ex.variation || "Standard",
-        image: getSanitizedFilename(ex.exerciseName, "jpg")
+        image: ex.image || getSanitizedFilename(ex.exerciseName, "gif")
       };
 
-      const imageName = catalogEx.image || getSanitizedFilename(catalogEx.name, "jpg");
-      const isGif = imageName.toLowerCase().endsWith(".gif");
+      const imgInfo = getResolvedExerciseImage(ex, catalogEx);
+      const imageName = imgInfo.imageName;
+      const isGif = imgInfo.isGif;
       const category = catalogEx.category || "Chest";
       const icon = CATEGORY_ICONS[category] || "🏋️";
-      const imgSrc = cachedImages[imageName] || `images/workouts/${imageName}`;
+      const imgSrc = imgInfo.src;
 
       // Extra information (like Side Delt Dumbbell)
       const extraInfo = ex.variation || catalogEx.variation || "";
@@ -959,7 +1067,7 @@ function renderDayDetailScreen(dateStr) {
         <div class="exercise-tile-card" onclick="navigateToScreen('edit-exercise', { workoutId: '${ex.workoutId}', exerciseIndex: ${ex.originalIndex}, exerciseId: '${catalogEx.id}', exerciseName: '${escapeHtml(ex.exerciseName).replace(/'/g, "\\'")}', date: '${dateStr}' })">
           <div class="exercise-tile-header">
             <!-- Exercise Image / GIF -->
-            <div class="exercise-tile-media" onclick="event.stopPropagation(); openLightbox('${catalogEx.id}')">
+            <div class="exercise-tile-media" onclick="event.stopPropagation(); openLightbox('${catalogEx.id}', '${imgSrc}', '${category}', '${escapeHtml(extraInfo).replace(/'/g, "\\'")}')">
               <img 
                 src="${imgSrc}" 
                 alt="${escapeHtml(catalogEx.name)}" 
@@ -1042,19 +1150,58 @@ function renderEditExerciseScreen(context) {
   }
 
   if (!exData) {
-    const firstEx = exercises[0] || { id: "barbell_bench_press", name: "Barbell Bench Press", category: "Chest", variation: "Flat Barbell" };
-    exData = {
-      exerciseId: firstEx.id,
-      exerciseName: firstEx.name,
-      category: firstEx.category,
-      variation: firstEx.variation || "Standard",
-      startTime: "",
-      endTime: "",
-      duration: "",
-      sets: [
-        { set: 1, weight: "2 plates", reps: 10 }
-      ]
-    };
+    const matchedCatalog = (context.exerciseId ? getExerciseById(context.exerciseId) : null) ||
+      (context.exerciseName ? getExerciseByName(context.exerciseName) : null) ||
+      null;
+
+    if (matchedCatalog) {
+      exData = {
+        exerciseId: matchedCatalog.id,
+        exerciseName: matchedCatalog.name,
+        category: matchedCatalog.category,
+        variation: matchedCatalog.variation || "Standard",
+        image: matchedCatalog.image,
+        startTime: "",
+        endTime: "",
+        duration: "",
+        sets: [
+          { set: 1, weight: "2 plates", reps: 10 }
+        ]
+      };
+    } else {
+      const initName = context.exerciseName || "";
+      const initId = context.exerciseId || (initName ? getSanitizedFilename(initName, "") : "");
+      if (initName) {
+        exData = {
+          exerciseId: initId,
+          exerciseName: initName,
+          category: "Arms",
+          variation: "Standard",
+          image: getSanitizedFilename(initName, "gif"),
+          startTime: "",
+          endTime: "",
+          duration: "",
+          sets: [
+            { set: 1, weight: "2 plates", reps: 10 }
+          ]
+        };
+      } else {
+        const firstEx = exercises[0] || { id: "barbell_bench_press", name: "Barbell Bench Press", category: "Chest", variation: "Flat Barbell" };
+        exData = {
+          exerciseId: firstEx.id,
+          exerciseName: firstEx.name,
+          category: firstEx.category,
+          variation: firstEx.variation || "Standard",
+          image: firstEx.image,
+          startTime: "",
+          endTime: "",
+          duration: "",
+          sets: [
+            { set: 1, weight: "2 plates", reps: 10 }
+          ]
+        };
+      }
+    }
   }
 
   // Derive effective duration so it is NEVER blank when known (resolves fallback from session/workout level)
@@ -1080,6 +1227,7 @@ function renderEditExerciseScreen(context) {
   const catalogEx = getExerciseById(exData.exerciseId) || getExerciseByName(exData.exerciseName) || exercises[0];
   const currentCategory = exData.category || catalogEx.category || "Chest";
   const currentVariation = exData.variation || catalogEx.variation || "";
+  const currentImgInfo = getResolvedExerciseImage(exData, catalogEx);
 
   if (titleEl) {
     titleEl.textContent = isAddMode ? `+ Add Exercise to ${formatDayTileDate(dateStr)}` : `✏️ Edit Workout: ${exData.exerciseName}`;
@@ -1230,12 +1378,25 @@ function renderEditExerciseScreen(context) {
           <span>📸 Workout Media (Image or Animated GIF)</span>
         </div>
         <p style="font-size: 0.78rem; color: var(--text-muted);">
-          Upload a <strong>.jpg</strong>, <strong>.jpeg</strong>, or animated <strong>.gif</strong>. It automatically renames to match this workout.
+          Upload a <strong>.jpg</strong>, <strong>.jpeg</strong>, or animated <strong>.gif</strong>. It automatically saves and matches this workout.
         </p>
+        <input type="hidden" id="editExImageVal" value="${escapeHtml(exData.image || catalogEx.image || currentImgInfo.imageName || '')}" />
         <input type="file" accept=".jpg,.jpeg,.png,.gif,.webp" id="editExFileInput" style="display: none;" onchange="handleEditImageFileSelected(this)" />
-        <div id="editExImagePreviewArea" class="image-preview-area" style="display: none;"></div>
+        <div id="editExImagePreviewArea" class="image-preview-area" style="${currentImgInfo.src ? 'display: flex;' : 'display: none;'}">
+          ${currentImgInfo.src ? `
+            <img src="${currentImgInfo.src}" class="image-preview-thumb" alt="Preview" onerror="handleImageFallback(this, '${catalogEx.id}')" />
+            <div class="image-preview-info">
+              <div>Current Media: <code>${escapeHtml(currentImgInfo.imageName)}</code></div>
+              ${cachedImages[currentImgInfo.imageName] ? `
+                <a href="${cachedImages[currentImgInfo.imageName]}" download="${escapeHtml(currentImgInfo.imageName)}" class="btn btn-secondary btn-sm" style="margin-top: 0.35rem; display: inline-block;">
+                  💾 Download "${escapeHtml(currentImgInfo.imageName)}"
+                </a>
+              ` : ''}
+            </div>
+          ` : ''}
+        </div>
         <button type="button" class="btn btn-secondary btn-sm upload-btn" onclick="document.getElementById('editExFileInput').click()">
-          📁 Select Photo or GIF
+          ${currentImgInfo.src ? '🔄 Change Photo or GIF' : '📁 Select Photo or GIF'}
         </button>
       </div>
 
@@ -1361,12 +1522,31 @@ function selectEditExerciseFromResult(exId) {
   const catSelect = document.getElementById("editExCategory");
   const varInput = document.getElementById("editExVariation");
   const resultsBox = document.getElementById("editExSearchResults");
+  const imgValInput = document.getElementById("editExImageVal");
+  const previewArea = document.getElementById("editExImagePreviewArea");
 
   if (nameInput) nameInput.value = ex.name;
   if (idInput) idInput.value = ex.id;
   if (catSelect) catSelect.value = ex.category;
   if (varInput && !varInput.value.trim()) varInput.value = ex.variation || "Standard";
   if (resultsBox) resultsBox.style.display = "none";
+
+  const imgInfo = getResolvedExerciseImage({ exerciseId: ex.id, exerciseName: ex.name }, ex);
+  if (imgValInput) imgValInput.value = imgInfo.imageName || ex.image || "";
+  if (previewArea && imgInfo.src) {
+    previewArea.style.display = "flex";
+    previewArea.innerHTML = `
+      <img src="${imgInfo.src}" class="image-preview-thumb" alt="${escapeHtml(ex.name)}" onerror="handleImageFallback(this, '${ex.id}')" />
+      <div class="image-preview-info">
+        <div>Current Media: <code>${escapeHtml(imgInfo.imageName)}</code></div>
+        ${cachedImages[imgInfo.imageName] ? `
+          <a href="${cachedImages[imgInfo.imageName]}" download="${escapeHtml(imgInfo.imageName)}" class="btn btn-secondary btn-sm" style="margin-top: 0.35rem; display: inline-block;">
+            💾 Download "${escapeHtml(imgInfo.imageName)}"
+          </a>
+        ` : ''}
+      </div>
+    `;
+  }
 }
 
 function addEditSetRow() {
@@ -1491,6 +1671,9 @@ function handleSaveEditedExercise(e, workoutId, exerciseIndex, dateStr) {
     workouts.unshift(workout);
   }
 
+  const imgInput = document.getElementById("editExImageVal");
+  const selectedImage = imgInput ? imgInput.value.trim() : "";
+
   const updatedEx = {
     exerciseId: exId,
     exerciseName: exName,
@@ -1498,9 +1681,36 @@ function handleSaveEditedExercise(e, workoutId, exerciseIndex, dateStr) {
     variation: variation || "Standard",
     sets: sets
   };
+  if (selectedImage) {
+    updatedEx.image = selectedImage;
+  }
   if (startTime) updatedEx.startTime = startTime;
   if (endTime) updatedEx.endTime = endTime;
   if (duration) updatedEx.duration = duration;
+
+  // Sync with catalog
+  let catalogEx = getExerciseById(exId) || getExerciseByName(exName);
+  if (catalogEx) {
+    if (category) catalogEx.category = category;
+    if (variation) catalogEx.variation = variation;
+    if (selectedImage) catalogEx.image = selectedImage;
+    if (!updatedEx.image && catalogEx.image) updatedEx.image = catalogEx.image;
+  } else if (exName) {
+    catalogEx = {
+      id: exId,
+      name: exName,
+      category: category,
+      variation: variation || "Standard",
+      image: selectedImage || getSanitizedFilename(exName, "gif")
+    };
+    exercises.push(catalogEx);
+    if (!updatedEx.image) updatedEx.image = catalogEx.image;
+  }
+
+  if (!updatedEx.image) {
+    const resolved = getResolvedExerciseImage(updatedEx, catalogEx);
+    if (resolved && resolved.imageName) updatedEx.image = resolved.imageName;
+  }
 
   const numIndex = (exerciseIndex !== undefined && exerciseIndex !== null && exerciseIndex !== -1) ? parseInt(exerciseIndex, 10) : -1;
   if (numIndex >= 0 && workout.exercises && workout.exercises[numIndex]) {
@@ -1568,27 +1778,68 @@ function handleEditImageFileSelected(input) {
 
   const previewArea = document.getElementById("editExImagePreviewArea");
   const exName = document.getElementById("editExSearchInput")?.value || "exercise";
-  const ext = file.name.split('.').pop().toLowerCase();
+  const idInput = document.getElementById("editExIdVal");
+  const exId = idInput && idInput.value ? idInput.value : getSanitizedFilename(exName, "");
+  const ext = file.name.split('.').pop().toLowerCase() || "gif";
   const standardizedName = getSanitizedFilename(exName, ext);
 
   const reader = new FileReader();
   reader.onload = function(e) {
     const dataUrl = e.target.result;
+
+    // Cache under multiple keys for resilient retrieval
     cachedImages[standardizedName] = dataUrl;
+    cachedImages[`${exId}.${ext}`] = dataUrl;
+    cachedImages[exName] = dataUrl;
+    cachedImages[exId] = dataUrl;
+    if (ext === "gif") {
+      cachedImages[getSanitizedFilename(exName, "jpg")] = dataUrl;
+      cachedImages[`${exId}.jpg`] = dataUrl;
+    } else {
+      cachedImages[getSanitizedFilename(exName, "gif")] = dataUrl;
+      cachedImages[`${exId}.gif`] = dataUrl;
+    }
+
+    // Support dumbell / dumbbell typo variants in cache
+    const baseSlug = getSanitizedFilename(exName, "");
+    if (baseSlug.includes("dumbell")) {
+      const fixed = baseSlug.replace(/dumbell/g, "dumbbell");
+      cachedImages[`${fixed}.${ext}`] = dataUrl;
+      cachedImages[fixed] = dataUrl;
+    } else if (baseSlug.includes("dumbbell")) {
+      const typo = baseSlug.replace(/dumbbell/g, "dumbell");
+      cachedImages[`${typo}.${ext}`] = dataUrl;
+      cachedImages[typo] = dataUrl;
+    }
+
+    // Update hidden input in Screen 3 form
+    const imgValInput = document.getElementById("editExImageVal");
+    if (imgValInput) {
+      imgValInput.value = standardizedName;
+    }
+
+    // Update catalog exercise image attribute
+    const catalogEx = getExerciseById(exId) || getExerciseByName(exName);
+    if (catalogEx) {
+      catalogEx.image = standardizedName;
+    }
+
+    // Immediately persist to localStorage
+    persistState();
 
     if (previewArea) {
       previewArea.style.display = "flex";
       previewArea.innerHTML = `
         <img src="${dataUrl}" class="image-preview-thumb" alt="Preview" />
         <div class="image-preview-info">
-          <div>File: <code>${standardizedName}</code></div>
-          <a href="${dataUrl}" download="${standardizedName}" class="btn btn-primary btn-sm" style="margin-top: 0.35rem; display: inline-block;">
+          <div>File: <code>${escapeHtml(standardizedName)}</code> <span style="color: var(--accent-emerald); font-weight: 600;">✓ Saved</span></div>
+          <a href="${dataUrl}" download="${standardizedName}" class="btn btn-secondary btn-sm" style="margin-top: 0.35rem; display: inline-block;">
             💾 Download "${standardizedName}"
           </a>
         </div>
       `;
     }
-    showToast(`Image ready as "${standardizedName}"! Download it to commit.`);
+    showToast(`Media "${standardizedName}" saved successfully!`);
   };
   reader.readAsDataURL(file);
 }
@@ -1609,19 +1860,19 @@ function formatWeight(weightStr) {
 
 function renderExerciseCard(loggedEx) {
   const catalogEx = getExerciseById(loggedEx.exerciseId) || getExerciseByName(loggedEx.exerciseName) || {
+    id: loggedEx.exerciseId || getSanitizedFilename(loggedEx.exerciseName, ""),
     name: loggedEx.exerciseName,
     category: "Chest",
     variation: "Standard",
-    image: getSanitizedFilename(loggedEx.exerciseName, "jpg")
+    image: loggedEx.image || getSanitizedFilename(loggedEx.exerciseName, "gif")
   };
 
-  const imageName = catalogEx.image || getSanitizedFilename(catalogEx.name, "jpg");
-  const isGif = imageName.toLowerCase().endsWith(".gif");
+  const imgInfo = getResolvedExerciseImage(loggedEx, catalogEx);
+  const imageName = imgInfo.imageName;
+  const isGif = imgInfo.isGif;
   const category = catalogEx.category || "Chest";
   const icon = CATEGORY_ICONS[category] || "🏋️";
-
-  // Check if we have an image in memory or in images/workouts/
-  const imgSrc = cachedImages[imageName] || `images/workouts/${imageName}`;
+  const imgSrc = imgInfo.src;
 
   // Build sets table rows
   const setsRows = (loggedEx.sets || [])
@@ -1636,7 +1887,7 @@ function renderExerciseCard(loggedEx) {
 
   return `
     <div class="exercise-entry-card">
-      <div class="exercise-media-container" onclick="openLightbox('${catalogEx.id}')">
+      <div class="exercise-media-container" onclick="openLightbox('${catalogEx.id}', '${imgSrc}', '${category}', '${escapeHtml(catalogEx.variation || '').replace(/'/g, "\\'")}')">
         <img 
           src="${imgSrc}" 
           alt="${escapeHtml(catalogEx.name)}" 
@@ -1674,11 +1925,41 @@ function renderExerciseCard(loggedEx) {
   `;
 }
 
-// Fallback if image file doesn't exist yet in images/workouts/
+// Progressive fallback if image file fails to load
 function handleImageFallback(imgEl, exerciseId) {
+  if (!imgEl) return;
+  const currentSrc = imgEl.src || "";
+  const catalogEx = getExerciseById(exerciseId);
+  const exName = catalogEx ? catalogEx.name : exerciseId;
+  const slug = getSanitizedFilename(exName, "");
+
+  const fallbackStep = parseInt(imgEl.dataset.fallbackStep || "0", 10);
+
+  // Step 0: Try alternate extension (.gif if .jpg failed, or .jpg if .gif failed)
+  if (fallbackStep === 0) {
+    imgEl.dataset.fallbackStep = "1";
+    if (currentSrc.toLowerCase().includes(".jpg") || currentSrc.toLowerCase().includes(".jpeg") || currentSrc.toLowerCase().includes(".png")) {
+      imgEl.src = `images/workouts/${slug}.gif`;
+      return;
+    } else if (currentSrc.toLowerCase().includes(".gif")) {
+      imgEl.src = `images/workouts/${slug}.jpg`;
+      return;
+    }
+  }
+
+  // Step 1: Check cache candidates
+  if (fallbackStep === 1) {
+    imgEl.dataset.fallbackStep = "2";
+    const cacheCandidate = cachedImages[slug] || cachedImages[`${slug}.gif`] || cachedImages[`${slug}.jpg`] || cachedImages[exerciseId] || cachedImages[exName];
+    if (cacheCandidate && cacheCandidate !== currentSrc) {
+      imgEl.src = cacheCandidate;
+      return;
+    }
+  }
+
+  // Final step: Display styled fallback placeholder
   const parent = imgEl.parentElement;
   if (!parent) return;
-  const catalogEx = getExerciseById(exerciseId);
   const category = catalogEx ? catalogEx.category : "Chest";
   const name = catalogEx ? catalogEx.name : "Exercise";
   const icon = CATEGORY_ICONS[category] || "🏋️";
@@ -2562,8 +2843,10 @@ function openLightbox(exerciseIdOrTitle, imgSrc, category, variation) {
     title = catalogEx.name;
     cat = catalogEx.category;
     varText = catalogEx.variation || "Standard";
-    const imageName = catalogEx.image || getSanitizedFilename(catalogEx.name, "jpg");
-    src = cachedImages[imageName] || `images/workouts/${imageName}`;
+    if (!src) {
+      const imgInfo = getResolvedExerciseImage(null, catalogEx);
+      src = imgInfo.src;
+    }
   }
 
   document.getElementById("lightboxTitle").textContent = title;

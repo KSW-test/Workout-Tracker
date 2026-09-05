@@ -1153,6 +1153,24 @@ body {
   word-break: break-all;
 }
 
+.image-preview-thumb {
+  width: 75px;
+  height: 75px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.image-preview-info {
+  flex: 1;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 /* Lightbox Modal */
 .lightbox-content {
   display: flex;
