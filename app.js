@@ -255,6 +255,16 @@ async function loadData() {
     workouts = DEFAULT_WORKOUTS;
   }
 
+  // Ensure every workout has an ID and single-exercise sessions carry duration down to the exercise
+  workouts.forEach((w) => {
+    if (!w.id) {
+      w.id = `workout_${w.date ? w.date.replace(/-/g, '_') : 'log'}_${Math.random().toString(36).substr(2, 6)}`;
+    }
+    if (w.duration && w.exercises && w.exercises.length === 1 && !w.exercises[0].duration) {
+      w.exercises[0].duration = w.duration;
+    }
+  });
+
   // Sort workouts newest first
   workouts.sort((a, b) => new Date(b.date) - new Date(a.date));
 }
@@ -478,6 +488,53 @@ function calculateDurationFromTimes(startTime, endTime) {
   }
   if (diffMinutes === 0) return "";
   return formatMinutesToDuration(diffMinutes);
+}
+
+// Normalize any time string into valid HTML5 HH:mm format (e.g. "9:15" -> "09:15", "10:00 AM" -> "10:00", "6:15 PM" -> "18:15")
+function normalizeTimeTo24H(timeStr) {
+  if (!timeStr) return "";
+  const s = String(timeStr).trim();
+  // Already in HH:mm format (e.g. "10:00", "09:30")
+  if (/^([01]\d|2[0-3]):[0-5]\d$/.test(s)) {
+    return s;
+  }
+  // Single-digit hour without AM/PM (e.g. "9:30" -> "09:30")
+  if (/^\d:[0-5]\d$/.test(s)) {
+    return "0" + s;
+  }
+  // 12-hour format (e.g. "10:00 AM", "9:30 PM", "9:30pm", "12:15 am")
+  const match12 = s.match(/^(\d{1,2}):([0-5]\d)(?:\s*([ap]m))?$/i);
+  if (match12) {
+    let hrs = parseInt(match12[1], 10);
+    const mins = match12[2];
+    const meridiem = match12[3] ? match12[3].toLowerCase() : null;
+
+    if (meridiem === "pm" && hrs < 12) hrs += 12;
+    if (meridiem === "am" && hrs === 12) hrs = 0;
+
+    if (hrs >= 0 && hrs <= 23) {
+      return `${String(hrs).padStart(2, "0")}:${mins}`;
+    }
+  }
+  // Extra precision like "10:00:00"
+  if (/^([01]\d|2[0-3]):[0-5]\d:\d\d$/.test(s)) {
+    return s.slice(0, 5);
+  }
+  return "";
+}
+
+// Add or subtract minutes from a 24-hour HH:mm time string
+function addMinutesToTime(time24, minutes) {
+  if (!time24 || minutes === undefined || isNaN(minutes)) return "";
+  const norm = normalizeTimeTo24H(time24);
+  if (!norm) return "";
+  const [h, m] = norm.split(":").map(Number);
+  if (isNaN(h) || isNaN(m)) return "";
+  let totalMins = (h * 60 + m + minutes) % (24 * 60);
+  if (totalMins < 0) totalMins += 24 * 60;
+  const newH = String(Math.floor(totalMins / 60)).padStart(2, "0");
+  const newM = String(totalMins % 60).padStart(2, "0");
+  return `${newH}:${newM}`;
 }
 
 // Parse flexible duration strings ("45 mins", "1 hr 15 mins", "1.5h", "30") into total minutes
@@ -899,7 +956,7 @@ function renderDayDetailScreen(dateStr) {
       `).join("");
 
       return `
-        <div class="exercise-tile-card" onclick="navigateToScreen('edit-exercise', { workoutId: '${ex.workoutId}', exerciseIndex: ${ex.originalIndex}, date: '${dateStr}' })">
+        <div class="exercise-tile-card" onclick="navigateToScreen('edit-exercise', { workoutId: '${ex.workoutId}', exerciseIndex: ${ex.originalIndex}, exerciseId: '${catalogEx.id}', exerciseName: '${escapeHtml(ex.exerciseName).replace(/'/g, "\\'")}', date: '${dateStr}' })">
           <div class="exercise-tile-header">
             <!-- Exercise Image / GIF -->
             <div class="exercise-tile-media" onclick="event.stopPropagation(); openLightbox('${catalogEx.id}')">
@@ -966,17 +1023,26 @@ function renderEditExerciseScreen(context) {
   const exerciseIndex = context.exerciseIndex;
   const dateStr = context.date || activeDayDate;
 
-  let workout = workouts.find((w) => w.id === workoutId);
+  let workout = workouts.find((w) => w.id && w.id === workoutId);
   if (!workout && dateStr) {
     workout = workouts.find((w) => w.date === dateStr);
   }
+  if (!workout && (context.exerciseId || context.exerciseName)) {
+    workout = workouts.find((w) => (w.exercises || []).some((e) => e.exerciseId === context.exerciseId || e.exerciseName === context.exerciseName));
+  }
 
-  const isAddMode = exerciseIndex === -1 || !workout || !workout.exercises || !workout.exercises[exerciseIndex];
+  const numIndex = (exerciseIndex !== undefined && exerciseIndex !== null && exerciseIndex !== -1) ? parseInt(exerciseIndex, 10) : -1;
+  let isAddMode = numIndex === -1 || !workout || !workout.exercises || !workout.exercises[numIndex];
 
   let exData = null;
   if (!isAddMode) {
-    exData = workout.exercises[exerciseIndex];
-  } else {
+    exData = workout.exercises[numIndex];
+  } else if (workout && workout.exercises && (context.exerciseId || context.exerciseName)) {
+    exData = workout.exercises.find((e) => e.exerciseId === context.exerciseId || e.exerciseName === context.exerciseName);
+    if (exData) isAddMode = false;
+  }
+
+  if (!exData) {
     const firstEx = exercises[0] || { id: "barbell_bench_press", name: "Barbell Bench Press", category: "Chest", variation: "Flat Barbell" };
     exData = {
       exerciseId: firstEx.id,
@@ -991,6 +1057,26 @@ function renderEditExerciseScreen(context) {
       ]
     };
   }
+
+  // Derive effective duration so it is NEVER blank when known (resolves fallback from session/workout level)
+  let effectiveDuration = "";
+  if (exData.duration && String(exData.duration).trim()) {
+    effectiveDuration = String(exData.duration).trim();
+  } else if (exData.startTime && exData.endTime) {
+    effectiveDuration = calculateDurationFromTimes(exData.startTime, exData.endTime);
+  } else if (workout && workout.exercises && workout.exercises.length === 1 && workout.duration && String(workout.duration).trim()) {
+    effectiveDuration = String(workout.duration).trim();
+  } else if (workout && workout.duration && String(workout.duration).trim()) {
+    effectiveDuration = String(workout.duration).trim();
+  }
+
+  // Ensure exData has this duration populated so it saves cleanly
+  if (!exData.duration && effectiveDuration) {
+    exData.duration = effectiveDuration;
+  }
+
+  const effectiveStartTime = normalizeTimeTo24H(exData.startTime);
+  const effectiveEndTime = normalizeTimeTo24H(exData.endTime);
 
   const catalogEx = getExerciseById(exData.exerciseId) || getExerciseByName(exData.exerciseName) || exercises[0];
   const currentCategory = exData.category || catalogEx.category || "Chest";
@@ -1102,19 +1188,23 @@ function renderEditExerciseScreen(context) {
         <div class="time-inputs-grid">
           <div>
             <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">🕒 Starting Time</label>
-            <input type="time" id="editExStartTime" class="form-input" value="${exData.startTime || ''}" onchange="handleEditScreenTimesChange()" />
+            <input type="time" id="editExStartTime" class="form-input" value="${effectiveStartTime}" onchange="handleEditScreenTimesChange()" />
           </div>
           <div>
             <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">🕒 Ending Time</label>
-            <input type="time" id="editExEndTime" class="form-input" value="${exData.endTime || ''}" onchange="handleEditScreenTimesChange()" />
+            <input type="time" id="editExEndTime" class="form-input" value="${effectiveEndTime}" onchange="handleEditScreenTimesChange()" />
           </div>
           <div>
-            <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">⏱️ Duration (Auto-Calculated)</label>
-            <input type="text" id="editExDuration" class="form-input" value="${escapeHtml(exData.duration || '')}" placeholder="e.g. 15 mins" />
+            <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">⏱️ Duration</label>
+            <input type="text" id="editExDuration" class="form-input" value="${escapeHtml(effectiveDuration)}" placeholder="e.g. 15 mins" oninput="handleEditDurationInputChange()" />
           </div>
         </div>
-        <p style="font-size: 0.76rem; color: var(--text-muted); margin-top: 0.6rem; margin-bottom: 0;">
-          💡 When starting and ending times are set, duration calculates automatically. All workouts on this day are arranged chronologically by starting time.
+        <p id="editTimeInfoHint" style="font-size: 0.76rem; color: var(--text-muted); margin-top: 0.6rem; margin-bottom: 0;">
+          ${effectiveStartTime && effectiveEndTime 
+            ? `💡 Time range: <strong>${formatTime12Hour(effectiveStartTime)} – ${formatTime12Hour(effectiveEndTime)}</strong> (${escapeHtml(effectiveDuration)}).` 
+            : effectiveDuration 
+              ? `💡 Duration is set to <strong>${escapeHtml(effectiveDuration)}</strong>. If you enter a Starting Time, Ending Time will automatically be calculated.` 
+              : `💡 When starting and ending times are set, duration calculates automatically. All workouts on this day are arranged chronologically by starting time.`}
         </p>
       </div>
 
@@ -1174,13 +1264,65 @@ function handleEditScreenTimesChange() {
   const startInput = document.getElementById("editExStartTime");
   const endInput = document.getElementById("editExEndTime");
   const durInput = document.getElementById("editExDuration");
+  const hintEl = document.getElementById("editTimeInfoHint");
 
   if (startInput && endInput && durInput) {
     const s = startInput.value.trim();
     const e = endInput.value.trim();
+    const currentDur = durInput.value.trim();
+
     if (s && e) {
       const dur = calculateDurationFromTimes(s, e);
-      if (dur) durInput.value = dur;
+      if (dur) {
+        durInput.value = dur;
+        if (hintEl) {
+          hintEl.innerHTML = `💡 Time range: <strong>${formatTime12Hour(s)} – ${formatTime12Hour(e)}</strong>. Duration auto-calculated to <strong>${escapeHtml(dur)}</strong>.`;
+        }
+      }
+    } else if (s && !e && currentDur) {
+      const parsedMins = parseDurationToMinutes(currentDur);
+      if (parsedMins > 0) {
+        const autoEnd = addMinutesToTime(s, parsedMins);
+        if (autoEnd) {
+          endInput.value = autoEnd;
+          if (hintEl) {
+            hintEl.innerHTML = `💡 Ending time auto-calculated to <strong>${formatTime12Hour(autoEnd)}</strong> based on starting time (${formatTime12Hour(s)}) and duration (${escapeHtml(currentDur)}).`;
+          }
+        }
+      }
+    } else if (!s && e && currentDur) {
+      const parsedMins = parseDurationToMinutes(currentDur);
+      if (parsedMins > 0) {
+        const autoStart = addMinutesToTime(e, -parsedMins);
+        if (autoStart) {
+          startInput.value = autoStart;
+          if (hintEl) {
+            hintEl.innerHTML = `💡 Starting time auto-calculated to <strong>${formatTime12Hour(autoStart)}</strong> based on ending time (${formatTime12Hour(e)}) and duration (${escapeHtml(currentDur)}).`;
+          }
+        }
+      }
+    }
+  }
+}
+
+function handleEditDurationInputChange() {
+  const startInput = document.getElementById("editExStartTime");
+  const endInput = document.getElementById("editExEndTime");
+  const durInput = document.getElementById("editExDuration");
+  const hintEl = document.getElementById("editTimeInfoHint");
+
+  if (startInput && endInput && durInput) {
+    const s = startInput.value.trim();
+    const durStr = durInput.value.trim();
+    const parsedMins = parseDurationToMinutes(durStr);
+    if (s && parsedMins > 0) {
+      const autoEnd = addMinutesToTime(s, parsedMins);
+      if (autoEnd) {
+        endInput.value = autoEnd;
+        if (hintEl) {
+          hintEl.innerHTML = `💡 Ending time updated to <strong>${formatTime12Hour(autoEnd)}</strong> based on duration (${escapeHtml(durStr)}).`;
+        }
+      }
     }
   }
 }
@@ -1291,8 +1433,8 @@ function handleSaveEditedExercise(e, workoutId, exerciseIndex, dateStr) {
   const exId = idInput ? idInput.value : (exName.toLowerCase().replace(/[^a-z0-9]+/g, '_'));
   const category = catSelect ? catSelect.value : "Chest";
   const variation = varInput ? varInput.value.trim() : "";
-  const startTime = startInput ? startInput.value.trim() : "";
-  const endTime = endInput ? endInput.value.trim() : "";
+  const startTime = startInput ? normalizeTimeTo24H(startInput.value.trim()) : "";
+  const endTime = endInput ? normalizeTimeTo24H(endInput.value.trim()) : "";
   let duration = durInput ? durInput.value.trim() : "";
 
   if (startTime && endTime && !duration) {
@@ -1335,7 +1477,7 @@ function handleSaveEditedExercise(e, workoutId, exerciseIndex, dateStr) {
   });
 
   // Find or create workout
-  let workout = workouts.find((w) => w.id === workoutId);
+  let workout = workouts.find((w) => w.id && w.id === workoutId);
   if (!workout && dateStr) {
     workout = workouts.find((w) => w.date === dateStr);
   }
@@ -1361,11 +1503,17 @@ function handleSaveEditedExercise(e, workoutId, exerciseIndex, dateStr) {
   if (endTime) updatedEx.endTime = endTime;
   if (duration) updatedEx.duration = duration;
 
-  if (exerciseIndex >= 0 && workout.exercises && workout.exercises[exerciseIndex]) {
-    workout.exercises[exerciseIndex] = updatedEx;
+  const numIndex = (exerciseIndex !== undefined && exerciseIndex !== null && exerciseIndex !== -1) ? parseInt(exerciseIndex, 10) : -1;
+  if (numIndex >= 0 && workout.exercises && workout.exercises[numIndex]) {
+    workout.exercises[numIndex] = updatedEx;
   } else {
-    if (!workout.exercises) workout.exercises = [];
-    workout.exercises.push(updatedEx);
+    const matchIdx = workout.exercises ? workout.exercises.findIndex((e) => e.exerciseId === exId || e.exerciseName === exName) : -1;
+    if (matchIdx >= 0) {
+      workout.exercises[matchIdx] = updatedEx;
+    } else {
+      if (!workout.exercises) workout.exercises = [];
+      workout.exercises.push(updatedEx);
+    }
   }
 
   // RE-ARRANGE WORKOUTS SORTING THEM CHRONOLOGICALLY BY START TIME!
@@ -1374,10 +1522,13 @@ function handleSaveEditedExercise(e, workoutId, exerciseIndex, dateStr) {
   // Recalculate workout-level duration
   let sumMins = 0;
   workout.exercises.forEach((ex) => {
-    if (ex.duration) sumMins += parseDurationToMinutes(ex.duration);
+    const d = ex.duration || (ex.startTime && ex.endTime ? calculateDurationFromTimes(ex.startTime, ex.endTime) : "");
+    if (d) sumMins += parseDurationToMinutes(d);
   });
   if (sumMins > 0) {
     workout.duration = formatMinutesToDuration(sumMins);
+  } else if (workout.exercises.length === 1 && duration) {
+    workout.duration = duration;
   }
 
   persistState();
@@ -2153,8 +2304,8 @@ function handleSaveWorkout(e) {
     const durationInput = item.querySelector(".exercise-duration-input");
     const variationInput = item.querySelector(".exercise-variation-input");
 
-    const startTime = startInput ? startInput.value.trim() : "";
-    const endTime = endInput ? endInput.value.trim() : "";
+    const startTime = startInput ? normalizeTimeTo24H(startInput.value.trim()) : "";
+    const endTime = endInput ? normalizeTimeTo24H(endInput.value.trim()) : "";
     let exDuration = durationInput ? durationInput.value.trim() : "";
     const exVariation = variationInput ? variationInput.value.trim() : (ex.variation || "Standard");
 
@@ -2188,6 +2339,11 @@ function handleSaveWorkout(e) {
     if (autoSumMins > 0) {
       finalDuration = formatMinutesToDuration(autoSumMins);
     }
+  }
+
+  // If session duration was provided and there is only 1 exercise without individual duration, sync it
+  if (finalDuration && exercisesLogged.length === 1 && !exercisesLogged[0].duration) {
+    exercisesLogged[0].duration = finalDuration;
   }
 
   const newWorkout = {
