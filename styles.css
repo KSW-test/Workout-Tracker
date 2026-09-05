@@ -1462,46 +1462,138 @@ body {
   border-color: var(--accent-cyan);
   box-shadow: var(--shadow-glow);
   transform: translateY(-3px);
-  background: var(--bg-card-hover);
+}
+
+/* Background Image Layer for Tile */
+.exercise-tile-bg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.exercise-tile-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.28;
+  filter: saturate(1.2) brightness(0.95);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+}
+
+.exercise-tile-card:hover .exercise-tile-bg-img {
+  transform: scale(1.06);
+  opacity: 0.42;
+}
+
+.exercise-tile-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 15, 29, 0.88) 0%,
+    rgba(15, 23, 42, 0.78) 45%,
+    rgba(15, 23, 42, 0.94) 100%
+  );
+  pointer-events: none;
+}
+
+[data-theme="light"] .exercise-tile-bg-img {
+  opacity: 0.20;
+  filter: saturate(1.15) brightness(1.05);
+}
+
+[data-theme="light"] .exercise-tile-card:hover .exercise-tile-bg-img {
+  opacity: 0.32;
+}
+
+[data-theme="light"] .exercise-tile-bg-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.90) 0%,
+    rgba(248, 250, 252, 0.82) 45%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+}
+
+/* Elevated Content Layer */
+.exercise-tile-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  backdrop-filter: blur(2px);
 }
 
 .exercise-tile-header {
   display: flex;
-  gap: 1rem;
-  padding: 1.15rem;
-}
-
-.exercise-tile-media {
-  position: relative;
-  width: 95px;
-  height: 95px;
-  flex-shrink: 0;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-color);
-}
-
-.exercise-tile-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.25rem 1.25rem 1rem 1.25rem;
 }
 
 .exercise-tile-details {
-  flex: 1;
-  min-width: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
+}
+
+.exercise-tile-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
 }
 
 .exercise-tile-title {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-main);
   line-height: 1.3;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.exercise-tile-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+
+.tile-zoom-btn {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.22rem 0.55rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  backdrop-filter: blur(4px);
+}
+
+.tile-zoom-btn:hover {
+  background: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  color: #06090e;
+  transform: scale(1.04);
+}
+
+[data-theme="light"] .tile-zoom-btn {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
 }
 
 .exercise-tile-meta {
@@ -1515,57 +1607,84 @@ body {
   font-size: 0.8rem;
   color: var(--accent-cyan);
   font-weight: 500;
-  background: rgba(6, 182, 212, 0.1);
-  padding: 0.15rem 0.5rem;
+  background: rgba(6, 182, 212, 0.15);
+  padding: 0.18rem 0.55rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(6, 182, 212, 0.2);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  backdrop-filter: blur(4px);
 }
 
 .exercise-duration-badge {
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--accent-amber);
-  background: rgba(245, 158, 11, 0.14);
+  background: rgba(245, 158, 11, 0.16);
   padding: 0.18rem 0.55rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  border: 1px solid rgba(245, 158, 11, 0.35);
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
   white-space: nowrap;
+  backdrop-filter: blur(4px);
 }
 
 .exercise-tile-time {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--accent-amber);
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  margin-top: 0.2rem;
 }
 
 .exercise-tile-sets {
   padding: 0.85rem 1.15rem;
-  background: rgba(0, 0, 0, 0.2);
-  border-top: 1px solid var(--border-color);
+  background: rgba(10, 15, 29, 0.65);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   flex: 1;
+}
+
+[data-theme="light"] .exercise-tile-sets {
+  background: rgba(255, 255, 255, 0.7);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .exercise-tile-footer {
   padding: 0.65rem 1.15rem;
-  background: var(--bg-tertiary);
-  border-top: 1px solid var(--border-color);
+  background: rgba(11, 17, 32, 0.75);
+  backdrop-filter: blur(6px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 0.82rem;
-  color: var(--accent-cyan);
+  color: var(--text-muted);
   font-weight: 600;
 }
 
+[data-theme="light"] .exercise-tile-footer {
+  background: rgba(248, 250, 252, 0.8);
+}
+
 .exercise-tile-card:hover .exercise-tile-footer {
-  background: rgba(6, 182, 212, 0.1);
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--accent-cyan);
+}
+
+.tile-edit-hint {
+  font-size: 0.78rem;
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: transform 0.2s ease;
+}
+
+.exercise-tile-card:hover .tile-edit-hint {
+  transform: translateX(3px);
 }
 
 /* Screen 3: Edit Workout / Exercise Card */

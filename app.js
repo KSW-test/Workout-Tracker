@@ -1065,50 +1065,67 @@ function renderDayDetailScreen(dateStr) {
 
       return `
         <div class="exercise-tile-card" onclick="navigateToScreen('edit-exercise', { workoutId: '${ex.workoutId}', exerciseIndex: ${ex.originalIndex}, exerciseId: '${catalogEx.id}', exerciseName: '${escapeHtml(ex.exerciseName).replace(/'/g, "\\'")}', date: '${dateStr}' })">
-          <div class="exercise-tile-header">
-            <!-- Exercise Image / GIF -->
-            <div class="exercise-tile-media" onclick="event.stopPropagation(); openLightbox('${catalogEx.id}', '${imgSrc}', '${category}', '${escapeHtml(extraInfo).replace(/'/g, "\\'")}')">
-              <img 
-                src="${imgSrc}" 
-                alt="${escapeHtml(catalogEx.name)}" 
-                class="exercise-tile-img"
-                onerror="handleImageFallback(this, '${catalogEx.id}')" 
-              />
-              ${isGif ? `<span class="gif-badge">GIF</span>` : ""}
-              <span class="zoom-hint">🔍 Zoom</span>
-            </div>
+          <!-- Background Workout Image Layer -->
+          <div class="exercise-tile-bg-layer">
+            <img 
+              src="${imgSrc}" 
+              alt="${escapeHtml(catalogEx.name)}" 
+              class="exercise-tile-bg-img exercise-tile-img"
+              onerror="handleImageFallback(this, '${catalogEx.id}')" 
+            />
+            <div class="exercise-tile-bg-gradient"></div>
+          </div>
 
-            <!-- Workout Name, Body Part & Extra Info -->
-            <div class="exercise-tile-details">
-              <h4 class="exercise-tile-title">${escapeHtml(ex.exerciseName)}</h4>
-              <div class="exercise-tile-meta">
-                <span class="category-tag ${category}">${icon} ${category}</span>
-                ${extraInfo ? `<span class="exercise-tile-extra">${escapeHtml(extraInfo)}</span>` : ""}
-                ${individualDuration ? `<span class="exercise-duration-badge" title="Individual Workout Duration">⏱️ ${escapeHtml(durBadgeLabel)}</span>` : ""}
+          <!-- Elevated Content -->
+          <div class="exercise-tile-content">
+            <div class="exercise-tile-header">
+              <div class="exercise-tile-details">
+                <div class="exercise-tile-title-row">
+                  <h4 class="exercise-tile-title">${escapeHtml(ex.exerciseName)}</h4>
+                  <div class="exercise-tile-actions">
+                    ${isGif ? `<span class="gif-badge" style="position: static;">GIF</span>` : ""}
+                    <button 
+                      type="button" 
+                      class="tile-zoom-btn" 
+                      onclick="event.stopPropagation(); openLightbox('${catalogEx.id}', '${imgSrc}', '${category}', '${escapeHtml(extraInfo).replace(/'/g, "\\'")}')" 
+                      title="Zoom Workout Image / GIF"
+                    >
+                      🔍 Zoom
+                    </button>
+                  </div>
+                </div>
+
+                <div class="exercise-tile-meta">
+                  <span class="category-tag ${category}">${icon} ${category}</span>
+                  ${extraInfo ? `<span class="exercise-tile-extra">${escapeHtml(extraInfo)}</span>` : ""}
+                  ${individualDuration ? `<span class="exercise-duration-badge" title="Individual Workout Duration">⏱️ ${escapeHtml(durBadgeLabel)}</span>` : ""}
+                </div>
+
+                ${timeHtml}
               </div>
-              ${timeHtml}
             </div>
-          </div>
 
-          <!-- Sets Information -->
-          <div class="exercise-tile-sets">
-            <table class="sets-table" style="margin: 0;">
-              <thead>
-                <tr>
-                  <th>Set</th>
-                  <th>Weight</th>
-                  <th>Reps</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${setsRows || `<tr><td colspan="3" style="text-align: center; color: var(--text-muted);">No sets recorded</td></tr>`}
-              </tbody>
-            </table>
-          </div>
+            <!-- Sets Information -->
+            <div class="exercise-tile-sets">
+              <table class="sets-table" style="margin: 0;">
+                <thead>
+                  <tr>
+                    <th>Set</th>
+                    <th>Weight</th>
+                    <th>Reps</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${setsRows || `<tr><td colspan="3" style="text-align: center; color: var(--text-muted);">No sets recorded</td></tr>`}
+                </tbody>
+              </table>
+            </div>
 
-          <!-- Action Footer -->
-          <div class="exercise-tile-footer">
-            <span style="color: var(--text-muted);">Order #${idx + 1}${individualDuration ? ` • ⏱️ ${escapeHtml(individualDuration)}` : ""}</span>
+            <!-- Action Footer -->
+            <div class="exercise-tile-footer">
+              <span style="color: var(--text-muted);">Order #${idx + 1}${individualDuration ? ` • ⏱️ ${escapeHtml(individualDuration)}` : ""}</span>
+              <span class="tile-edit-hint">Click to edit →</span>
+            </div>
           </div>
         </div>
       `;
@@ -1955,6 +1972,12 @@ function handleImageFallback(imgEl, exerciseId) {
       imgEl.src = cacheCandidate;
       return;
     }
+  }
+
+  // If it is a tile background image and all fallbacks failed, gracefully hide the img tag
+  if (imgEl.classList.contains("exercise-tile-bg-img")) {
+    imgEl.style.display = "none";
+    return;
   }
 
   // Final step: Display styled fallback placeholder
