@@ -49,6 +49,13 @@
     "image": "low_to_high_cable_flyes.gif"
   },
   {
+    "id": "low_pulley_cable_fly",
+    "name": "Low-pulley Cable Fly",
+    "category": "Chest",
+    "variation": "Low Pulley Cable Fly",
+    "image": "Low-pulley Cable Fly.gif"
+  },
+  {
     "id": "pec_deck_machine_flyes",
     "name": "Pec Deck Machine Flyes",
     "category": "Chest",
@@ -249,7 +256,7 @@
     "name": "Bodyweight Calf Raise",
     "category": "Legs",
     "variation": "Standing Bodyweight",
-    "image": "bodyweight_calf_raise.gif"
+    "image": "Bodyweight Calf Raise.gif"
   },
   {
     "id": "squats",
@@ -273,11 +280,25 @@
     "image": "seated_dumbbell_shoulder_press.jpg"
   },
   {
+    "id": "shoulder_press_machine",
+    "name": "Shoulder Press Machine",
+    "category": "Shoulders",
+    "variation": "Machine Overhead Press",
+    "image": "Shoulder Press Machine.gif"
+  },
+  {
     "id": "arnold_press",
     "name": "Arnold Press",
     "category": "Shoulders",
     "variation": "Rotating Dumbbell Press",
     "image": "arnold_press.gif"
+  },
+  {
+    "id": "dumbbell_front_raise",
+    "name": "Dumbbell Front Raise",
+    "category": "Shoulders",
+    "variation": "Front Delt Dumbbell",
+    "image": "Dumbbell Front Raise.gif"
   },
   {
     "id": "dumbbell_lateral_raises",
