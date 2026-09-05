@@ -166,6 +166,7 @@ const DEFAULT_WORKOUTS = [
 let exercises = [];
 let workouts = [];
 let cachedImages = {}; // Stores local base64/object URLs for current browser session
+let isDataLoaded = false;
 
 // Active Filters
 let activeCategory = "All";
@@ -234,20 +235,14 @@ async function loadData() {
     if (localEx) {
       exercises = JSON.parse(localEx);
       // Ensure any newly added catalog exercises exist even with existing localStorage cache
-      let addedNew = false;
       DEFAULT_EXERCISES.forEach((defEx) => {
         const existing = exercises.find((e) => e.id === defEx.id);
         if (!existing) {
           exercises.push(defEx);
-          addedNew = true;
         } else if (defEx.image && defEx.image.endsWith('.gif') && (!existing.image || existing.image.endsWith('.jpg'))) {
           existing.image = defEx.image;
-          addedNew = true;
         }
       });
-      if (addedNew) {
-        persistState();
-      }
     } else {
       const resp = await fetch("data/exercises.json");
       if (resp.ok) {
@@ -274,19 +269,37 @@ async function loadData() {
   try {
     const localWorkouts = localStorage.getItem("ironlog_workouts");
     if (localWorkouts) {
-      workouts = JSON.parse(localWorkouts);
-    } else {
+      const parsed = JSON.parse(localWorkouts);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        workouts = parsed;
+      }
+    }
+  } catch (e) {
+    console.warn("Could not parse workouts from localStorage", e);
+  }
+
+  // If workouts is empty (e.g. wiped or first visit), restore from data/workouts.json or DEFAULT_WORKOUTS
+  if (!workouts || workouts.length === 0) {
+    try {
       const resp = await fetch("data/workouts.json");
       if (resp.ok) {
         workouts = await resp.json();
       } else {
         workouts = DEFAULT_WORKOUTS;
       }
+    } catch (e) {
+      console.warn("Using default workouts", e);
+      workouts = DEFAULT_WORKOUTS;
     }
-  } catch (e) {
-    console.warn("Using default workouts", e);
-    workouts = DEFAULT_WORKOUTS;
   }
+
+  // Ensure default/existing workouts exist in the list so historical logs are never lost
+  DEFAULT_WORKOUTS.forEach((defW) => {
+    const existing = workouts.find((w) => w.id === defW.id || w.date === defW.date);
+    if (!existing) {
+      workouts.push(defW);
+    }
+  });
 
   // Ensure every workout has an ID and single-exercise sessions carry duration down to the exercise
   workouts.forEach((w) => {
@@ -307,10 +320,15 @@ async function loadData() {
 
   // Sort workouts newest first
   workouts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  // Mark data as safely loaded and persist validated state
+  isDataLoaded = true;
+  persistState();
 }
 
 // Save Workouts & Exercises to LocalStorage
 function persistState() {
+  if (!isDataLoaded) return;
   try {
     localStorage.setItem("ironlog_workouts", JSON.stringify(workouts, null, 2));
     localStorage.setItem("ironlog_exercises", JSON.stringify(exercises, null, 2));
