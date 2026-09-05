@@ -112,11 +112,11 @@
     "image": "chin_ups.gif"
   },
   {
-    "id": "lat_pulldown_wide_grip",
-    "name": "Lat Pulldown (Wide Grip)",
+    "id": "lat_pull_down",
+    "name": "Lat Pull Down",
     "category": "Back",
-    "variation": "Cable Wide Pronated",
-    "image": "lat_pulldown_wide_grip.jpg"
+    "variation": "Wide-Grip Cable",
+    "image": "lat_pull_down.gif"
   },
   {
     "id": "close_grip_v_bar_pulldown",
@@ -285,6 +285,13 @@
     "category": "Arms",
     "variation": "Straight Bar Supinated",
     "image": "barbell_bicep_curl.jpg"
+  },
+  {
+    "id": "dumbbell_bicep_curl",
+    "name": "Dumbbell Bicep Curl",
+    "category": "Arms",
+    "variation": "Standing / Seated Supinated",
+    "image": "dumbbell_bicep_curl.jpg"
   },
   {
     "id": "ez_bar_preacher_curl",
