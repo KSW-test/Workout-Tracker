@@ -168,6 +168,13 @@
     "image": "face_pulls.gif"
   },
   {
+    "id": "stiff_arm_pulldown",
+    "name": "Stiff Arm Pulldown",
+    "category": "Back",
+    "variation": "Straight-Arm Cable Lat Isolation",
+    "image": "Stiff Arm Pulldown.gif"
+  },
+  {
     "id": "barbell_back_squat",
     "name": "Barbell Back Squat",
     "category": "Legs",
@@ -224,6 +231,13 @@
     "image": "walking_lunges.gif"
   },
   {
+    "id": "lunge",
+    "name": "Lunge",
+    "category": "Legs",
+    "variation": "Static Bodyweight / Dumbbell",
+    "image": "Lunge.gif"
+  },
+  {
     "id": "leg_extension",
     "name": "Leg Extension",
     "category": "Legs",
@@ -264,6 +278,13 @@
     "category": "Legs",
     "variation": "Assistance for Balance",
     "image": "squats.gif"
+  },
+  {
+    "id": "leverage_squat_machine",
+    "name": "Leverage Squat Machine",
+    "category": "Legs",
+    "variation": "Plate-Loaded Leverage Squat",
+    "image": "Leverage Squat Machine.gif"
   },
   {
     "id": "standing_overhead_barbell_press",
@@ -343,6 +364,13 @@
     "image": "dumbbell_bicep_curl.gif"
   },
   {
+    "id": "ez_bar_curl",
+    "name": "EZ Bar Curl",
+    "category": "Arms",
+    "variation": "Standing EZ-Bar Supinated",
+    "image": "EZ Bar Curl.gif"
+  },
+  {
     "id": "ez_bar_preacher_curl",
     "name": "EZ-Bar Preacher Curl",
     "category": "Arms",
@@ -369,6 +397,13 @@
     "category": "Arms",
     "variation": "Low Pulley Constant Tension",
     "image": "cable_rope_bicep_curl.gif"
+  },
+  {
+    "id": "cable_hammer_curl",
+    "name": "Cable Hammer Curl",
+    "category": "Arms",
+    "variation": "Rope Attachment Neutral Grip",
+    "image": "Cable Hammer Curl.gif"
   },
   {
     "id": "tricep_rope_pushdown",
@@ -404,6 +439,13 @@
     "category": "Arms",
     "variation": "Barbell Tricep Compound",
     "image": "close_grip_bench_press.jpg"
+  },
+  {
+    "id": "wrist_curl",
+    "name": "Wrist Curl",
+    "category": "Arms",
+    "variation": "Barbell / Dumbbell Forearm Flexion",
+    "image": "Wrist Curl.jpg"
   },
   {
     "id": "hanging_leg_raises",
