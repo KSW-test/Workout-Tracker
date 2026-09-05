@@ -13,6 +13,7 @@ const DEFAULT_EXERCISES = [
   { "id": "cable_chest_flyes", "name": "Cable Chest Flyes", "category": "Chest", "variation": "High-to-Low Cable", "image": "cable_chest_flyes.gif" },
   { "id": "low_to_high_cable_flyes", "name": "Low-to-High Cable Flyes", "category": "Chest", "variation": "Low-to-High Cable (Upper Clavicular)", "image": "low_to_high_cable_flyes.gif" },
   { "id": "pec_deck_machine_flyes", "name": "Pec Deck Machine Flyes", "category": "Chest", "variation": "Machine Pec Fly", "image": "pec_deck_machine_flyes.jpg" },
+  { "id": "seated_chest_press", "name": "Seated Chest Press", "category": "Chest", "variation": "Machine / Selectorized", "image": "seated_chest_press.gif" },
   { "id": "chest_dips", "name": "Chest Dips", "category": "Chest", "variation": "Bodyweight / Weighted (Forward Lean)", "image": "chest_dips.gif" },
   { "id": "push_ups", "name": "Push-Ups", "category": "Chest", "variation": "Standard / Deficit Bodyweight", "image": "push_ups.gif" },
   { "id": "conventional_deadlift", "name": "Conventional Deadlift", "category": "Back", "variation": "Barbell Conventional", "image": "conventional_deadlift.jpg" },
@@ -49,7 +50,7 @@ const DEFAULT_EXERCISES = [
   { "id": "dumbbell_bicep_curl", "name": "Dumbbell Bicep Curl", "category": "Arms", "variation": "Standing / Seated Supinated", "image": "dumbbell_bicep_curl.gif" },
   { "id": "ez_bar_preacher_curl", "name": "EZ-Bar Preacher Curl", "category": "Arms", "variation": "Preacher Bench Isolated", "image": "ez_bar_preacher_curl.jpg" },
   { "id": "incline_dumbbell_curl", "name": "Incline Dumbbell Curl", "category": "Arms", "variation": "Long Head Stretch (45-deg Bench)", "image": "incline_dumbbell_curl.jpg" },
-  { "id": "dumbbell_hammer_curl", "name": "Dumbbell Hammer Curl", "category": "Arms", "variation": "Neutral Grip Brachialis", "image": "dumbbell_hammer_curl.jpg" },
+  { "id": "dumbbell_hammer_curl", "name": "Dumbbell Hammer Curl", "category": "Arms", "variation": "Neutral Grip Brachialis", "image": "dumbbell_hammer_curl.gif" },
   { "id": "cable_rope_bicep_curl", "name": "Cable Rope Bicep Curl", "category": "Arms", "variation": "Low Pulley Constant Tension", "image": "cable_rope_bicep_curl.gif" },
   { "id": "tricep_rope_pushdown", "name": "Tricep Rope Pushdown", "category": "Arms", "variation": "Cable Rope Flared Finish", "image": "tricep_rope_pushdown.gif" },
   { "id": "straight_bar_tricep_pushdown", "name": "Straight Bar Tricep Pushdown", "category": "Arms", "variation": "Cable Overhand Straight Bar", "image": "straight_bar_tricep_pushdown.jpg" },
@@ -233,14 +234,20 @@ async function loadData() {
     if (localEx) {
       exercises = JSON.parse(localEx);
       // Ensure any newly added catalog exercises exist even with existing localStorage cache
+      let addedNew = false;
       DEFAULT_EXERCISES.forEach((defEx) => {
         const existing = exercises.find((e) => e.id === defEx.id);
         if (!existing) {
           exercises.push(defEx);
+          addedNew = true;
         } else if (defEx.image && defEx.image.endsWith('.gif') && (!existing.image || existing.image.endsWith('.jpg'))) {
           existing.image = defEx.image;
+          addedNew = true;
         }
       });
+      if (addedNew) {
+        persistState();
+      }
     } else {
       const resp = await fetch("data/exercises.json");
       if (resp.ok) {

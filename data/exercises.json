@@ -56,6 +56,13 @@
     "image": "pec_deck_machine_flyes.jpg"
   },
   {
+    "id": "seated_chest_press",
+    "name": "Seated Chest Press",
+    "category": "Chest",
+    "variation": "Machine / Selectorized",
+    "image": "seated_chest_press.gif"
+  },
+  {
     "id": "chest_dips",
     "name": "Chest Dips",
     "category": "Chest",
@@ -312,7 +319,7 @@
     "name": "Dumbbell Hammer Curl",
     "category": "Arms",
     "variation": "Neutral Grip Brachialis",
-    "image": "dumbbell_hammer_curl.jpg"
+    "image": "dumbbell_hammer_curl.gif"
   },
   {
     "id": "cable_rope_bicep_curl",
