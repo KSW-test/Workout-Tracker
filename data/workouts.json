@@ -1,0 +1,71 @@
+[
+  {
+    "id": "workout_2026_09_04",
+    "date": "2026-09-04",
+    "duration": "55 mins",
+    "notes": "Focused on upper chest hypertrophy and smooth eccentric control.",
+    "exercises": [
+      {
+        "exerciseId": "barbell_bench_press",
+        "exerciseName": "Barbell Bench Press",
+        "sets": [
+          { "set": 1, "reps": 10, "weight": "70 kg" },
+          { "set": 2, "reps": 8, "weight": "80 kg" },
+          { "set": 3, "reps": 6, "weight": "85 kg" }
+        ]
+      },
+      {
+        "exerciseId": "incline_dumbbell_press",
+        "exerciseName": "Incline Dumbbell Press",
+        "sets": [
+          { "set": 1, "reps": 12, "weight": "26 kg" },
+          { "set": 2, "reps": 10, "weight": "28 kg" },
+          { "set": 3, "reps": 8, "weight": "30 kg" }
+        ]
+      },
+      {
+        "exerciseId": "cable_chest_flyes",
+        "exerciseName": "Cable Chest Flyes",
+        "sets": [
+          { "set": 1, "reps": 15, "weight": "14 kg" },
+          { "set": 2, "reps": 12, "weight": "16 kg" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_09_02",
+    "date": "2026-09-02",
+    "duration": "",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "conventional_deadlift",
+        "exerciseName": "Conventional Deadlift",
+        "sets": [
+          { "set": 1, "reps": 5, "weight": "120 kg" },
+          { "set": 2, "reps": 5, "weight": "140 kg" },
+          { "set": 3, "reps": 3, "weight": "155 kg" }
+        ]
+      },
+      {
+        "exerciseId": "lat_pulldown_wide_grip",
+        "exerciseName": "Lat Pulldown (Wide Grip)",
+        "sets": [
+          { "set": 1, "reps": 10, "weight": "60 kg" },
+          { "set": 2, "reps": 10, "weight": "65 kg" },
+          { "set": 3, "reps": 8, "weight": "70 kg" }
+        ]
+      },
+      {
+        "exerciseId": "barbell_bicep_curl",
+        "exerciseName": "Barbell Bicep Curl",
+        "sets": [
+          { "set": 1, "reps": 12, "weight": "30 kg" },
+          { "set": 2, "reps": 10, "weight": "32.5 kg" },
+          { "set": 3, "reps": 8, "weight": "35 kg" }
+        ]
+      }
+    ]
+  }
+]
