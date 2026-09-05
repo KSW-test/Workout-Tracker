@@ -544,8 +544,9 @@ function calculateTotalMinutesForDate(dateStr) {
     // If workout duration wasn't parsed or was 0, sum exercise durations
     if (workoutMins === 0 && w.exercises && w.exercises.length > 0) {
       w.exercises.forEach((ex) => {
-        if (ex.duration) {
-          workoutMins += parseDurationToMinutes(ex.duration);
+        const dur = ex.duration || (ex.startTime && ex.endTime ? calculateDurationFromTimes(ex.startTime, ex.endTime) : "");
+        if (dur) {
+          workoutMins += parseDurationToMinutes(dur);
         }
       });
     }
@@ -553,6 +554,46 @@ function calculateTotalMinutesForDate(dateStr) {
   });
 
   return totalMinutes;
+}
+
+// Retrieve individual workout duration for each workout, or empty string if not available
+function getIndividualWorkoutDuration(ex, dayExercises) {
+  if (!ex) return "";
+
+  // 1. Explicit exercise-level duration
+  if (ex.duration !== undefined && ex.duration !== null) {
+    const raw = String(ex.duration).trim();
+    if (raw) {
+      if (/^\d+$/.test(raw)) {
+        const val = parseInt(raw, 10);
+        return val > 0 ? (formatMinutesToDuration(val) || `${val} mins`) : "";
+      }
+      if (raw.toLowerCase() !== "0 mins" && raw.toLowerCase() !== "0 min") {
+        return raw;
+      }
+    }
+  }
+
+  // 2. Auto-calculated from starting and ending times
+  if (ex.startTime && ex.endTime) {
+    const computed = calculateDurationFromTimes(ex.startTime, ex.endTime);
+    if (computed && computed !== "0 mins") {
+      return computed;
+    }
+  }
+
+  // 3. Fallback: single-exercise workout session with duration
+  if (ex.workoutDuration && String(ex.workoutDuration).trim() && dayExercises) {
+    const sameWorkoutExercises = dayExercises.filter((e) => e.workoutId === ex.workoutId);
+    if (sameWorkoutExercises.length === 1) {
+      const rawW = String(ex.workoutDuration).trim();
+      if (rawW && rawW.toLowerCase() !== "0 mins" && rawW.toLowerCase() !== "0 min") {
+        return rawW;
+      }
+    }
+  }
+
+  return "";
 }
 
 // Sort exercises chronologically by starting time (e.g. 10:00 AM before 10:15 AM)
@@ -832,15 +873,20 @@ function renderDayDetailScreen(dateStr) {
       // Extra information (like Side Delt Dumbbell)
       const extraInfo = ex.variation || catalogEx.variation || "";
 
-      // Time display: e.g. "🕒 10:00 AM – 10:15 AM (15 mins)"
+      // Individual workout duration: show when available, omit completely when not available
+      const individualDuration = getIndividualWorkoutDuration(ex, dayExercises);
+      const durBadgeLabel = individualDuration
+        ? (individualDuration.toLowerCase().startsWith("duration")
+            ? individualDuration
+            : `Duration: ${individualDuration}`)
+        : "";
+
+      // Attempted time display: e.g. "🕒 10:00 AM – 10:15 AM"
       let timeHtml = "";
       if (ex.startTime && ex.endTime) {
-        const dur = ex.duration || calculateDurationFromTimes(ex.startTime, ex.endTime);
-        timeHtml = `<div class="exercise-tile-time"><span>🕒 ${formatTime12Hour(ex.startTime)} – ${formatTime12Hour(ex.endTime)}</span> ${dur ? `<span class="exercise-duration-tag">(${escapeHtml(dur)})</span>` : ""}</div>`;
+        timeHtml = `<div class="exercise-tile-time"><span>🕒 ${formatTime12Hour(ex.startTime)} – ${formatTime12Hour(ex.endTime)}</span></div>`;
       } else if (ex.startTime) {
-        timeHtml = `<div class="exercise-tile-time"><span>🕒 Started: ${formatTime12Hour(ex.startTime)}</span> ${ex.duration ? `<span class="exercise-duration-tag">(${escapeHtml(ex.duration)})</span>` : ""}</div>`;
-      } else if (ex.duration) {
-        timeHtml = `<div class="exercise-tile-time"><span class="exercise-duration-tag">⏱️ ${escapeHtml(ex.duration)}</span></div>`;
+        timeHtml = `<div class="exercise-tile-time"><span>🕒 Started: ${formatTime12Hour(ex.startTime)}</span></div>`;
       }
 
       // Sets table rows
@@ -873,6 +919,7 @@ function renderDayDetailScreen(dateStr) {
               <div class="exercise-tile-meta">
                 <span class="category-tag ${category}">${icon} ${category}</span>
                 ${extraInfo ? `<span class="exercise-tile-extra">${escapeHtml(extraInfo)}</span>` : ""}
+                ${individualDuration ? `<span class="exercise-duration-badge" title="Individual Workout Duration">⏱️ ${escapeHtml(durBadgeLabel)}</span>` : ""}
               </div>
               ${timeHtml}
             </div>
@@ -896,7 +943,7 @@ function renderDayDetailScreen(dateStr) {
 
           <!-- Action Footer -->
           <div class="exercise-tile-footer">
-            <span style="color: var(--text-muted);">Order #${idx + 1} (chronological)</span>
+            <span style="color: var(--text-muted);">Order #${idx + 1} (chronological)${individualDuration ? ` • ⏱️ ${escapeHtml(individualDuration)}` : ""}</span>
             <span style="color: var(--accent-cyan);">✏️ Click to Edit Workout →</span>
           </div>
         </div>
