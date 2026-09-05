@@ -28,6 +28,13 @@
     "image": "flat_dumbbell_press.jpg"
   },
   {
+    "id": "dumbbell_bench_press",
+    "name": "Dumbbell Bench Press",
+    "category": "Chest",
+    "variation": "Flat Bench Dumbbell",
+    "image": "Dumbbell Bench Press.gif"
+  },
+  {
     "id": "incline_dumbbell_press",
     "name": "Incline Dumbbell Press",
     "category": "Chest",
@@ -40,6 +47,13 @@
     "category": "Chest",
     "variation": "High-to-Low Cable",
     "image": "cable_chest_flyes.gif"
+  },
+  {
+    "id": "cable_kneeling_high_to_low_fly",
+    "name": "Cable Kneeling High To Low Fly",
+    "category": "Chest",
+    "variation": "Kneeling High-to-Low Cable",
+    "image": "Cable Kneeling High To Low Fly.gif"
   },
   {
     "id": "low_to_high_cable_flyes",
@@ -68,6 +82,13 @@
     "category": "Chest",
     "variation": "Machine / Selectorized",
     "image": "seated_chest_press.gif"
+  },
+  {
+    "id": "hammer_bench_press",
+    "name": "Hammer Bench Press",
+    "category": "Chest",
+    "variation": "Hammer Strength / Machine Press",
+    "image": "Hammer Bench Press.gif"
   },
   {
     "id": "chest_dips",
@@ -126,6 +147,13 @@
     "image": "chin_ups.gif"
   },
   {
+    "id": "assisted_pull_up_machine",
+    "name": "Assisted Pull Up Machine",
+    "category": "Back",
+    "variation": "Counterweight Machine Assist",
+    "image": "Assisted Pull Up Machine.gif"
+  },
+  {
     "id": "lat_pull_down",
     "name": "Lat Pull Down",
     "category": "Back",
@@ -154,11 +182,25 @@
     "image": "single_arm_dumbbell_row.jpg"
   },
   {
+    "id": "one_arm_low_row",
+    "name": "One Arm Low Row",
+    "category": "Back",
+    "variation": "Single-Arm Cable / Machine Low Row",
+    "image": "One Arm Low Row.gif"
+  },
+  {
     "id": "t_bar_row",
     "name": "T-Bar Row",
     "category": "Back",
     "variation": "Landmine / Machine Chest Supported",
     "image": "t_bar_row.jpg"
+  },
+  {
+    "id": "t_bar_row_machine",
+    "name": "T-bar Row Machine",
+    "category": "Back",
+    "variation": "Chest-Supported Machine Row",
+    "image": "T-bar Row Machine.gif"
   },
   {
     "id": "face_pulls",
@@ -287,11 +329,25 @@
     "image": "Leverage Squat Machine.gif"
   },
   {
+    "id": "sumo_squat",
+    "name": "Sumo Squat",
+    "category": "Legs",
+    "variation": "Wide Stance Dumbbell / Kettlebell",
+    "image": "Sumo Squat.gif"
+  },
+  {
     "id": "standing_overhead_barbell_press",
     "name": "Standing Overhead Barbell Press",
     "category": "Shoulders",
     "variation": "Military Press (OHP)",
     "image": "standing_overhead_barbell_press.jpg"
+  },
+  {
+    "id": "overhead_press",
+    "name": "Overhead Press",
+    "category": "Shoulders",
+    "variation": "Standing Barbell / Dumbbell OHP",
+    "image": "Overhead Press.gif"
   },
   {
     "id": "seated_dumbbell_shoulder_press",
@@ -343,6 +399,13 @@
     "image": "reverse_pec_deck_flyes.jpg"
   },
   {
+    "id": "cable_upright_row",
+    "name": "Cable Upright Row",
+    "category": "Shoulders",
+    "variation": "Cable Attachment Lateral Delts / Traps",
+    "image": "Cable Upright Row.gif"
+  },
+  {
     "id": "barbell_shrugs",
     "name": "Barbell Shrugs",
     "category": "Shoulders",
@@ -378,6 +441,13 @@
     "image": "ez_bar_preacher_curl.jpg"
   },
   {
+    "id": "dumbbell_preacher_curl",
+    "name": "Dumbbell Preacher Curl",
+    "category": "Arms",
+    "variation": "Single-Arm Preacher Bench",
+    "image": "Dumbbell Preacher Curl.gif"
+  },
+  {
     "id": "incline_dumbbell_curl",
     "name": "Incline Dumbbell Curl",
     "category": "Arms",
@@ -390,6 +460,13 @@
     "category": "Arms",
     "variation": "Neutral Grip Brachialis",
     "image": "dumbbell_hammer_curl.gif"
+  },
+  {
+    "id": "cross_body_hammer_curl",
+    "name": "Cross-Body Hammer Curl",
+    "category": "Arms",
+    "variation": "Dumbbell Across Chest (Brachialis)",
+    "image": "Cross-Body Hammer Curl.gif"
   },
   {
     "id": "cable_rope_bicep_curl",
