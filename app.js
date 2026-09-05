@@ -3,199 +3,6 @@
  * Pure client-side static site script for GitHub Pages.
  */
 
-// Initial Default Exercise Catalog (used as fallback or for file:// CORS safety)
-const DEFAULT_EXERCISES = [
-  { "id": "barbell_bench_press", "name": "Barbell Bench Press", "category": "Chest", "variation": "Flat Barbell", "image": "barbell_bench_press.jpg" },
-  { "id": "incline_barbell_bench_press", "name": "Incline Barbell Bench Press", "category": "Chest", "variation": "Incline Barbell (Upper Chest)", "image": "incline_barbell_bench_press.jpg" },
-  { "id": "decline_barbell_bench_press", "name": "Decline Barbell Bench Press", "category": "Chest", "variation": "Decline Barbell (Lower Chest)", "image": "decline_barbell_bench_press.jpg" },
-  { "id": "flat_dumbbell_press", "name": "Flat Dumbbell Press", "category": "Chest", "variation": "Flat Dumbbell", "image": "flat_dumbbell_press.jpg" },
-  { "id": "incline_dumbbell_press", "name": "Incline Dumbbell Press", "category": "Chest", "variation": "Incline Dumbbell", "image": "incline_dumbbell_press.jpg" },
-  { "id": "cable_chest_flyes", "name": "Cable Chest Flyes", "category": "Chest", "variation": "High-to-Low Cable", "image": "cable_chest_flyes.gif" },
-  { "id": "low_to_high_cable_flyes", "name": "Low-to-High Cable Flyes", "category": "Chest", "variation": "Low-to-High Cable (Upper Clavicular)", "image": "low_to_high_cable_flyes.gif" },
-  { "id": "pec_deck_machine_flyes", "name": "Pec Deck Machine Flyes", "category": "Chest", "variation": "Machine Pec Fly", "image": "pec_deck_machine_flyes.jpg" },
-  { "id": "seated_chest_press", "name": "Seated Chest Press", "category": "Chest", "variation": "Machine / Selectorized", "image": "seated_chest_press.gif" },
-  { "id": "chest_dips", "name": "Chest Dips", "category": "Chest", "variation": "Bodyweight / Weighted (Forward Lean)", "image": "chest_dips.gif" },
-  { "id": "push_ups", "name": "Push-Ups", "category": "Chest", "variation": "Standard / Deficit Bodyweight", "image": "push_ups.gif" },
-  { "id": "conventional_deadlift", "name": "Conventional Deadlift", "category": "Back", "variation": "Barbell Conventional", "image": "conventional_deadlift.jpg" },
-  { "id": "sumo_deadlift", "name": "Sumo Deadlift", "category": "Back", "variation": "Barbell Sumo Stance", "image": "sumo_deadlift.jpg" },
-  { "id": "barbell_bent_over_row", "name": "Barbell Bent-Over Row", "category": "Back", "variation": "Overhand Pronated Grip", "image": "barbell_bent_over_row.jpg" },
-  { "id": "pendlay_row", "name": "Pendlay Row", "category": "Back", "variation": "Dead-Stop from Floor", "image": "pendlay_row.jpg" },
-  { "id": "pull_ups", "name": "Pull-Ups", "category": "Back", "variation": "Overhand Wide Grip", "image": "pull_ups.gif" },
-  { "id": "chin_ups", "name": "Chin-Ups", "category": "Back", "variation": "Underhand Supinated Grip", "image": "chin_ups.gif" },
-  { "id": "lat_pull_down", "name": "Lat Pull Down", "category": "Back", "variation": "Wide-Grip Cable", "image": "lat_pull_down.gif" },
-  { "id": "close_grip_v_bar_pulldown", "name": "Close-Grip V-Bar Pulldown", "category": "Back", "variation": "Cable Neutral Grip", "image": "close_grip_v_bar_pulldown.jpg" },
-  { "id": "seated_cable_row", "name": "Seated Cable Row", "category": "Back", "variation": "Neutral Grip Cable", "image": "seated_cable_row.gif" },
-  { "id": "single_arm_dumbbell_row", "name": "Single-Arm Dumbbell Row", "category": "Back", "variation": "Bench Supported Dumbbell", "image": "single_arm_dumbbell_row.jpg" },
-  { "id": "t_bar_row", "name": "T-Bar Row", "category": "Back", "variation": "Landmine / Machine Chest Supported", "image": "t_bar_row.jpg" },
-  { "id": "face_pulls", "name": "Face Pulls", "category": "Back", "variation": "Cable Rope (Upper Back / Rear Delts)", "image": "face_pulls.gif" },
-  { "id": "barbell_back_squat", "name": "Barbell Back Squat", "category": "Legs", "variation": "High Bar / Low Bar", "image": "barbell_back_squat.jpg" },
-  { "id": "front_squat", "name": "Front Squat", "category": "Legs", "variation": "Barbell Front Rack", "image": "front_squat.jpg" },
-  { "id": "leg_press", "name": "Leg Press", "category": "Legs", "variation": "45-Degree Incline Machine", "image": "leg_press.jpg" },
-  { "id": "hack_squat", "name": "Hack Squat", "category": "Legs", "variation": "Machine Quad-Focused", "image": "hack_squat.jpg" },
-  { "id": "romanian_deadlift_barbell", "name": "Romanian Deadlift (Barbell)", "category": "Legs", "variation": "Hamstring / Glute Hinge", "image": "romanian_deadlift_barbell.jpg" },
-  { "id": "romanian_deadlift_dumbbell", "name": "Romanian Deadlift (Dumbbell)", "category": "Legs", "variation": "Dumbbell Free Weight Hinge", "image": "romanian_deadlift_dumbbell.jpg" },
-  { "id": "bulgarian_split_squat", "name": "Bulgarian Split Squat", "category": "Legs", "variation": "Rear-Foot Elevated Dumbbell", "image": "bulgarian_split_squat.gif" },
-  { "id": "walking_lunges", "name": "Walking Lunges", "category": "Legs", "variation": "Dumbbell / Barbell Walking", "image": "walking_lunges.gif" },
-  { "id": "leg_extension", "name": "Leg Extension", "category": "Legs", "variation": "Machine Quad Isolation", "image": "leg_extension.jpg" },
-  { "id": "seated_leg_curl", "name": "Seated Leg Curl", "category": "Legs", "variation": "Machine Hamstring Isolation", "image": "seated_leg_curl.jpg" },
-  { "id": "standing_calf_raise", "name": "Standing Calf Raise", "category": "Legs", "variation": "Machine / Smith Machine", "image": "standing_calf_raise.jpg" },
-  { "id": "standing_overhead_barbell_press", "name": "Standing Overhead Barbell Press", "category": "Shoulders", "variation": "Military Press (OHP)", "image": "standing_overhead_barbell_press.jpg" },
-  { "id": "seated_dumbbell_shoulder_press", "name": "Seated Dumbbell Shoulder Press", "category": "Shoulders", "variation": "90-Degree Bench Dumbbell", "image": "seated_dumbbell_shoulder_press.jpg" },
-  { "id": "arnold_press", "name": "Arnold Press", "category": "Shoulders", "variation": "Rotating Dumbbell Press", "image": "arnold_press.gif" },
-  { "id": "dumbbell_lateral_raises", "name": "Dumbbell Lateral Raises", "category": "Shoulders", "variation": "Side Delt Dumbbell", "image": "dumbbell_lateral_raises.gif" },
-  { "id": "cable_lateral_raises", "name": "Cable Lateral Raises", "category": "Shoulders", "variation": "Behind-the-Back / Cuff Cable", "image": "cable_lateral_raises.gif" },
-  { "id": "reverse_pec_deck_flyes", "name": "Reverse Pec Deck Flyes", "category": "Shoulders", "variation": "Machine Rear Delt", "image": "reverse_pec_deck_flyes.jpg" },
-  { "id": "barbell_shrugs", "name": "Barbell Shrugs", "category": "Shoulders", "variation": "Upper Traps Barbell", "image": "barbell_shrugs.jpg" },
-  { "id": "barbell_bicep_curl", "name": "Barbell Bicep Curl", "category": "Arms", "variation": "Straight Bar Supinated", "image": "barbell_bicep_curl.jpg" },
-  { "id": "dumbbell_bicep_curl", "name": "Dumbbell Bicep Curl", "category": "Arms", "variation": "Standing / Seated Supinated", "image": "dumbbell_bicep_curl.gif" },
-  { "id": "ez_bar_preacher_curl", "name": "EZ-Bar Preacher Curl", "category": "Arms", "variation": "Preacher Bench Isolated", "image": "ez_bar_preacher_curl.jpg" },
-  { "id": "incline_dumbbell_curl", "name": "Incline Dumbbell Curl", "category": "Arms", "variation": "Long Head Stretch (45-deg Bench)", "image": "incline_dumbbell_curl.jpg" },
-  { "id": "dumbbell_hammer_curl", "name": "Dumbbell Hammer Curl", "category": "Arms", "variation": "Neutral Grip Brachialis", "image": "dumbbell_hammer_curl.gif" },
-  { "id": "cable_rope_bicep_curl", "name": "Cable Rope Bicep Curl", "category": "Arms", "variation": "Low Pulley Constant Tension", "image": "cable_rope_bicep_curl.gif" },
-  { "id": "tricep_rope_pushdown", "name": "Tricep Rope Pushdown", "category": "Arms", "variation": "Cable Rope Flared Finish", "image": "tricep_rope_pushdown.gif" },
-  { "id": "straight_bar_tricep_pushdown", "name": "Straight Bar Tricep Pushdown", "category": "Arms", "variation": "Cable Overhand Straight Bar", "image": "straight_bar_tricep_pushdown.jpg" },
-  { "id": "ez_bar_skull_crushers", "name": "EZ-Bar Skull Crushers", "category": "Arms", "variation": "Lying Triceps Extension", "image": "ez_bar_skull_crushers.jpg" },
-  { "id": "overhead_dumbbell_tricep_extension", "name": "Overhead Dumbbell Tricep Extension", "category": "Arms", "variation": "Seated Long Head Tricep", "image": "overhead_dumbbell_tricep_extension.jpg" },
-  { "id": "close_grip_bench_press", "name": "Close-Grip Bench Press", "category": "Arms", "variation": "Barbell Tricep Compound", "image": "close_grip_bench_press.jpg" },
-  { "id": "hanging_leg_raises", "name": "Hanging Leg Raises", "category": "Core", "variation": "Pull-Up Bar Lower Abs", "image": "hanging_leg_raises.gif" },
-  { "id": "cable_woodchoppers", "name": "Cable Woodchoppers", "category": "Core", "variation": "Rotational Core Obliques", "image": "cable_woodchoppers.gif" },
-  { "id": "ab_wheel_rollout", "name": "Ab Wheel Rollout", "category": "Core", "variation": "Kneeling Dynamic Extension", "image": "ab_wheel_rollout.gif" },
-  { "id": "plank", "name": "Forearm Plank", "category": "Core", "variation": "Isometric Core Hold", "image": "plank.jpg" },
-  { "id": "treadmill_running", "name": "Treadmill Running", "category": "Cardio", "variation": "Incline & Interval Sprint", "image": "treadmill_running.gif" },
-  { "id": "rowing_machine", "name": "Rowing Machine", "category": "Cardio", "variation": "Full-Body Ergometer", "image": "rowing_machine.gif" },
-  { "id": "jump_rope", "name": "Jump Rope", "category": "Cardio", "variation": "High Intensity Conditioning", "image": "jump_rope.gif" }
-];
-
-const DEFAULT_WORKOUTS = [
-  {
-    "id": "workout_2026_09_04",
-    "date": "2026-09-04",
-    "duration": "55 mins",
-    "notes": "Focused on upper chest hypertrophy and smooth eccentric control.",
-    "exercises": [
-      {
-        "exerciseId": "barbell_bench_press",
-        "exerciseName": "Barbell Bench Press",
-        "variation": "Flat Barbell",
-        "startTime": "10:00",
-        "endTime": "10:20",
-        "duration": "20 mins",
-        "sets": [
-          { "set": 1, "reps": 10, "weight": "70 kg" },
-          { "set": 2, "reps": 8, "weight": "80 kg" },
-          { "set": 3, "reps": 6, "weight": "85 kg" }
-        ]
-      },
-      {
-        "exerciseId": "incline_dumbbell_press",
-        "exerciseName": "Incline Dumbbell Press",
-        "variation": "Incline 30°",
-        "startTime": "10:20",
-        "endTime": "10:40",
-        "duration": "20 mins",
-        "sets": [
-          { "set": 1, "reps": 12, "weight": "26 kg" },
-          { "set": 2, "reps": 10, "weight": "28 kg" },
-          { "set": 3, "reps": 8, "weight": "30 kg" }
-        ]
-      },
-      {
-        "exerciseId": "cable_chest_flyes",
-        "exerciseName": "Cable Chest Flyes",
-        "variation": "Mid-Height Cable",
-        "startTime": "10:40",
-        "endTime": "10:55",
-        "duration": "15 mins",
-        "sets": [
-          { "set": 1, "reps": 15, "weight": "14 kg" },
-          { "set": 2, "reps": 12, "weight": "16 kg" }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "workout_2026_09_02",
-    "date": "2026-09-02",
-    "duration": "60 mins",
-    "notes": "",
-    "exercises": [
-      {
-        "exerciseId": "conventional_deadlift",
-        "exerciseName": "Conventional Deadlift",
-        "variation": "Standard Conventional",
-        "startTime": "18:00",
-        "endTime": "18:25",
-        "duration": "25 mins",
-        "sets": [
-          { "set": 1, "reps": 5, "weight": "2 plates" },
-          { "set": 2, "reps": 5, "weight": "3 plates" },
-          { "set": 3, "reps": 3, "weight": "3.5 plates" }
-        ]
-      },
-      {
-        "exerciseId": "lat_pull_down",
-        "exerciseName": "Lat Pull Down",
-        "variation": "Wide Grip",
-        "startTime": "18:25",
-        "endTime": "18:45",
-        "duration": "20 mins",
-        "sets": [
-          { "set": 1, "reps": 10, "weight": "60 kg" },
-          { "set": 2, "reps": 10, "weight": "65 kg" },
-          { "set": 3, "reps": 8, "weight": "70 kg" }
-        ]
-      },
-      {
-        "exerciseId": "barbell_bicep_curl",
-        "exerciseName": "Barbell Bicep Curl",
-        "variation": "Standing EZ Bar",
-        "startTime": "18:45",
-        "endTime": "19:00",
-        "duration": "15 mins",
-        "sets": [
-          { "set": 1, "reps": 12, "weight": "30 kg" },
-          { "set": 2, "reps": 10, "weight": "32.5 kg" },
-          { "set": 3, "reps": 8, "weight": "35 kg" }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "workout_2026_08_27",
-    "date": "2026-08-27",
-    "duration": "30 mins",
-    "notes": "Back and shoulders session with strict tempo.",
-    "exercises": [
-      {
-        "exerciseId": "lat_pull_down",
-        "exerciseName": "Lat Pull Down",
-        "variation": "Wide Grip Cable",
-        "startTime": "10:00",
-        "endTime": "10:15",
-        "duration": "15 mins",
-        "sets": [
-          { "set": 1, "reps": 10, "weight": "60 kg" },
-          { "set": 2, "reps": 10, "weight": "65 kg" },
-          { "set": 3, "reps": 8, "weight": "70 kg" }
-        ]
-      },
-      {
-        "exerciseId": "dumbbell_lateral_raises",
-        "exerciseName": "Dumbbell Lateral Raises",
-        "variation": "Side Delt Dumbbell",
-        "startTime": "10:15",
-        "endTime": "10:30",
-        "duration": "15 mins",
-        "sets": [
-          { "set": 1, "reps": 15, "weight": "10 kg" },
-          { "set": 2, "reps": 12, "weight": "12 kg" },
-          { "set": 3, "reps": 10, "weight": "14 kg" }
-        ]
-      }
-    ]
-  }
-];
-
 // App State
 let exercises = [];
 let workouts = [];
@@ -263,31 +70,39 @@ async function loadData() {
     console.warn("Could not load image cache from localStorage", e);
   }
 
-  // Load Exercises
+  // Load Exercises from data/exercises.json and localStorage
+  let catalogExercises = [];
+  try {
+    const resp = await fetch("data/exercises.json");
+    if (resp.ok) {
+      catalogExercises = await resp.json();
+    }
+  } catch (e) {
+    console.warn("Could not fetch data/exercises.json", e);
+  }
+
   try {
     const localEx = localStorage.getItem("ironlog_exercises");
     if (localEx) {
       exercises = JSON.parse(localEx);
-      // Ensure any newly added catalog exercises exist even with existing localStorage cache
-      DEFAULT_EXERCISES.forEach((defEx) => {
-        const existing = exercises.find((e) => e.id === defEx.id);
-        if (!existing) {
-          exercises.push(defEx);
-        } else if (defEx.image && defEx.image.endsWith('.gif') && (!existing.image || existing.image.endsWith('.jpg'))) {
-          existing.image = defEx.image;
-        }
-      });
-    } else {
-      const resp = await fetch("data/exercises.json");
-      if (resp.ok) {
-        exercises = await resp.json();
-      } else {
-        exercises = DEFAULT_EXERCISES;
+      if (Array.isArray(exercises) && catalogExercises.length > 0) {
+        catalogExercises.forEach((catEx) => {
+          const existing = exercises.find((e) => e.id === catEx.id);
+          if (!existing) {
+            exercises.push(catEx);
+          } else if (catEx.image && catEx.image.endsWith('.gif') && (!existing.image || existing.image.endsWith('.jpg'))) {
+            existing.image = catEx.image;
+          }
+        });
+      } else if (!Array.isArray(exercises) || exercises.length === 0) {
+        exercises = catalogExercises;
       }
+    } else {
+      exercises = catalogExercises;
     }
   } catch (e) {
-    console.warn("Using default exercises", e);
-    exercises = DEFAULT_EXERCISES;
+    console.warn("Could not parse exercises from localStorage", e);
+    exercises = catalogExercises;
   }
 
   // Ensure dumbbell_bicep_curl in exercises uses .gif
@@ -299,7 +114,17 @@ async function loadData() {
     });
   }
 
-  // Load Workouts
+  // Load Workouts from data/workouts.json and localStorage
+  let catalogWorkouts = [];
+  try {
+    const resp = await fetch("data/workouts.json");
+    if (resp.ok) {
+      catalogWorkouts = await resp.json();
+    }
+  } catch (e) {
+    console.warn("Could not fetch data/workouts.json", e);
+  }
+
   try {
     const localWorkouts = localStorage.getItem("ironlog_workouts");
     if (localWorkouts) {
@@ -312,28 +137,17 @@ async function loadData() {
     console.warn("Could not parse workouts from localStorage", e);
   }
 
-  // If workouts is empty (e.g. wiped or first visit), restore from data/workouts.json or DEFAULT_WORKOUTS
   if (!workouts || workouts.length === 0) {
-    try {
-      const resp = await fetch("data/workouts.json");
-      if (resp.ok) {
-        workouts = await resp.json();
-      } else {
-        workouts = DEFAULT_WORKOUTS;
+    workouts = catalogWorkouts;
+  } else if (catalogWorkouts.length > 0) {
+    // Ensure workouts from data/workouts.json exist in the list so historical logs are never lost
+    catalogWorkouts.forEach((catW) => {
+      const existing = workouts.find((w) => w.id === catW.id || w.date === catW.date);
+      if (!existing) {
+        workouts.push(catW);
       }
-    } catch (e) {
-      console.warn("Using default workouts", e);
-      workouts = DEFAULT_WORKOUTS;
-    }
+    });
   }
-
-  // Ensure default/existing workouts exist in the list so historical logs are never lost
-  DEFAULT_WORKOUTS.forEach((defW) => {
-    const existing = workouts.find((w) => w.id === defW.id || w.date === defW.date);
-    if (!existing) {
-      workouts.push(defW);
-    }
-  });
 
   // Ensure every workout has an ID and single-exercise sessions carry duration down to the exercise
   workouts.forEach((w) => {
