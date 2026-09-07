@@ -105,11 +105,37 @@ async function loadData() {
     exercises = catalogExercises;
   }
 
-  // Ensure dumbbell_bicep_curl in exercises uses .gif
+  // Ensure dumbbell_bicep_curl and dumbbell_pullover in exercises use .gif
   if (exercises) {
     exercises.forEach((ex) => {
       if ((ex.id === "dumbbell_bicep_curl" || ex.name === "Dumbbell Bicep Curl" || ex.name === "Dumbell Bicep Curl") && (!ex.image || ex.image.endsWith(".jpg"))) {
         ex.image = "dumbbell_bicep_curl.gif";
+      }
+      if ((ex.id === "dumbbell_pullover" || ex.name === "Dumbbell Pullover" || ex.name === "Dumbell Pullover") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "Dumbbell Pullover.gif";
+      }
+      if ((ex.id === "smith_machine_shoulder_press" || ex.name === "Smith Machine Shoulder Press") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "Smith Machine Shoulder Press.gif";
+      }
+      if (ex.id === "reverse_pec_deck_flyes") {
+        ex.id = "reverse_pec_deck_fly_machine";
+        ex.name = "Reverse Pec Deck Fly Machine";
+        ex.variation = "Machine Rear Delt / Reverse Pec Flyes";
+        ex.image = "Reverse Pec Deck Fly Machine.gif";
+      }
+      if ((ex.id === "reverse_pec_deck_fly_machine" || ex.name === "Reverse Pec Deck Fly Machine") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "Reverse Pec Deck Fly Machine.gif";
+      }
+      if ((ex.id === "pec_deck_machine_flyes" || ex.name === "Pec Deck Machine Flyes" || ex.name === "Pec Deck Fly Machine") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "Pec Deck Fly Machine.gif";
+      }
+      if (ex.id === "barbell_shrugs") {
+        ex.id = "barbell_shrug";
+        ex.name = "Barbell Shrug";
+        ex.image = "Barbell Shrug.gif";
+      }
+      if ((ex.id === "barbell_shrug" || ex.name === "Barbell Shrug" || ex.name === "Barbell Shrugs") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "Barbell Shrug.gif";
       }
     });
   }
@@ -161,6 +187,31 @@ async function loadData() {
       w.exercises.forEach((ex) => {
         if ((ex.exerciseId === "dumbbell_bicep_curl" || ex.exerciseName === "Dumbbell Bicep Curl" || ex.exerciseName === "Dumbell Bicep Curl") && (!ex.image || ex.image.endsWith(".jpg"))) {
           ex.image = "dumbbell_bicep_curl.gif";
+        }
+        if ((ex.exerciseId === "dumbbell_pullover" || ex.exerciseName === "Dumbbell Pullover" || ex.exerciseName === "Dumbell Pullover") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "Dumbbell Pullover.gif";
+        }
+        if ((ex.exerciseId === "smith_machine_shoulder_press" || ex.exerciseName === "Smith Machine Shoulder Press") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "Smith Machine Shoulder Press.gif";
+        }
+        if (ex.exerciseId === "reverse_pec_deck_flyes") {
+          ex.exerciseId = "reverse_pec_deck_fly_machine";
+          ex.exerciseName = "Reverse Pec Deck Fly Machine";
+          ex.image = "Reverse Pec Deck Fly Machine.gif";
+        }
+        if ((ex.exerciseId === "reverse_pec_deck_fly_machine" || ex.exerciseName === "Reverse Pec Deck Fly Machine") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "Reverse Pec Deck Fly Machine.gif";
+        }
+        if ((ex.exerciseId === "pec_deck_machine_flyes" || ex.exerciseName === "Pec Deck Machine Flyes" || ex.exerciseName === "Pec Deck Fly Machine") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "Pec Deck Fly Machine.gif";
+        }
+        if (ex.exerciseId === "barbell_shrugs") {
+          ex.exerciseId = "barbell_shrug";
+          ex.exerciseName = "Barbell Shrug";
+          ex.image = "Barbell Shrug.gif";
+        }
+        if ((ex.exerciseId === "barbell_shrug" || ex.exerciseName === "Barbell Shrug" || ex.exerciseName === "Barbell Shrugs") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "Barbell Shrug.gif";
         }
       });
     }
@@ -787,7 +838,18 @@ function getResolvedExerciseImage(ex, catalogEx) {
     "dumbell_lateral_raises": "dumbbell_lateral_raises.gif",
     "dumbell_lateral_raise": "dumbbell_lateral_raises.gif",
     "lat_pull_down": "lat_pull_down.gif",
-    "lat_pulldown_wide_grip": "lat_pull_down.gif"
+    "lat_pulldown_wide_grip": "lat_pull_down.gif",
+    "dumbbell_pullover": "Dumbbell Pullover.gif",
+    "dumbell_pullover": "Dumbbell Pullover.gif",
+    "smith_machine_shoulder_press": "Smith Machine Shoulder Press.gif",
+    "reverse_pec_deck_fly_machine": "Reverse Pec Deck Fly Machine.gif",
+    "reverse_pec_deck_flyes": "Reverse Pec Deck Fly Machine.gif",
+    "reverse_pec_deck": "Reverse Pec Deck Fly Machine.gif",
+    "pec_deck_machine_flyes": "Pec Deck Fly Machine.gif",
+    "pec_deck_fly_machine": "Pec Deck Fly Machine.gif",
+    "pec_deck": "Pec Deck Fly Machine.gif",
+    "barbell_shrug": "Barbell Shrug.gif",
+    "barbell_shrugs": "Barbell Shrug.gif"
   };
 
   const matchedLocal = knownLocalMap[exId] || knownLocalMap[baseSanitized];

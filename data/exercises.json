@@ -42,6 +42,13 @@
     "image": "incline_dumbbell_press.jpg"
   },
   {
+    "id": "dumbbell_pullover",
+    "name": "Dumbbell Pullover",
+    "category": "Chest",
+    "variation": "Flat Bench / Cross-Bench (Chest & Lats)",
+    "image": "Dumbbell Pullover.gif"
+  },
+  {
     "id": "cable_chest_flyes",
     "name": "Cable Chest Flyes",
     "category": "Chest",
@@ -74,7 +81,7 @@
     "name": "Pec Deck Machine Flyes",
     "category": "Chest",
     "variation": "Machine Pec Fly",
-    "image": "pec_deck_machine_flyes.jpg"
+    "image": "Pec Deck Fly Machine.gif"
   },
   {
     "id": "seated_chest_press",
@@ -364,6 +371,13 @@
     "image": "Shoulder Press Machine.gif"
   },
   {
+    "id": "smith_machine_shoulder_press",
+    "name": "Smith Machine Shoulder Press",
+    "category": "Shoulders",
+    "variation": "Seated Smith Machine Overhead Press",
+    "image": "Smith Machine Shoulder Press.gif"
+  },
+  {
     "id": "arnold_press",
     "name": "Arnold Press",
     "category": "Shoulders",
@@ -392,11 +406,11 @@
     "image": "cable_lateral_raises.gif"
   },
   {
-    "id": "reverse_pec_deck_flyes",
-    "name": "Reverse Pec Deck Flyes",
+    "id": "reverse_pec_deck_fly_machine",
+    "name": "Reverse Pec Deck Fly Machine",
     "category": "Shoulders",
-    "variation": "Machine Rear Delt",
-    "image": "reverse_pec_deck_flyes.jpg"
+    "variation": "Machine Rear Delt / Reverse Pec Flyes",
+    "image": "Reverse Pec Deck Fly Machine.gif"
   },
   {
     "id": "cable_upright_row",
@@ -406,11 +420,11 @@
     "image": "Cable Upright Row.gif"
   },
   {
-    "id": "barbell_shrugs",
-    "name": "Barbell Shrugs",
+    "id": "barbell_shrug",
+    "name": "Barbell Shrug",
     "category": "Shoulders",
     "variation": "Upper Traps Barbell",
-    "image": "barbell_shrugs.jpg"
+    "image": "Barbell Shrug.gif"
   },
   {
     "id": "barbell_bicep_curl",
