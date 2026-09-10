@@ -457,112 +457,112 @@
   {
     "id": "barbell_bicep_curl",
     "name": "Barbell Bicep Curl",
-    "category": "Arms",
+    "category": "Biceps",
     "variation": "Straight Bar Supinated",
     "image": "barbell_bicep_curl.jpg"
   },
   {
     "id": "dumbbell_bicep_curl",
     "name": "Dumbbell Bicep Curl",
-    "category": "Arms",
+    "category": "Biceps",
     "variation": "Standing / Seated Supinated",
     "image": "dumbbell_bicep_curl.gif"
   },
   {
     "id": "ez_bar_curl",
     "name": "EZ Bar Curl",
-    "category": "Arms",
+    "category": "Biceps",
     "variation": "Standing EZ-Bar Supinated",
     "image": "EZ Bar Curl.gif"
   },
   {
     "id": "ez_bar_preacher_curl",
     "name": "EZ-Bar Preacher Curl",
-    "category": "Arms",
+    "category": "Biceps",
     "variation": "Preacher Bench Isolated",
     "image": "ez_bar_preacher_curl.jpg"
   },
   {
     "id": "dumbbell_preacher_curl",
     "name": "Dumbbell Preacher Curl",
-    "category": "Arms",
+    "category": "Biceps",
     "variation": "Single-Arm Preacher Bench",
     "image": "Dumbbell Preacher Curl.gif"
   },
   {
     "id": "incline_dumbbell_curl",
     "name": "Incline Dumbbell Curl",
-    "category": "Arms",
+    "category": "Biceps",
     "variation": "Long Head Stretch (45-deg Bench)",
     "image": "incline_dumbbell_curl.jpg"
   },
   {
     "id": "dumbbell_hammer_curl",
     "name": "Dumbbell Hammer Curl",
-    "category": "Arms",
+    "category": "Biceps",
     "variation": "Neutral Grip Brachialis",
     "image": "dumbbell_hammer_curl.gif"
   },
   {
     "id": "cross_body_hammer_curl",
     "name": "Cross-Body Hammer Curl",
-    "category": "Arms",
+    "category": "Biceps",
     "variation": "Dumbbell Across Chest (Brachialis)",
     "image": "Cross-Body Hammer Curl.gif"
   },
   {
     "id": "cable_rope_bicep_curl",
     "name": "Cable Rope Bicep Curl",
-    "category": "Arms",
+    "category": "Biceps",
     "variation": "Low Pulley Constant Tension",
     "image": "cable_rope_bicep_curl.gif"
   },
   {
     "id": "cable_hammer_curl",
     "name": "Cable Hammer Curl",
-    "category": "Arms",
+    "category": "Biceps",
     "variation": "Rope Attachment Neutral Grip",
     "image": "Cable Hammer Curl.gif"
   },
   {
     "id": "tricep_rope_pushdown",
     "name": "Tricep Rope Pushdown",
-    "category": "Arms",
+    "category": "Triceps",
     "variation": "Cable Rope Flared Finish",
     "image": "tricep_rope_pushdown.gif"
   },
   {
     "id": "straight_bar_tricep_pushdown",
     "name": "Straight Bar Tricep Pushdown",
-    "category": "Arms",
+    "category": "Triceps",
     "variation": "Cable Overhand Straight Bar",
     "image": "straight_bar_tricep_pushdown.jpg"
   },
   {
     "id": "ez_bar_skull_crushers",
     "name": "EZ-Bar Skull Crushers",
-    "category": "Arms",
+    "category": "Triceps",
     "variation": "Lying Triceps Extension",
     "image": "ez_bar_skull_crushers.jpg"
   },
   {
     "id": "overhead_dumbbell_tricep_extension",
     "name": "Overhead Dumbbell Tricep Extension",
-    "category": "Arms",
+    "category": "Triceps",
     "variation": "Seated Long Head Tricep",
     "image": "overhead_dumbbell_tricep_extension.jpg"
   },
   {
     "id": "close_grip_bench_press",
     "name": "Close-Grip Bench Press",
-    "category": "Arms",
+    "category": "Triceps",
     "variation": "Barbell Tricep Compound",
     "image": "close_grip_bench_press.jpg"
   },
   {
     "id": "wrist_curl",
     "name": "Wrist Curl",
-    "category": "Arms",
+    "category": "Biceps",
     "variation": "Barbell / Dumbbell Forearm Flexion",
     "image": "Wrist Curl.jpg"
   },

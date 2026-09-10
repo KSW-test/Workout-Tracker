@@ -21,7 +21,7 @@ Designed for date-based workout logging, exercise variations across all muscle g
   * When you choose an image or GIF in the web interface, it automatically formats and renames the file to match the workout (e.g., `Barbell Bench Press` $\rightarrow$ `barbell_bench_press.jpg`, `Push-Ups` $\rightarrow$ `push_ups.gif`).
   * Provides a 1-click download button for the renamed file so you can drop it directly into `images/workouts/`.
 * **📚 50+ Pre-populated Exercises & Variations:**
-  * Comprehensive catalog covering Chest, Back, Legs, Shoulders, Arms, Core, and Cardio.
+  * Comprehensive catalog covering Chest, Back, Legs, Shoulders, Biceps, Triceps, Core, and Cardio.
   * Barbell, Dumbbell, Cable, Machine, and Bodyweight variations included.
   * Ability to add your own custom exercises anytime.
 * **🔍 Search & Filter:** Filter by muscle group categories or search across exercises, dates, and notes.

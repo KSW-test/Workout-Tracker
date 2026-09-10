@@ -32,6 +32,8 @@ const CATEGORY_ICONS = {
   "Back": "🧗",
   "Legs": "🦵",
   "Shoulders": "🦾",
+  "Biceps": "💪",
+  "Triceps": "🦾",
   "Arms": "💪",
   "Core": "⚡",
   "Cardio": "🏃"
@@ -90,8 +92,13 @@ async function loadData() {
           const existing = exercises.find((e) => e.id === catEx.id);
           if (!existing) {
             exercises.push(catEx);
-          } else if (catEx.image && catEx.image.endsWith('.gif') && (!existing.image || existing.image.endsWith('.jpg'))) {
-            existing.image = catEx.image;
+          } else {
+            if (catEx.category && catEx.category !== existing.category) {
+              existing.category = catEx.category;
+            }
+            if (catEx.image && catEx.image.endsWith('.gif') && (!existing.image || existing.image.endsWith('.jpg'))) {
+              existing.image = catEx.image;
+            }
           }
         });
       } else if (!Array.isArray(exercises) || exercises.length === 0) {
@@ -149,6 +156,10 @@ async function loadData() {
       if ((ex.id === "seated_row_machine" || ex.name === "Seated Row Machine") && (!ex.image || ex.image.endsWith(".jpg"))) {
         ex.image = "Seated Row Machine.gif";
       }
+      if (ex.category === "Arms") {
+        const lower = (ex.name || ex.id || "").toLowerCase();
+        ex.category = (lower.includes("tricep") || lower.includes("skull") || lower.includes("close_grip") || lower.includes("close-grip")) ? "Triceps" : "Biceps";
+      }
     });
   }
 
@@ -183,6 +194,12 @@ async function loadData() {
       const existing = workouts.find((w) => w.id === catW.id || w.date === catW.date);
       if (!existing) {
         workouts.push(catW);
+      } else if (Array.isArray(existing.exercises) && Array.isArray(catW.exercises)) {
+        existing.exercises.forEach((ex, i) => {
+          if (catW.exercises[i] && catW.exercises[i].category && (ex.category === "Arms" || !ex.category)) {
+            ex.category = catW.exercises[i].category;
+          }
+        });
       }
     });
   }
@@ -236,6 +253,10 @@ async function loadData() {
         }
         if ((ex.exerciseId === "seated_row_machine" || ex.exerciseName === "Seated Row Machine") && (!ex.image || ex.image.endsWith(".jpg"))) {
           ex.image = "Seated Row Machine.gif";
+        }
+        if (ex.category === "Arms") {
+          const lower = (ex.exerciseName || ex.exerciseId || "").toLowerCase();
+          ex.category = (lower.includes("tricep") || lower.includes("skull") || lower.includes("close_grip") || lower.includes("close-grip")) ? "Triceps" : "Biceps";
         }
       });
     }
@@ -660,7 +681,7 @@ function sortExercisesByStartTime(exercisesList) {
   });
 }
 
-// Derive body part names (Chest, Arms, Legs, etc.) from the workouts done on a date
+// Derive body part names (Chest, Biceps, Triceps, Legs, etc.) from the workouts done on a date
 function deriveBodyPartsForDate(dateStr) {
   const dayWorkouts = workouts.filter((w) => w.date === dateStr);
   const categories = [];
@@ -668,7 +689,11 @@ function deriveBodyPartsForDate(dateStr) {
   dayWorkouts.forEach((w) => {
     (w.exercises || []).forEach((ex) => {
       const catalogEx = getExerciseById(ex.exerciseId) || getExerciseByName(ex.exerciseName);
-      const cat = catalogEx ? catalogEx.category : (ex.category || "Other");
+      let cat = catalogEx ? catalogEx.category : (ex.category || "Other");
+      if (cat === "Arms") {
+        const lower = (ex.exerciseName || ex.exerciseId || "").toLowerCase();
+        cat = (lower.includes("tricep") || lower.includes("skull") || lower.includes("close_grip") || lower.includes("close-grip")) ? "Triceps" : "Biceps";
+      }
       if (cat && !categories.includes(cat)) {
         categories.push(cat);
       }
@@ -726,7 +751,12 @@ function renderDayTiles() {
       const hasCat = dayWorkouts.some((w) =>
         (w.exercises || []).some((ex) => {
           const catEx = getExerciseById(ex.exerciseId) || getExerciseByName(ex.exerciseName);
-          return (catEx && catEx.category === activeCategory) || (ex.category === activeCategory);
+          let cat = (catEx && catEx.category) || ex.category;
+          if (cat === "Arms") {
+            const lower = (ex.exerciseName || ex.exerciseId || "").toLowerCase();
+            cat = (lower.includes("tricep") || lower.includes("skull") || lower.includes("close_grip") || lower.includes("close-grip")) ? "Triceps" : "Biceps";
+          }
+          return cat === activeCategory;
         })
       );
       if (!hasCat) return false;
@@ -1006,7 +1036,11 @@ function renderDayDetailScreen(dateStr) {
       const imgInfo = getResolvedExerciseImage(ex, catalogEx);
       const imageName = imgInfo.imageName;
       const isGif = imgInfo.isGif;
-      const category = catalogEx.category || "Chest";
+      let category = catalogEx.category || ex.category || "Chest";
+      if (category === "Arms") {
+        const lower = (catalogEx.name || ex.exerciseName || "").toLowerCase();
+        category = (lower.includes("tricep") || lower.includes("skull") || lower.includes("close_grip") || lower.includes("close-grip")) ? "Triceps" : "Biceps";
+      }
       const icon = CATEGORY_ICONS[category] || "🏋️";
       const imgSrc = imgInfo.src;
 
@@ -1164,10 +1198,14 @@ function renderEditExerciseScreen(context) {
       const initName = context.exerciseName || "";
       const initId = context.exerciseId || (initName ? getSanitizedFilename(initName, "") : "");
       if (initName) {
+        const lowerInit = initName.toLowerCase();
+        const initCategory = (lowerInit.includes("tricep") || lowerInit.includes("skull") || lowerInit.includes("close_grip") || lowerInit.includes("close-grip"))
+          ? "Triceps"
+          : (lowerInit.includes("bicep") || lowerInit.includes("curl") ? "Biceps" : "Chest");
         exData = {
           exerciseId: initId,
           exerciseName: initName,
-          category: "Arms",
+          category: initCategory,
           variation: "Standard",
           image: getSanitizedFilename(initName, "gif"),
           startTime: "",
@@ -1216,8 +1254,19 @@ function renderEditExerciseScreen(context) {
   const effectiveStartTime = normalizeTimeTo24H(exData.startTime);
   const effectiveEndTime = normalizeTimeTo24H(exData.endTime);
 
-  const catalogEx = getExerciseById(exData.exerciseId) || getExerciseByName(exData.exerciseName) || exercises[0];
-  const currentCategory = exData.category || catalogEx.category || "Chest";
+  const catalogEx = getExerciseById(exData.exerciseId) || getExerciseByName(exData.exerciseName) || exercises[0] || {
+    id: exData.exerciseId || getSanitizedFilename(exData.exerciseName, ""),
+    name: exData.exerciseName || "Exercise",
+    category: "Chest",
+    variation: "Standard",
+    image: getSanitizedFilename(exData.exerciseName || "exercise", "gif")
+  };
+
+  let currentCategory = exData.category || catalogEx.category || "Chest";
+  if (currentCategory === "Arms") {
+    const lower = (exData.exerciseName || catalogEx.name || "").toLowerCase();
+    currentCategory = (lower.includes("tricep") || lower.includes("skull") || lower.includes("close_grip") || lower.includes("close-grip")) ? "Triceps" : "Biceps";
+  }
   const currentVariation = exData.variation || catalogEx.variation || "";
   const currentImgInfo = getResolvedExerciseImage(exData, catalogEx);
 
@@ -1303,7 +1352,8 @@ function renderEditExerciseScreen(context) {
             <option value="Back" ${currentCategory === 'Back' ? 'selected' : ''}>🧗 Back</option>
             <option value="Legs" ${currentCategory === 'Legs' ? 'selected' : ''}>🦵 Legs</option>
             <option value="Shoulders" ${currentCategory === 'Shoulders' ? 'selected' : ''}>🦾 Shoulders</option>
-            <option value="Arms" ${currentCategory === 'Arms' ? 'selected' : ''}>💪 Arms</option>
+            <option value="Biceps" ${currentCategory === 'Biceps' ? 'selected' : ''}>💪 Biceps</option>
+            <option value="Triceps" ${currentCategory === 'Triceps' ? 'selected' : ''}>🦾 Triceps</option>
             <option value="Core" ${currentCategory === 'Core' ? 'selected' : ''}>⚡ Core</option>
             <option value="Cardio" ${currentCategory === 'Cardio' ? 'selected' : ''}>🏃 Cardio</option>
             <option value="Other" ${currentCategory === 'Other' ? 'selected' : ''}>General</option>
@@ -2008,7 +2058,7 @@ function searchExercises(query) {
     const category = (ex.category || "").toLowerCase();
     const variation = (ex.variation || "").toLowerCase();
     const id = (ex.id || "").toLowerCase();
-    const searchableText = `${name} ${category} ${variation} ${id}`;
+    const searchableText = `${name} ${category} ${variation} ${id} ${(category === 'Biceps' || category === 'Triceps') ? 'arms arm' : ''}`;
 
     return words.every((word) => searchableText.includes(word));
   });

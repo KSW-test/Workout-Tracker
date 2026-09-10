@@ -685,6 +685,8 @@ body {
 .category-tag.Legs { background: rgba(16, 185, 129, 0.15); color: #34d399; }
 .category-tag.Shoulders { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
 .category-tag.Arms { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+.category-tag.Biceps { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+.category-tag.Triceps { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
 .category-tag.Core { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
 .category-tag.Cardio { background: rgba(20, 184, 166, 0.15); color: #2dd4bf; }
 
