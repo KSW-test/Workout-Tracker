@@ -105,6 +105,13 @@
     "image": "chest_dips.gif"
   },
   {
+    "id": "seated_dips_machine",
+    "name": "Seated Dips Machine",
+    "category": "Chest",
+    "variation": "Machine Dip / Selectorized (Chest & Triceps)",
+    "image": "Seated Dips Machine.gif"
+  },
+  {
     "id": "push_ups",
     "name": "Push-Ups",
     "category": "Chest",
@@ -196,6 +203,13 @@
     "image": "One Arm Low Row.gif"
   },
   {
+    "id": "high_pulley_cable_row",
+    "name": "High Pulley Cable Row",
+    "category": "Back",
+    "variation": "High Pulley Cable (Upper Back / Lats)",
+    "image": "High Pulley Cable Row.gif"
+  },
+  {
     "id": "t_bar_row",
     "name": "T-Bar Row",
     "category": "Back",
@@ -210,6 +224,13 @@
     "image": "T-bar Row Machine.gif"
   },
   {
+    "id": "seated_row_machine",
+    "name": "Seated Row Machine",
+    "category": "Back",
+    "variation": "Chest-Supported Machine / Selectorized Row",
+    "image": "Seated Row Machine.gif"
+  },
+  {
     "id": "face_pulls",
     "name": "Face Pulls",
     "category": "Back",
@@ -222,6 +243,13 @@
     "category": "Back",
     "variation": "Straight-Arm Cable Lat Isolation",
     "image": "Stiff Arm Pulldown.gif"
+  },
+  {
+    "id": "cable_pullover",
+    "name": "Cable Pullover",
+    "category": "Back",
+    "variation": "Standing Cable Lat Pullover",
+    "image": "Cable Pullover.gif"
   },
   {
     "id": "barbell_back_squat",

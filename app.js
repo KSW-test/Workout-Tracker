@@ -137,6 +137,18 @@ async function loadData() {
       if ((ex.id === "barbell_shrug" || ex.name === "Barbell Shrug" || ex.name === "Barbell Shrugs") && (!ex.image || ex.image.endsWith(".jpg"))) {
         ex.image = "Barbell Shrug.gif";
       }
+      if ((ex.id === "high_pulley_cable_row" || ex.name === "High Pulley Cable Row") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "High Pulley Cable Row.gif";
+      }
+      if ((ex.id === "cable_pullover" || ex.name === "Cable Pullover") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "Cable Pullover.gif";
+      }
+      if ((ex.id === "seated_dips_machine" || ex.name === "Seated Dips Machine" || ex.id === "seated_dip_machine") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "Seated Dips Machine.gif";
+      }
+      if ((ex.id === "seated_row_machine" || ex.name === "Seated Row Machine") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "Seated Row Machine.gif";
+      }
     });
   }
 
@@ -212,6 +224,18 @@ async function loadData() {
         }
         if ((ex.exerciseId === "barbell_shrug" || ex.exerciseName === "Barbell Shrug" || ex.exerciseName === "Barbell Shrugs") && (!ex.image || ex.image.endsWith(".jpg"))) {
           ex.image = "Barbell Shrug.gif";
+        }
+        if ((ex.exerciseId === "high_pulley_cable_row" || ex.exerciseName === "High Pulley Cable Row") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "High Pulley Cable Row.gif";
+        }
+        if ((ex.exerciseId === "cable_pullover" || ex.exerciseName === "Cable Pullover") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "Cable Pullover.gif";
+        }
+        if ((ex.exerciseId === "seated_dips_machine" || ex.exerciseName === "Seated Dips Machine" || ex.exerciseId === "seated_dip_machine") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "Seated Dips Machine.gif";
+        }
+        if ((ex.exerciseId === "seated_row_machine" || ex.exerciseName === "Seated Row Machine") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "Seated Row Machine.gif";
         }
       });
     }
@@ -849,7 +873,15 @@ function getResolvedExerciseImage(ex, catalogEx) {
     "pec_deck_fly_machine": "Pec Deck Fly Machine.gif",
     "pec_deck": "Pec Deck Fly Machine.gif",
     "barbell_shrug": "Barbell Shrug.gif",
-    "barbell_shrugs": "Barbell Shrug.gif"
+    "barbell_shrugs": "Barbell Shrug.gif",
+    "high_pulley_cable_row": "High Pulley Cable Row.gif",
+    "high_pulley_cable_rows": "High Pulley Cable Row.gif",
+    "cable_pullover": "Cable Pullover.gif",
+    "cable_pullovers": "Cable Pullover.gif",
+    "seated_dips_machine": "Seated Dips Machine.gif",
+    "seated_dip_machine": "Seated Dips Machine.gif",
+    "seated_row_machine": "Seated Row Machine.gif",
+    "seated_rows_machine": "Seated Row Machine.gif"
   };
 
   const matchedLocal = knownLocalMap[exId] || knownLocalMap[baseSanitized];

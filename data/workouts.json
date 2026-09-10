@@ -1,5 +1,624 @@
 [
   {
+    "id": "workout_2026_09_10_8778",
+    "date": "2026-09-10",
+    "duration": "56 mins",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "barbell_bent_over_row",
+        "exerciseName": "Barbell Bent-Over Row",
+        "category": "Back",
+        "variation": "Overhand Pronated Grip",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "0 kg",
+            "reps": 15
+          }
+        ],
+        "image": "Underhand Barbell Row.gif",
+        "startTime": "10:14",
+        "endTime": "10:21",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "seated_row_machine",
+        "exerciseName": "Seated Row Machine",
+        "category": "Back",
+        "variation": "Vertical/Close grip",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "15 kg",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "15 kg",
+            "reps": 20
+          },
+          {
+            "set": 3,
+            "weight": "25 kg",
+            "reps": 15
+          }
+        ],
+        "image": "Seated Row Machine.gif",
+        "startTime": "10:22",
+        "endTime": "10:29",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "lat_pull_down",
+        "exerciseName": "Lat Pull Down",
+        "category": "Back",
+        "variation": "Wide Grip Cable",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "7 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "8 plates",
+            "reps": 12
+          }
+        ],
+        "image": "lat_pull_down.gif",
+        "startTime": "10:31",
+        "endTime": "10:38",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "seated_cable_row",
+        "exerciseName": "Seated Cable Row",
+        "category": "Back",
+        "variation": "Neutral Grip Cable",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "7 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "9 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Seated Cable Row.gif",
+        "startTime": "10:39",
+        "endTime": "10:45",
+        "duration": "6 mins"
+      },
+      {
+        "exerciseId": "ez_bar_curl",
+        "exerciseName": "EZ Bar Curl",
+        "category": "Arms",
+        "variation": "Standing Close grip",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "2.5 kg",
+            "reps": 10
+          },
+          {
+            "set": 3,
+            "weight": "5 kg",
+            "reps": 10
+          },
+          {
+            "set": 4,
+            "weight": "5 kg",
+            "reps": 10
+          }
+        ],
+        "image": "EZ Bar Curl.gif",
+        "startTime": "10:46",
+        "endTime": "10:59",
+        "duration": "13 mins"
+      },
+      {
+        "exerciseId": "dumbbell_hammer_curl",
+        "exerciseName": "Dumbbell Hammer Curl",
+        "category": "Arms",
+        "variation": "Neutral Grip Brachialis",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "12.5 kg",
+            "reps": 8
+          }
+        ],
+        "image": "dumbbell_hammer_curl.gif",
+        "startTime": "11:01",
+        "endTime": "11:09",
+        "duration": "8 mins"
+      },
+      {
+        "exerciseId": "dumbbell_bicep_curl",
+        "exerciseName": "Dumbbell Bicep Curl",
+        "category": "Arms",
+        "variation": "Sitting",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "12.5 kg",
+            "reps": 9
+          }
+        ],
+        "image": "dumbbell_bicep_curl.gif",
+        "startTime": "11:12",
+        "endTime": "11:20",
+        "duration": "8 mins"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_09_09_3141",
+    "date": "2026-09-09",
+    "duration": "52 mins",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "leg_press",
+        "exerciseName": "Leg Press",
+        "category": "Legs",
+        "variation": "45-Degree Incline Machine",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "20 kg",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "40 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "60 kg",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "80 kg",
+            "reps": 10
+          },
+          {
+            "set": 5,
+            "weight": "60 kg",
+            "reps": 15
+          },
+          {
+            "set": 6,
+            "weight": "40 kg",
+            "reps": 15
+          },
+          {
+            "set": 7,
+            "weight": "20 kg",
+            "reps": 15
+          },
+          {
+            "set": 8,
+            "weight": "0 kg",
+            "reps": 20
+          }
+        ],
+        "image": "legpress45-leg-press.gif",
+        "startTime": "10:24",
+        "endTime": "10:34",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "lunge",
+        "exerciseName": "Lunge",
+        "category": "Legs",
+        "variation": "Standard",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "Bodyweight",
+            "reps": 12
+          }
+        ],
+        "image": "Lunge.gif",
+        "startTime": "10:30",
+        "endTime": "10:44",
+        "duration": "14 mins"
+      },
+      {
+        "exerciseId": "leg_extension",
+        "exerciseName": "Leg Extension",
+        "category": "Legs",
+        "variation": "Machine Quad Isolation",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "3 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Leg Extension.gif",
+        "startTime": "10:45",
+        "endTime": "10:55",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "seated_dips_machine",
+        "exerciseName": "Seated Dips Machine",
+        "category": "Chest",
+        "variation": "Machine Dip / Selectorized (Chest & Triceps)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "6 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "8 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Seated Dips Machine.gif",
+        "startTime": "10:55",
+        "endTime": "10:59",
+        "duration": "4 mins"
+      },
+      {
+        "exerciseId": "overhead_dumbbell_tricep_extension",
+        "exerciseName": "Overhead Dumbbell Tricep Extension",
+        "category": "Arms",
+        "variation": "Seated Single & Both Arm",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "10 kg",
+            "reps": 10
+          }
+        ],
+        "image": "Seated Dumbbell Tricep Extension.gif",
+        "startTime": "11:00",
+        "endTime": "11:06",
+        "duration": "6 mins"
+      },
+      {
+        "exerciseId": "straight_bar_tricep_pushdown",
+        "exerciseName": "Straight Bar Tricep Pushdown",
+        "category": "Arms",
+        "variation": "Cable Overhand Straight Bar",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "4 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "5 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "6 plates",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "8 plates",
+            "reps": 5
+          },
+          {
+            "set": 5,
+            "weight": "6 plates",
+            "reps": 5
+          },
+          {
+            "set": 6,
+            "weight": "4 plates",
+            "reps": 10
+          },
+          {
+            "set": 7,
+            "weight": "3 plates",
+            "reps": 10
+          },
+          {
+            "set": 8,
+            "weight": "2 plates",
+            "reps": 10
+          }
+        ],
+        "image": "Cable Tricep Pushdown.gif",
+        "startTime": "11:10",
+        "endTime": "11:18",
+        "duration": "8 mins"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_09_08_8487",
+    "date": "2026-09-08",
+    "duration": "57 mins",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "lat_pull_down",
+        "exerciseName": "Lat Pull Down",
+        "category": "Back",
+        "variation": "Wide Grip Cable",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "2 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "4 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "6 plates",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "8 plates",
+            "reps": 10
+          }
+        ],
+        "image": "lat_pull_down.gif",
+        "startTime": "10:10",
+        "endTime": "10:20",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "high_pulley_cable_row",
+        "exerciseName": "High Pulley Cable Row",
+        "category": "Back",
+        "variation": "High Pulley Cable (Upper Back / Lats)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "55 kg",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "65 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "75 kg",
+            "reps": 15
+          }
+        ],
+        "image": "High Pulley Cable Row.gif",
+        "startTime": "10:20",
+        "endTime": "10:30",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "single_arm_dumbbell_row",
+        "exerciseName": "Single-Arm Dumbbell Row",
+        "category": "Back",
+        "variation": "Bench Supported Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "12.5 kg",
+            "reps": 11
+          }
+        ],
+        "image": "One Arm Dumbbell Row.gif",
+        "startTime": "10:32",
+        "endTime": "10:43",
+        "duration": "11 mins"
+      },
+      {
+        "exerciseId": "barbell_bent_over_row",
+        "exerciseName": "Barbell Bent-Over Row",
+        "category": "Back",
+        "variation": "Overhand Pronated Grip",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "0 kg",
+            "reps": 15
+          }
+        ],
+        "image": "Underhand Barbell Row.gif",
+        "startTime": "10:45",
+        "endTime": "10:51",
+        "duration": "6 mins"
+      },
+      {
+        "exerciseId": "cable_pullover",
+        "exerciseName": "Cable Pullover",
+        "category": "Back",
+        "variation": "Standing Cable Lat Pullover",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "2 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "4 plates",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "4 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Cable Pullover.gif",
+        "startTime": "10:54",
+        "endTime": "11:01",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "dumbbell_bicep_curl",
+        "exerciseName": "Dumbbell Bicep Curl",
+        "category": "Arms",
+        "variation": "Sitting",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "12.5 kg",
+            "reps": 8
+          }
+        ],
+        "image": "dumbbell_bicep_curl.gif",
+        "startTime": "11:03",
+        "endTime": "11:10",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "cable_hammer_curl",
+        "exerciseName": "Cable Hammer Curl",
+        "category": "Arms",
+        "variation": "Rope Attachment Neutral Grip",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "2 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "4 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Cable Hammer Curl.gif",
+        "startTime": "11:12",
+        "endTime": "11:18",
+        "duration": "6 mins"
+      }
+    ]
+  },
+  {
     "id": "workout_2026_09_07_3895",
     "date": "2026-09-07",
     "duration": "1 hr 13 mins",
@@ -438,7 +1057,7 @@
             "reps": 12
           }
         ],
-        "image": "Dumbbell Lateral Raise.gif",
+        "image": "dumbbell_lateral_raises.gif",
         "startTime": "10:00",
         "endTime": "10:07",
         "duration": "7 mins"
@@ -1324,7 +1943,7 @@
             "reps": 12
           }
         ],
-        "image": "Vertical Chest Press.gif",
+        "image": "seated_chest_press.gif",
         "startTime": "10:00",
         "endTime": "10:14",
         "duration": "14 mins"
@@ -1607,7 +2226,7 @@
   {
     "id": "workout_2026_08_27",
     "date": "2026-08-27",
-    "duration": "1 hr 2 mins",
+    "duration": "1 hr 12 mins",
     "notes": "Back and shoulders session with strict tempo.",
     "exercises": [
       {
@@ -1633,9 +2252,9 @@
           }
         ],
         "image": "lat_pull_down.gif",
-        "startTime": "09:20",
-        "endTime": "09:30",
-        "duration": "10 mins"
+        "startTime": "09:10",
+        "endTime": "09:25",
+        "duration": "15 mins"
       },
       {
         "exerciseId": "seated_chest_press",
@@ -1660,9 +2279,9 @@
           }
         ],
         "image": "Vertical Chest Press.gif",
-        "startTime": "09:30",
+        "startTime": "09:25",
         "endTime": "09:40",
-        "duration": "10 mins"
+        "duration": "15 mins"
       },
       {
         "exerciseId": "dumbbell_lateral_raises",
@@ -1695,7 +2314,7 @@
         "exerciseId": "dumbbell_bicep_curl",
         "exerciseName": "Dumbbell Bicep Curl",
         "category": "Arms",
-        "variation": "Standing / Seated Supinated",
+        "variation": "Standing",
         "sets": [
           {
             "set": 1,
@@ -1705,7 +2324,7 @@
           {
             "set": 2,
             "weight": "5 kg",
-            "reps": 12
+            "reps": 15
           },
           {
             "set": 3,
@@ -1737,7 +2356,7 @@
           {
             "set": 3,
             "weight": "7.5 kg",
-            "reps": 13
+            "reps": 14
           }
         ],
         "image": "dumbbell_hammer_curl.gif",
