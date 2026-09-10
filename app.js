@@ -485,8 +485,10 @@ function formatTime12Hour(time24) {
 // Automatically calculate duration from starting and ending time (e.g. "10:00" to "10:15" -> "15 mins")
 function calculateDurationFromTimes(startTime, endTime) {
   if (!startTime || !endTime) return "";
-  const startParts = startTime.split(":").map(Number);
-  const endParts = endTime.split(":").map(Number);
+  const normStart = normalizeTimeTo24H(startTime) || startTime;
+  const normEnd = normalizeTimeTo24H(endTime) || endTime;
+  const startParts = normStart.split(":").map(Number);
+  const endParts = normEnd.split(":").map(Number);
   if (startParts.length < 2 || endParts.length < 2) return "";
   if (isNaN(startParts[0]) || isNaN(startParts[1]) || isNaN(endParts[0]) || isNaN(endParts[1])) return "";
 
@@ -547,30 +549,44 @@ function addMinutesToTime(time24, minutes) {
   return `${newH}:${newM}`;
 }
 
-// Parse flexible duration strings ("45 mins", "1 hr 15 mins", "1.5h", "30") into total minutes
+// Parse flexible duration strings ("45 mins", "1 hr 15 mins", "1.5h", "30", "01:15") into total minutes
 function parseDurationToMinutes(str) {
   if (!str) return 0;
   const s = String(str).toLowerCase().trim();
   if (!s) return 0;
 
+  // 1. Match HH:mm or H:mm format (e.g. "01:30", "1:15", "0:45")
+  const colonMatch = s.match(/^(\d{1,2}):(\d{2})(?::\d{2})?$/);
+  if (colonMatch) {
+    return parseInt(colonMatch[1], 10) * 60 + parseInt(colonMatch[2], 10);
+  }
+
+  // 2. Match combined hr + min patterns (e.g. "1 hr 30 mins", "1 hour 30", "1 hr 30m", "1h 30m")
+  const comboMatch = s.match(/(\d+(?:\.\d+)?)\s*(?:h|hr|hrs|hour|hours)\s*(\d+(?:\.\d+)?)\s*(?:m|min|mins|minute|minutes)?/);
+  if (comboMatch) {
+    const hrs = parseFloat(comboMatch[1]);
+    const mins = parseFloat(comboMatch[2]);
+    return Math.round(hrs * 60 + mins);
+  }
+
   let total = 0;
   let matched = false;
 
-  // Match hours
+  // Match hours (e.g. "1.5 hrs", "2 hours", "1h")
   const hrMatch = s.match(/([\d.]+)\s*(?:h|hr|hrs|hour|hours)/);
   if (hrMatch) {
     total += parseFloat(hrMatch[1]) * 60;
     matched = true;
   }
 
-  // Match minutes
+  // Match minutes (e.g. "45 mins", "30m", "15 minutes")
   const minMatch = s.match(/([\d.]+)\s*(?:m|min|mins|minute|minutes)/);
   if (minMatch) {
     total += parseFloat(minMatch[1]);
     matched = true;
   }
 
-  // Pure number fallback
+  // Pure number fallback (assumed minutes)
   if (!matched) {
     const num = parseFloat(s);
     if (!isNaN(num)) {
@@ -589,7 +605,7 @@ function formatMinutesToDuration(totalMinutes) {
   const remMins = mins % 60;
 
   if (hrs > 0 && remMins > 0) {
-    return `${hrs} hr ${remMins} mins`;
+    return `${hrs} ${hrs === 1 ? 'hr' : 'hrs'} ${remMins} mins`;
   } else if (hrs > 0) {
     return `${hrs} ${hrs === 1 ? 'hr' : 'hrs'}`;
   } else {
@@ -603,21 +619,27 @@ function calculateTotalMinutesForDate(dateStr) {
   let totalMinutes = 0;
 
   dayWorkouts.forEach((w) => {
-    let workoutMins = 0;
-    if (w.duration && w.duration.trim() !== "") {
-      workoutMins = parseDurationToMinutes(w.duration);
-    }
-    
-    // If workout duration wasn't parsed or was 0, sum exercise durations
-    if (workoutMins === 0 && w.exercises && w.exercises.length > 0) {
+    let exerciseMins = 0;
+    let hasExerciseDurations = false;
+
+    if (w.exercises && w.exercises.length > 0) {
       w.exercises.forEach((ex) => {
         const dur = ex.duration || (ex.startTime && ex.endTime ? calculateDurationFromTimes(ex.startTime, ex.endTime) : "");
         if (dur) {
-          workoutMins += parseDurationToMinutes(dur);
+          const parsed = parseDurationToMinutes(dur);
+          if (parsed > 0) {
+            exerciseMins += parsed;
+            hasExerciseDurations = true;
+          }
         }
       });
     }
-    totalMinutes += workoutMins;
+
+    if (hasExerciseDurations && exerciseMins > 0) {
+      totalMinutes += exerciseMins;
+    } else if (w.duration && w.duration.trim() !== "") {
+      totalMinutes += parseDurationToMinutes(w.duration);
+    }
   });
 
   return totalMinutes;
@@ -1377,11 +1399,11 @@ function renderEditExerciseScreen(context) {
         <div class="time-inputs-grid">
           <div>
             <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">🕒 Starting Time</label>
-            <input type="time" id="editExStartTime" class="form-input" value="${effectiveStartTime}" onchange="handleEditScreenTimesChange()" />
+            <input type="time" id="editExStartTime" class="form-input" value="${effectiveStartTime}" oninput="handleEditScreenTimesChange()" onchange="handleEditScreenTimesChange()" />
           </div>
           <div>
             <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">🕒 Ending Time</label>
-            <input type="time" id="editExEndTime" class="form-input" value="${effectiveEndTime}" onchange="handleEditScreenTimesChange()" />
+            <input type="time" id="editExEndTime" class="form-input" value="${effectiveEndTime}" oninput="handleEditScreenTimesChange()" onchange="handleEditScreenTimesChange()" />
           </div>
           <div>
             <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">⏱️ Duration</label>
@@ -1775,6 +1797,8 @@ function handleSaveEditedExercise(e, workoutId, exerciseIndex, dateStr) {
     workout.duration = formatMinutesToDuration(sumMins);
   } else if (workout.exercises.length === 1 && duration) {
     workout.duration = duration;
+  } else {
+    workout.duration = "";
   }
 
   persistState();
@@ -1794,6 +1818,13 @@ function handleDeleteEditedExercise(workoutId, exerciseIndex, dateStr) {
     workout.exercises.splice(exerciseIndex, 1);
     if (workout.exercises.length === 0) {
       workouts = workouts.filter((w) => w.id !== workout.id);
+    } else {
+      let sumMins = 0;
+      workout.exercises.forEach((ex) => {
+        const d = ex.duration || (ex.startTime && ex.endTime ? calculateDurationFromTimes(ex.startTime, ex.endTime) : "");
+        if (d) sumMins += parseDurationToMinutes(d);
+      });
+      workout.duration = sumMins > 0 ? formatMinutesToDuration(sumMins) : "";
     }
   }
 
@@ -2152,11 +2183,11 @@ function addExerciseItemToLogger() {
       <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.65rem;">
         <div>
           <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.2rem;">🕒 Start Time</label>
-          <input type="time" class="form-input exercise-start-time" style="padding: 0.35rem 0.5rem; font-size: 0.8rem;" onchange="handleLoggerItemTimesChange('${itemId}')" />
+          <input type="time" class="form-input exercise-start-time" style="padding: 0.35rem 0.5rem; font-size: 0.8rem;" oninput="handleLoggerItemTimesChange('${itemId}')" onchange="handleLoggerItemTimesChange('${itemId}')" />
         </div>
         <div>
           <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.2rem;">🕒 End Time</label>
-          <input type="time" class="form-input exercise-end-time" style="padding: 0.35rem 0.5rem; font-size: 0.8rem;" onchange="handleLoggerItemTimesChange('${itemId}')" />
+          <input type="time" class="form-input exercise-end-time" style="padding: 0.35rem 0.5rem; font-size: 0.8rem;" oninput="handleLoggerItemTimesChange('${itemId}')" onchange="handleLoggerItemTimesChange('${itemId}')" />
         </div>
         <div>
           <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.2rem;">⏱️ Duration</label>
@@ -2316,7 +2347,21 @@ function updateLoggerTotalTime() {
   let hasAnyExerciseDuration = false;
 
   durationInputs.forEach((input) => {
-    const val = input.value.trim();
+    let val = input.value.trim();
+    if (!val) {
+      const itemEl = input.closest(".workout-logger-exercise-item");
+      if (itemEl) {
+        const sInput = itemEl.querySelector(".exercise-start-time");
+        const eInput = itemEl.querySelector(".exercise-end-time");
+        if (sInput && eInput && sInput.value.trim() && eInput.value.trim()) {
+          const calcDur = calculateDurationFromTimes(sInput.value.trim(), eInput.value.trim());
+          if (calcDur) {
+            val = calcDur;
+            input.value = calcDur;
+          }
+        }
+      }
+    }
     if (val) {
       hasAnyExerciseDuration = true;
       totalMins += parseDurationToMinutes(val);
@@ -2677,16 +2722,21 @@ function handleSaveWorkout(e) {
   // Sort exercises chronologically by starting time!
   exercisesLogged = sortExercisesByStartTime(exercisesLogged);
 
-  // If session duration was not explicitly provided, calculate sum of individual exercise times
+  // Calculate sum of individual exercise times
+  let autoSumMins = 0;
+  exercisesLogged.forEach((ex) => {
+    const dur = ex.duration || (ex.startTime && ex.endTime ? calculateDurationFromTimes(ex.startTime, ex.endTime) : "");
+    if (dur) autoSumMins += parseDurationToMinutes(dur);
+  });
+
+  const workoutDurationInput = document.getElementById("workoutDuration");
+  const isManuallyEdited = workoutDurationInput && workoutDurationInput.dataset.manuallyEdited === "true";
+
   let finalDuration = duration;
-  if (!finalDuration) {
-    let autoSumMins = 0;
-    exercisesLogged.forEach((ex) => {
-      if (ex.duration) autoSumMins += parseDurationToMinutes(ex.duration);
-    });
-    if (autoSumMins > 0) {
-      finalDuration = formatMinutesToDuration(autoSumMins);
-    }
+  if (!isManuallyEdited && autoSumMins > 0) {
+    finalDuration = formatMinutesToDuration(autoSumMins);
+  } else if (!finalDuration && autoSumMins > 0) {
+    finalDuration = formatMinutesToDuration(autoSumMins);
   }
 
   // If session duration was provided and there is only 1 exercise without individual duration, sync it
