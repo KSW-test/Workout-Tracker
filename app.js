@@ -147,6 +147,15 @@ async function loadData() {
       if ((ex.id === "high_pulley_cable_row" || ex.name === "High Pulley Cable Row") && (!ex.image || ex.image.endsWith(".jpg"))) {
         ex.image = "High Pulley Cable Row.gif";
       }
+      if ((ex.id === "cable_reverse_fly" || ex.name === "Cable Reverse Fly" || ex.name === "Cable Reverse Flyes") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "Cable Reverse Fly.gif";
+      }
+      if ((ex.id === "barbell_upright_row" || ex.name === "Barbell Upright Row" || ex.name === "Barbell Upright Rows") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "Barbell Upright Row.gif";
+      }
+      if ((ex.id === "cable_upright_row" || ex.name === "Cable Upright Row" || ex.name === "Cable Upright Rows") && (!ex.image || ex.image.endsWith(".jpg"))) {
+        ex.image = "Cable Upright Row.gif";
+      }
       if ((ex.id === "cable_pullover" || ex.name === "Cable Pullover") && (!ex.image || ex.image.endsWith(".jpg"))) {
         ex.image = "Cable Pullover.gif";
       }
@@ -244,6 +253,15 @@ async function loadData() {
         }
         if ((ex.exerciseId === "high_pulley_cable_row" || ex.exerciseName === "High Pulley Cable Row") && (!ex.image || ex.image.endsWith(".jpg"))) {
           ex.image = "High Pulley Cable Row.gif";
+        }
+        if ((ex.exerciseId === "cable_reverse_fly" || ex.exerciseName === "Cable Reverse Fly" || ex.exerciseName === "Cable Reverse Flyes") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "Cable Reverse Fly.gif";
+        }
+        if ((ex.exerciseId === "barbell_upright_row" || ex.exerciseName === "Barbell Upright Row" || ex.exerciseName === "Barbell Upright Rows") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "Barbell Upright Row.gif";
+        }
+        if ((ex.exerciseId === "cable_upright_row" || ex.exerciseName === "Cable Upright Row" || ex.exerciseName === "Cable Upright Rows") && (!ex.image || ex.image.endsWith(".jpg"))) {
+          ex.image = "Cable Upright Row.gif";
         }
         if ((ex.exerciseId === "cable_pullover" || ex.exerciseName === "Cable Pullover") && (!ex.image || ex.image.endsWith(".jpg"))) {
           ex.image = "Cable Pullover.gif";
@@ -928,6 +946,13 @@ function getResolvedExerciseImage(ex, catalogEx) {
     "barbell_shrugs": "Barbell Shrug.gif",
     "high_pulley_cable_row": "High Pulley Cable Row.gif",
     "high_pulley_cable_rows": "High Pulley Cable Row.gif",
+    "cable_reverse_fly": "Cable Reverse Fly.gif",
+    "cable_reverse_flyes": "Cable Reverse Fly.gif",
+    "cable_reverse_flye": "Cable Reverse Fly.gif",
+    "barbell_upright_row": "Barbell Upright Row.gif",
+    "barbell_upright_rows": "Barbell Upright Row.gif",
+    "cable_upright_row": "Cable Upright Row.gif",
+    "cable_upright_rows": "Cable Upright Row.gif",
     "cable_pullover": "Cable Pullover.gif",
     "cable_pullovers": "Cable Pullover.gif",
     "seated_dips_machine": "Seated Dips Machine.gif",

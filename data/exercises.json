@@ -441,6 +441,20 @@
     "image": "Reverse Pec Deck Fly Machine.gif"
   },
   {
+    "id": "cable_reverse_fly",
+    "name": "Cable Reverse Fly",
+    "category": "Shoulders",
+    "variation": "Rear Delt Cable Flyes / Crossover",
+    "image": "Cable Reverse Fly.gif"
+  },
+  {
+    "id": "barbell_upright_row",
+    "name": "Barbell Upright Row",
+    "category": "Shoulders",
+    "variation": "Barbell Lateral Delts / Traps",
+    "image": "Barbell Upright Row.gif"
+  },
+  {
     "id": "cable_upright_row",
     "name": "Cable Upright Row",
     "category": "Shoulders",

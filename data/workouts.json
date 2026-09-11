@@ -1,2369 +1,2645 @@
 ﻿[
-    {
-        "id":  "workout_2026_09_10_8778",
-        "date":  "2026-09-10",
-        "duration":  "56 mins",
-        "notes":  "",
-        "exercises":  [
-                          {
-                              "exerciseId":  "barbell_bent_over_row",
-                              "exerciseName":  "Barbell Bent-Over Row",
-                              "category":  "Back",
-                              "variation":  "Overhand Pronated Grip",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Underhand Barbell Row.gif",
-                              "startTime":  "10:14",
-                              "endTime":  "10:21",
-                              "duration":  "7 mins"
-                          },
-                          {
-                              "exerciseId":  "seated_row_machine",
-                              "exerciseName":  "Seated Row Machine",
-                              "category":  "Back",
-                              "variation":  "Vertical/Close grip",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "15 kg",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "15 kg",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "25 kg",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Seated Row Machine.gif",
-                              "startTime":  "10:22",
-                              "endTime":  "10:29",
-                              "duration":  "7 mins"
-                          },
-                          {
-                              "exerciseId":  "lat_pull_down",
-                              "exerciseName":  "Lat Pull Down",
-                              "category":  "Back",
-                              "variation":  "Wide Grip Cable",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "7 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "8 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "lat_pull_down.gif",
-                              "startTime":  "10:31",
-                              "endTime":  "10:38",
-                              "duration":  "7 mins"
-                          },
-                          {
-                              "exerciseId":  "seated_cable_row",
-                              "exerciseName":  "Seated Cable Row",
-                              "category":  "Back",
-                              "variation":  "Neutral Grip Cable",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "7 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "7 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "9 plates",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Seated Cable Row.gif",
-                              "startTime":  "10:39",
-                              "endTime":  "10:45",
-                              "duration":  "6 mins"
-                          },
-                          {
-                              "exerciseId":  "ez_bar_curl",
-                              "exerciseName":  "EZ Bar Curl",
-                              "category":  "Biceps",
-                              "variation":  "Standing Close grip",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "2.5 kg",
-                                               "reps":  10
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "5 kg",
-                                               "reps":  10
-                                           },
-                                           {
-                                               "set":  4,
-                                               "weight":  "5 kg",
-                                               "reps":  10
-                                           }
-                                       ],
-                              "image":  "EZ Bar Curl.gif",
-                              "startTime":  "10:46",
-                              "endTime":  "10:59",
-                              "duration":  "13 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_hammer_curl",
-                              "exerciseName":  "Dumbbell Hammer Curl",
-                              "category":  "Biceps",
-                              "variation":  "Neutral Grip Brachialis",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "7.5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "12.5 kg",
-                                               "reps":  8
-                                           }
-                                       ],
-                              "image":  "dumbbell_hammer_curl.gif",
-                              "startTime":  "11:01",
-                              "endTime":  "11:09",
-                              "duration":  "8 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_bicep_curl",
-                              "exerciseName":  "Dumbbell Bicep Curl",
-                              "category":  "Biceps",
-                              "variation":  "Sitting",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "7.5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "12.5 kg",
-                                               "reps":  9
-                                           }
-                                       ],
-                              "image":  "dumbbell_bicep_curl.gif",
-                              "startTime":  "11:12",
-                              "endTime":  "11:20",
-                              "duration":  "8 mins"
-                          }
-                      ]
-    },
-    {
-        "id":  "workout_2026_09_09_3141",
-        "date":  "2026-09-09",
-        "duration":  "52 mins",
-        "notes":  "",
-        "exercises":  [
-                          {
-                              "exerciseId":  "leg_press",
-                              "exerciseName":  "Leg Press",
-                              "category":  "Legs",
-                              "variation":  "45-Degree Incline Machine",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "20 kg",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "40 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "60 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  4,
-                                               "weight":  "80 kg",
-                                               "reps":  10
-                                           },
-                                           {
-                                               "set":  5,
-                                               "weight":  "60 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  6,
-                                               "weight":  "40 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  7,
-                                               "weight":  "20 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  8,
-                                               "weight":  "0 kg",
-                                               "reps":  20
-                                           }
-                                       ],
-                              "image":  "legpress45-leg-press.gif",
-                              "startTime":  "10:24",
-                              "endTime":  "10:34",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "lunge",
-                              "exerciseName":  "Lunge",
-                              "category":  "Legs",
-                              "variation":  "Standard",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Bodyweight",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Bodyweight",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Lunge.gif",
-                              "startTime":  "10:30",
-                              "endTime":  "10:44",
-                              "duration":  "14 mins"
-                          },
-                          {
-                              "exerciseId":  "leg_extension",
-                              "exerciseName":  "Leg Extension",
-                              "category":  "Legs",
-                              "variation":  "Machine Quad Isolation",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "3 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "3 plates",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Leg Extension.gif",
-                              "startTime":  "10:45",
-                              "endTime":  "10:55",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "seated_dips_machine",
-                              "exerciseName":  "Seated Dips Machine",
-                              "category":  "Chest",
-                              "variation":  "Machine Dip / Selectorized (Chest \u0026 Triceps)",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "6 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "8 plates",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Seated Dips Machine.gif",
-                              "startTime":  "10:55",
-                              "endTime":  "10:59",
-                              "duration":  "4 mins"
-                          },
-                          {
-                              "exerciseId":  "overhead_dumbbell_tricep_extension",
-                              "exerciseName":  "Overhead Dumbbell Tricep Extension",
-                              "category":  "Triceps",
-                              "variation":  "Seated Single \u0026 Both Arm",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "7.5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "10 kg",
-                                               "reps":  10
-                                           }
-                                       ],
-                              "image":  "Seated Dumbbell Tricep Extension.gif",
-                              "startTime":  "11:00",
-                              "endTime":  "11:06",
-                              "duration":  "6 mins"
-                          },
-                          {
-                              "exerciseId":  "straight_bar_tricep_pushdown",
-                              "exerciseName":  "Straight Bar Tricep Pushdown",
-                              "category":  "Triceps",
-                              "variation":  "Cable Overhand Straight Bar",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "4 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "5 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "6 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  4,
-                                               "weight":  "8 plates",
-                                               "reps":  5
-                                           },
-                                           {
-                                               "set":  5,
-                                               "weight":  "6 plates",
-                                               "reps":  5
-                                           },
-                                           {
-                                               "set":  6,
-                                               "weight":  "4 plates",
-                                               "reps":  10
-                                           },
-                                           {
-                                               "set":  7,
-                                               "weight":  "3 plates",
-                                               "reps":  10
-                                           },
-                                           {
-                                               "set":  8,
-                                               "weight":  "2 plates",
-                                               "reps":  10
-                                           }
-                                       ],
-                              "image":  "Cable Tricep Pushdown.gif",
-                              "startTime":  "11:10",
-                              "endTime":  "11:18",
-                              "duration":  "8 mins"
-                          }
-                      ]
-    },
-    {
-        "id":  "workout_2026_09_08_8487",
-        "date":  "2026-09-08",
-        "duration":  "57 mins",
-        "notes":  "",
-        "exercises":  [
-                          {
-                              "exerciseId":  "lat_pull_down",
-                              "exerciseName":  "Lat Pull Down",
-                              "category":  "Back",
-                              "variation":  "Wide Grip Cable",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "2 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "4 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "6 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  4,
-                                               "weight":  "8 plates",
-                                               "reps":  10
-                                           }
-                                       ],
-                              "image":  "lat_pull_down.gif",
-                              "startTime":  "10:10",
-                              "endTime":  "10:20",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "high_pulley_cable_row",
-                              "exerciseName":  "High Pulley Cable Row",
-                              "category":  "Back",
-                              "variation":  "High Pulley Cable (Upper Back / Lats)",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "55 kg",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "65 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "75 kg",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "High Pulley Cable Row.gif",
-                              "startTime":  "10:20",
-                              "endTime":  "10:30",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "single_arm_dumbbell_row",
-                              "exerciseName":  "Single-Arm Dumbbell Row",
-                              "category":  "Back",
-                              "variation":  "Bench Supported Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "7.5 kg",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "12.5 kg",
-                                               "reps":  11
-                                           }
-                                       ],
-                              "image":  "One Arm Dumbbell Row.gif",
-                              "startTime":  "10:32",
-                              "endTime":  "10:43",
-                              "duration":  "11 mins"
-                          },
-                          {
-                              "exerciseId":  "barbell_bent_over_row",
-                              "exerciseName":  "Barbell Bent-Over Row",
-                              "category":  "Back",
-                              "variation":  "Overhand Pronated Grip",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Underhand Barbell Row.gif",
-                              "startTime":  "10:45",
-                              "endTime":  "10:51",
-                              "duration":  "6 mins"
-                          },
-                          {
-                              "exerciseId":  "cable_pullover",
-                              "exerciseName":  "Cable Pullover",
-                              "category":  "Back",
-                              "variation":  "Standing Cable Lat Pullover",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "2 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "4 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "4 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Cable Pullover.gif",
-                              "startTime":  "10:54",
-                              "endTime":  "11:01",
-                              "duration":  "7 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_bicep_curl",
-                              "exerciseName":  "Dumbbell Bicep Curl",
-                              "category":  "Biceps",
-                              "variation":  "Sitting",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "7.5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "12.5 kg",
-                                               "reps":  8
-                                           }
-                                       ],
-                              "image":  "dumbbell_bicep_curl.gif",
-                              "startTime":  "11:03",
-                              "endTime":  "11:10",
-                              "duration":  "7 mins"
-                          },
-                          {
-                              "exerciseId":  "cable_hammer_curl",
-                              "exerciseName":  "Cable Hammer Curl",
-                              "category":  "Biceps",
-                              "variation":  "Rope Attachment Neutral Grip",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "2 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "4 plates",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Cable Hammer Curl.gif",
-                              "startTime":  "11:12",
-                              "endTime":  "11:18",
-                              "duration":  "6 mins"
-                          }
-                      ]
-    },
-    {
-        "id":  "workout_2026_09_07_3895",
-        "date":  "2026-09-07",
-        "duration":  "1 hr 13 mins",
-        "notes":  "",
-        "exercises":  [
-                          {
-                              "exerciseId":  "dumbbell_bench_press",
-                              "exerciseName":  "Dumbbell Bench Press",
-                              "category":  "Chest",
-                              "variation":  "Flat Bench Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 kg",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "2.5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  4,
-                                               "weight":  "7.5 kg",
-                                               "reps":  8
-                                           }
-                                       ],
-                              "image":  "Dumbbell Bench Press.gif",
-                              "startTime":  "09:52",
-                              "endTime":  "09:59",
-                              "duration":  "7 mins"
-                          },
-                          {
-                              "exerciseId":  "pec_deck_machine_flyes",
-                              "exerciseName":  "Pec Deck Machine Flyes",
-                              "category":  "Chest",
-                              "variation":  "Machine Pec Fly",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "4 plates",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "5 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "6 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  4,
-                                               "weight":  "8 plates",
-                                               "reps":  5
-                                           },
-                                           {
-                                               "set":  5,
-                                               "weight":  "6 plates",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  6,
-                                               "weight":  "4 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  7,
-                                               "weight":  "1 plate",
-                                               "reps":  20
-                                           }
-                                       ],
-                              "image":  "Pec Deck Fly Machine.gif",
-                              "startTime":  "10:01",
-                              "endTime":  "10:13",
-                              "duration":  "12 mins"
-                          },
-                          {
-                              "exerciseId":  "incline_dumbbell_press",
-                              "exerciseName":  "Incline Dumbbell Press",
-                              "category":  "Chest",
-                              "variation":  "Incline Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "7.5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "12.5 kg",
-                                               "reps":  10
-                                           },
-                                           {
-                                               "set":  4,
-                                               "weight":  "15 kg",
-                                               "reps":  8
-                                           }
-                                       ],
-                              "image":  "Incline Dumbbell Bench Press.gif",
-                              "startTime":  "10:16",
-                              "endTime":  "10:27",
-                              "duration":  "11 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_pullover",
-                              "exerciseName":  "Dumbbell Pullover",
-                              "category":  "Chest",
-                              "variation":  "Flat Bench / Cross-Bench (Chest \u0026 Lats)",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "7.5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "12.5 kg",
-                                               "reps":  10
-                                           }
-                                       ],
-                              "image":  "Dumbbell Pullover.gif",
-                              "startTime":  "10:29",
-                              "endTime":  "10:37",
-                              "duration":  "8 mins"
-                          },
-                          {
-                              "exerciseId":  "smith_machine_shoulder_press",
-                              "exerciseName":  "Smith Machine Shoulder Press",
-                              "category":  "Shoulders",
-                              "variation":  "Seated Smith Machine Overhead Press + lateral Raise",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Smith Machine Shoulder Press.gif",
-                              "startTime":  "10:41",
-                              "endTime":  "10:46",
-                              "duration":  "5 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_lateral_raises",
-                              "exerciseName":  "Dumbbell Lateral Raises",
-                              "category":  "Shoulders",
-                              "variation":  "Side Delt Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "2.5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "2.5 kg",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Dumbbell Lateral Raise.gif",
-                              "startTime":  "10:46",
-                              "endTime":  "10:51",
-                              "duration":  "5 mins"
-                          },
-                          {
-                              "exerciseId":  "reverse_pec_deck_fly_machine",
-                              "exerciseName":  "Reverse Pec Deck Fly Machine",
-                              "category":  "Shoulders",
-                              "variation":  "Machine Rear Delt / Reverse Pec Flyes",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "2 plates",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "4 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Reverse Pec Deck Fly Machine.gif",
-                              "startTime":  "10:53",
-                              "endTime":  "10:58",
-                              "duration":  "5 mins"
-                          },
-                          {
-                              "exerciseId":  "shoulder_press_machine",
-                              "exerciseName":  "Shoulder Press Machine",
-                              "category":  "Shoulders",
-                              "variation":  "Machine Overhead Press",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "3 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "4 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "4 plates",
-                                               "reps":  10
-                                           }
-                                       ],
-                              "image":  "Shoulder Press Machine.gif",
-                              "startTime":  "11:00",
-                              "endTime":  "11:10",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "barbell_shrug",
-                              "exerciseName":  "Barbell Shrug",
-                              "category":  "Shoulders",
-                              "variation":  "Upper Traps Barbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Barbell Only kg",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Barbell Only kg",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "Barbell with 3 sec hold kg",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  4,
-                                               "weight":  "Barbell with 3 sec hold kg",
-                                               "reps":  20
-                                           }
-                                       ],
-                              "image":  "Barbell Shrug.gif",
-                              "startTime":  "11:07",
-                              "endTime":  "11:17",
-                              "duration":  "10 mins"
-                          }
-                      ]
-    },
-    {
-        "id":  "workout_2026_09_05_6689",
-        "date":  "2026-09-05",
-        "duration":  "1 hr 44 mins",
-        "notes":  "",
-        "exercises":  [
-                          {
-                              "exerciseId":  "hammer_bench_press",
-                              "exerciseName":  "Hammer Bench Press",
-                              "category":  "Chest",
-                              "variation":  "Hammer Strength / Machine Press",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Hammer Bench Press.gif",
-                              "startTime":  "09:19",
-                              "endTime":  "09:29",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_bench_press",
-                              "exerciseName":  "Dumbbell Bench Press",
-                              "category":  "Chest",
-                              "variation":  "Flat Bench Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "7.5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Dumbbell Bench Press.gif",
-                              "startTime":  "09:29",
-                              "endTime":  "09:39",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "incline_dumbbell_press",
-                              "exerciseName":  "Incline Dumbbell Press",
-                              "category":  "Chest",
-                              "variation":  "Incline Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "2.5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "2.5 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Incline Dumbbell Bench Press.gif",
-                              "startTime":  "09:39",
-                              "endTime":  "09:49",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "cable_upright_row",
-                              "exerciseName":  "Cable Upright Row",
-                              "category":  "Shoulders",
-                              "variation":  "Cable Attachment Lateral Delts / Traps",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "0 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "0 plates",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Cable Upright Row.gif",
-                              "startTime":  "09:49",
-                              "endTime":  "09:54",
-                              "duration":  "5 mins"
-                          },
-                          {
-                              "exerciseId":  "cable_kneeling_high_to_low_fly",
-                              "exerciseName":  "Cable Kneeling High To Low Fly",
-                              "category":  "Chest",
-                              "variation":  "Kneeling High-to-Low Cable",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "2 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "2 plates",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Cable Kneeling High To Low Fly.gif",
-                              "startTime":  "09:54",
-                              "endTime":  "10:00",
-                              "duration":  "6 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_lateral_raises",
-                              "exerciseName":  "Dumbbell Lateral Raises",
-                              "category":  "Shoulders",
-                              "variation":  "Side Delt Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "7.5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "7.5 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "dumbbell_lateral_raises.gif",
-                              "startTime":  "10:00",
-                              "endTime":  "10:07",
-                              "duration":  "7 mins"
-                          },
-                          {
-                              "exerciseId":  "seated_dumbbell_shoulder_press",
-                              "exerciseName":  "Seated Dumbbell Shoulder Press",
-                              "category":  "Shoulders",
-                              "variation":  "90-Degree Bench Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Barbell kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Barbell kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "Barbell kg",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Overhead Press.gif",
-                              "startTime":  "10:07",
-                              "endTime":  "10:15",
-                              "duration":  "8 mins"
-                          },
-                          {
-                              "exerciseId":  "low_pulley_cable_fly",
-                              "exerciseName":  "Low-pulley Cable Fly",
-                              "category":  "Chest",
-                              "variation":  "Low Pulley Cable Fly",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "2 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "4 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "4 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Low-pulley Cable Fly.gif",
-                              "startTime":  "10:15",
-                              "endTime":  "10:28",
-                              "duration":  "13 mins"
-                          },
-                          {
-                              "exerciseId":  "face_pulls",
-                              "exerciseName":  "Face Pulls",
-                              "category":  "Back",
-                              "variation":  "Cable Rope (Upper Back / Rear Delts)",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "4 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Face Pull.gif",
-                              "startTime":  "10:28",
-                              "endTime":  "10:35",
-                              "duration":  "7 mins"
-                          },
-                          {
-                              "exerciseId":  "sumo_squat",
-                              "exerciseName":  "Sumo Squat",
-                              "category":  "Legs",
-                              "variation":  "Wide Stance Dumbbell / Kettlebell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Bodyweight",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Bodyweight",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "Bodyweight",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Sumo Squat.gif",
-                              "startTime":  "10:29",
-                              "endTime":  "10:39",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "leg_curl",
-                              "exerciseName":  "Leg Curl",
-                              "category":  "Legs",
-                              "variation":  "Lying Machine (Prone)",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "15 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "20 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "25 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Leg Curl.gif",
-                              "startTime":  "10:39",
-                              "endTime":  "10:49",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "bodyweight_calf_raise",
-                              "exerciseName":  "Bodyweight Calf Raise",
-                              "category":  "Legs",
-                              "variation":  "Standing Bodyweight",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Bodyweight",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Bodyweight",
-                                               "reps":  20
-                                           }
-                                       ],
-                              "image":  "Bodyweight Calf Raise.gif",
-                              "startTime":  "10:49",
-                              "endTime":  "10:57",
-                              "duration":  "8 mins"
-                          }
-                      ]
-    },
-    {
-        "id":  "workout_2026_09_03_0557",
-        "date":  "2026-09-03",
-        "duration":  "1 hr 8 mins",
-        "notes":  "",
-        "exercises":  [
-                          {
-                              "exerciseId":  "assisted_pull_up_machine",
-                              "exerciseName":  "Assisted Pull Up Machine",
-                              "category":  "Back",
-                              "variation":  "Counterweight Machine Assist",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "10 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "10 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Assisted Pull Up Machine.gif",
-                              "startTime":  "10:00",
-                              "endTime":  "10:10",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "t_bar_row",
-                              "exerciseName":  "T-Bar Row",
-                              "category":  "Back",
-                              "variation":  "Landmine / Machine Chest Supported",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Barbell kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Barbell kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "T-bar Row Machine.gif",
-                              "startTime":  "10:10",
-                              "endTime":  "10:20",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "lat_pull_down",
-                              "exerciseName":  "Lat Pull Down",
-                              "category":  "Back",
-                              "variation":  "Wide Grip Cable",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "lat_pull_down.gif",
-                              "startTime":  "10:20",
-                              "endTime":  "10:30",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "one_arm_low_row",
-                              "exerciseName":  "One Arm Low Row",
-                              "category":  "Back",
-                              "variation":  "Single-Arm Cable / Machine Low Row",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "One Arm Low Row.gif",
-                              "startTime":  "10:30",
-                              "endTime":  "10:40",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_preacher_curl",
-                              "exerciseName":  "Dumbbell Preacher Curl",
-                              "category":  "Biceps",
-                              "variation":  "Single-Arm Preacher Bench",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "7.5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "7.5 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Dumbbell Preacher Curl.gif",
-                              "startTime":  "10:55",
-                              "endTime":  "11:04",
-                              "duration":  "9 mins"
-                          },
-                          {
-                              "exerciseId":  "cable_rope_bicep_curl",
-                              "exerciseName":  "Cable Rope Bicep Curl",
-                              "category":  "Biceps",
-                              "variation":  "Low Pulley Constant Tension",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Cable Curl.gif",
-                              "startTime":  "11:04",
-                              "endTime":  "11:10",
-                              "duration":  "6 mins"
-                          },
-                          {
-                              "exerciseId":  "cross_body_hammer_curl",
-                              "exerciseName":  "Cross-Body Hammer Curl",
-                              "category":  "Biceps",
-                              "variation":  "Dumbbell Across Chest (Brachialis)",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Cross-Body Hammer Curl.gif",
-                              "startTime":  "11:10",
-                              "endTime":  "11:23",
-                              "duration":  "13 mins"
-                          }
-                      ]
-    },
-    {
-        "id":  "workout_2026_09_02_3143",
-        "date":  "2026-09-02",
-        "duration":  "",
-        "notes":  "",
-        "exercises":  [
-                          {
-                              "exerciseId":  "squats",
-                              "exerciseName":  "Squats",
-                              "category":  "Legs",
-                              "variation":  "Assistance for Balance",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Bodyweight",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Bodyweight",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "Bodyweight",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "bodyweight-squat.gif"
-                          },
-                          {
-                              "exerciseId":  "leg_extension",
-                              "exerciseName":  "Leg Extension",
-                              "category":  "Legs",
-                              "variation":  "Machine Quad Isolation",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "6 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "6 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "6 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Leg Extension.gif"
-                          },
-                          {
-                              "exerciseId":  "lunge",
-                              "exerciseName":  "Lunge",
-                              "category":  "Legs",
-                              "variation":  "Static Bodyweight / Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Bodyweight",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Bodyweight",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Lunge.gif"
-                          },
-                          {
-                              "exerciseId":  "leg_press",
-                              "exerciseName":  "Leg Press",
-                              "category":  "Legs",
-                              "variation":  "45-Degree Incline Machine",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "20 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "30 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "40 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  4,
-                                               "weight":  "45 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "legpress45-leg-press.gif"
-                          },
-                          {
-                              "exerciseId":  "bodyweight_calf_raise",
-                              "exerciseName":  "Bodyweight Calf Raise",
-                              "category":  "Legs",
-                              "variation":  "Standing Bodyweight",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Bodyweight",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Bodyweight",
-                                               "reps":  20
-                                           }
-                                       ],
-                              "image":  "Bodyweight Calf Raise.gif"
-                          },
-                          {
-                              "exerciseId":  "overhead_dumbbell_tricep_extension",
-                              "exerciseName":  "Overhead Dumbbell Tricep Extension",
-                              "category":  "Triceps",
-                              "variation":  "Seated Single \u0026 Both Arm",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  4,
-                                               "weight":  "7.5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  5,
-                                               "weight":  "7.5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  6,
-                                               "weight":  "7.5 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Seated Dumbbell Tricep Extension.gif"
-                          },
-                          {
-                              "exerciseId":  "straight_bar_tricep_pushdown",
-                              "exerciseName":  "Straight Bar Tricep Pushdown",
-                              "category":  "Triceps",
-                              "variation":  "Cable Overhand Straight Bar",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Cable Tricep Pushdown.gif"
-                          },
-                          {
-                              "exerciseId":  "wrist_curl",
-                              "exerciseName":  "Wrist Curl",
-                              "category":  "Biceps",
-                              "variation":  "Barbell / Dumbbell Forearm Flexion",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "3 plates",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  20
-                                           }
-                                       ],
-                              "image":  "Wrist Curl.jpg"
-                          }
-                      ]
-    },
-    {
-        "id":  "workout_2026_09_01_7313",
-        "date":  "2026-09-01",
-        "duration":  "1 hr 8 mins",
-        "notes":  "",
-        "exercises":  [
-                          {
-                              "exerciseId":  "lat_pull_down",
-                              "exerciseName":  "Lat Pull Down",
-                              "category":  "Back",
-                              "variation":  "Wide Grip Cable",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "3 plates",
-                                               "reps":  11
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  11
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "3 plates",
-                                               "reps":  11
-                                           }
-                                       ],
-                              "image":  "lat_pull_down.gif",
-                              "startTime":  "09:30",
-                              "endTime":  "09:46",
-                              "duration":  "16 mins"
-                          },
-                          {
-                              "exerciseId":  "stiff_arm_pulldown",
-                              "exerciseName":  "Stiff Arm Pulldown",
-                              "category":  "Back",
-                              "variation":  "Straight-Arm Cable Lat Isolation",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "2 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "2 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Stiff Arm Pulldown.gif",
-                              "startTime":  "09:46",
-                              "endTime":  "09:50",
-                              "duration":  "4 mins"
-                          },
-                          {
-                              "exerciseId":  "seated_cable_row",
-                              "exerciseName":  "Seated Cable Row",
-                              "category":  "Back",
-                              "variation":  "Neutral Grip Cable",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "40 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "50 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "60 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Seated Cable Row.gif",
-                              "startTime":  "09:50",
-                              "endTime":  "09:57",
-                              "duration":  "7 mins"
-                          },
-                          {
-                              "exerciseId":  "single_arm_dumbbell_row",
-                              "exerciseName":  "Single-Arm Dumbbell Row",
-                              "category":  "Back",
-                              "variation":  "Bench Supported Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "12 kg",
-                                               "reps":  10
-                                           }
-                                       ],
-                              "image":  "One Arm Dumbbell Row.gif",
-                              "startTime":  "09:57",
-                              "endTime":  "10:08",
-                              "duration":  "11 mins"
-                          },
-                          {
-                              "exerciseId":  "barbell_bent_over_row",
-                              "exerciseName":  "Barbell Bent-Over Row",
-                              "category":  "Back",
-                              "variation":  "Overhand Pronated Grip",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Barbell kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Barbell kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Underhand Barbell Row.gif",
-                              "startTime":  "10:08",
-                              "endTime":  "10:18",
-                              "duration":  "10 mins"
-                          },
-                          {
-                              "exerciseId":  "ez_bar_curl",
-                              "exerciseName":  "EZ Bar Curl",
-                              "category":  "Biceps",
-                              "variation":  "Standing EZ-Bar Supinated",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "2.5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "2.5 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "EZ Bar Curl.gif",
-                              "startTime":  "10:18",
-                              "endTime":  "10:29",
-                              "duration":  "11 mins"
-                          },
-                          {
-                              "exerciseId":  "cable_rope_bicep_curl",
-                              "exerciseName":  "Cable Rope Bicep Curl",
-                              "category":  "Biceps",
-                              "variation":  "Low Pulley Constant Tension",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Barbell kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Barbell kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Cable Curl.gif",
-                              "startTime":  "10:29",
-                              "endTime":  "10:34",
-                              "duration":  "5 mins"
-                          },
-                          {
-                              "exerciseId":  "cable_hammer_curl",
-                              "exerciseName":  "Cable Hammer Curl",
-                              "category":  "Biceps",
-                              "variation":  "Rope Attachment Neutral Grip",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Cable Hammer Curl.gif",
-                              "startTime":  "10:34",
-                              "endTime":  "10:38",
-                              "duration":  "4 mins"
-                          }
-                      ]
-    },
-    {
-        "id":  "workout_2026_08_31_6639",
-        "date":  "2026-08-31",
-        "duration":  "1 hr 20 mins",
-        "notes":  "",
-        "exercises":  [
-                          {
-                              "exerciseId":  "barbell_bench_press",
-                              "exerciseName":  "Barbell Bench Press",
-                              "category":  "Chest",
-                              "variation":  "Flat Barbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Barbell Bench Press.gif",
-                              "startTime":  "09:15",
-                              "endTime":  "09:30",
-                              "duration":  "15 mins"
-                          },
-                          {
-                              "exerciseId":  "cable_chest_flyes",
-                              "exerciseName":  "Cable Chest Flyes",
-                              "category":  "Chest",
-                              "variation":  "Standard",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "2 plates",
-                                               "reps":  10
-                                           }
-                                       ],
-                              "image":  "Standing Cable Fly.gif",
-                              "startTime":  "09:30",
-                              "endTime":  "09:47",
-                              "duration":  "17 mins"
-                          },
-                          {
-                              "exerciseId":  "incline_dumbbell_press",
-                              "exerciseName":  "Incline Dumbbell Press",
-                              "category":  "Chest",
-                              "variation":  "Incline Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Incline Dumbbell Bench Press.gif",
-                              "startTime":  "09:47",
-                              "endTime":  "09:53",
-                              "duration":  "6 mins"
-                          },
-                          {
-                              "exerciseId":  "decline_barbell_bench_press",
-                              "exerciseName":  "Decline Barbell Bench Press",
-                              "category":  "Chest",
-                              "variation":  "Decline Barbell (Lower Chest)",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Bar Only kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Bar Only kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "Bar Only kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Smith Machine Decline Bench Press.gif",
-                              "startTime":  "09:53",
-                              "endTime":  "10:00",
-                              "duration":  "7 mins"
-                          },
-                          {
-                              "exerciseId":  "seated_chest_press",
-                              "exerciseName":  "Seated Chest Press",
-                              "category":  "Chest",
-                              "variation":  "Machine / Selectorized",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "0 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "0 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "seated_chest_press.gif",
-                              "startTime":  "10:00",
-                              "endTime":  "10:14",
-                              "duration":  "14 mins"
-                          },
-                          {
-                              "exerciseId":  "shoulder_press_machine",
-                              "exerciseName":  "Shoulder Press Machine",
-                              "category":  "Shoulders",
-                              "variation":  "Machine Overhead Press",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Shoulder Press Machine.gif",
-                              "startTime":  "10:14",
-                              "endTime":  "10:19",
-                              "duration":  "5 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_lateral_raises",
-                              "exerciseName":  "Dumbbell Lateral Raises",
-                              "category":  "Shoulders",
-                              "variation":  "Side Delt Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 kg",
-                                               "reps":  10
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "5 kg",
-                                               "reps":  10
-                                           }
-                                       ],
-                              "image":  "dumbbell_lateral_raises.gif",
-                              "startTime":  "10:19",
-                              "endTime":  "10:24",
-                              "duration":  "5 mins"
-                          },
-                          {
-                              "exerciseId":  "low_pulley_cable_fly",
-                              "exerciseName":  "Low-pulley Cable Fly",
-                              "category":  "Chest",
-                              "variation":  "Low Pulley Cable Fly",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Low-pulley Cable Fly.gif",
-                              "startTime":  "10:24",
-                              "endTime":  "10:28",
-                              "duration":  "4 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_front_raise",
-                              "exerciseName":  "Dumbbell Front Raise",
-                              "category":  "Shoulders",
-                              "variation":  "Front Delt Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Dumbbell Front Raise.gif",
-                              "startTime":  "10:28",
-                              "endTime":  "10:35",
-                              "duration":  "7 mins"
-                          }
-                      ]
-    },
-    {
-        "id":  "workout_2026_08_29_7238",
-        "date":  "2026-08-29",
-        "duration":  "",
-        "notes":  "",
-        "exercises":  [
-                          {
-                              "exerciseId":  "squats",
-                              "exerciseName":  "Squats",
-                              "category":  "Legs",
-                              "variation":  "Assistance for Balance",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Bodyweight",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Bodyweight",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "Bodyweight",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "bodyweight-squat.gif"
-                          },
-                          {
-                              "exerciseId":  "leg_press",
-                              "exerciseName":  "Leg Press",
-                              "category":  "Legs",
-                              "variation":  "45-Degree Incline Machine",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "10 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "20 kg",
-                                               "reps":  7
-                                           }
-                                       ],
-                              "image":  "legpress45-leg-press.gif"
-                          },
-                          {
-                              "exerciseId":  "leg_extension",
-                              "exerciseName":  "Leg Extension",
-                              "category":  "Legs",
-                              "variation":  "Machine Quad Isolation",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "30 lbs",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "35 lbs",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "40 lbs",
-                                               "reps":  10
-                                           }
-                                       ],
-                              "image":  "Leg Extension.gif"
-                          },
-                          {
-                              "exerciseId":  "leg_curl",
-                              "exerciseName":  "Leg Curl",
-                              "category":  "Legs",
-                              "variation":  "Lying Machine (Prone)",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "25 lbs",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "25 lbs",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "25 lbs",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Leg Curl.gif"
-                          },
-                          {
-                              "exerciseId":  "bodyweight_calf_raise",
-                              "exerciseName":  "Bodyweight Calf Raise",
-                              "category":  "Legs",
-                              "variation":  "Standing Bodyweight",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "Bodyweight",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "Bodyweight",
-                                               "reps":  20
-                                           }
-                                       ],
-                              "image":  "Bodyweight Calf Raise.gif"
-                          },
-                          {
-                              "exerciseId":  "straight_bar_tricep_pushdown",
-                              "exerciseName":  "Straight Bar Tricep Pushdown",
-                              "category":  "Triceps",
-                              "variation":  "Cable Overhand Straight Bar",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "3 plates",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Cable Tricep Pushdown.gif"
-                          },
-                          {
-                              "exerciseId":  "ez_bar_skull_crushers",
-                              "exerciseName":  "EZ-Bar Skull Crushers",
-                              "category":  "Triceps",
-                              "variation":  "Lying Triceps Extension",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "0 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Skull Crusher.gif"
-                          },
-                          {
-                              "exerciseId":  "overhead_dumbbell_tricep_extension",
-                              "exerciseName":  "Overhead Dumbbell Tricep Extension",
-                              "category":  "Triceps",
-                              "variation":  "Seated Long Head Tricep",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "7.5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "7.5 kg",
-                                               "reps":  12
-                                           }
-                                       ],
-                              "image":  "Seated Dumbbell Tricep Extension.gif"
-                          }
-                      ]
-    },
-    {
-        "id":  "workout_2026_08_27",
-        "date":  "2026-08-27",
-        "duration":  "1 hr 12 mins",
-        "notes":  "Back and shoulders session with strict tempo.",
-        "exercises":  [
-                          {
-                              "exerciseId":  "lat_pull_down",
-                              "exerciseName":  "Lat Pull Down",
-                              "category":  "Back",
-                              "variation":  "Wide Grip Cable",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "6 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "6 plates",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "6 plates",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "lat_pull_down.gif",
-                              "startTime":  "09:10",
-                              "endTime":  "09:25",
-                              "duration":  "15 mins"
-                          },
-                          {
-                              "exerciseId":  "seated_chest_press",
-                              "exerciseName":  "Seated Chest Press",
-                              "category":  "Chest",
-                              "variation":  "Machine / Selectorized",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "0 kg",
-                                               "reps":  15
-                                           }
-                                       ],
-                              "image":  "Vertical Chest Press.gif",
-                              "startTime":  "09:25",
-                              "endTime":  "09:40",
-                              "duration":  "15 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_lateral_raises",
-                              "exerciseName":  "Dumbbell Lateral Raises",
-                              "category":  "Shoulders",
-                              "variation":  "Side Delt Dumbbell",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "5 kg",
-                                               "reps":  12
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "5 kg",
-                                               "reps":  10
-                                           }
-                                       ],
-                              "image":  "Dumbbell Lateral Raise.gif",
-                              "startTime":  "09:40",
-                              "endTime":  "09:49",
-                              "duration":  "9 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_bicep_curl",
-                              "exerciseName":  "Dumbbell Bicep Curl",
-                              "category":  "Biceps",
-                              "variation":  "Standing",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "7.5 kg",
-                                               "reps":  10
-                                           }
-                                       ],
-                              "image":  "dumbbell_bicep_curl.gif",
-                              "startTime":  "09:49",
-                              "endTime":  "10:06",
-                              "duration":  "17 mins"
-                          },
-                          {
-                              "exerciseId":  "dumbbell_hammer_curl",
-                              "exerciseName":  "Dumbbell Hammer Curl",
-                              "category":  "Biceps",
-                              "variation":  "Neutral Grip Brachialis",
-                              "sets":  [
-                                           {
-                                               "set":  1,
-                                               "weight":  "5 kg",
-                                               "reps":  15
-                                           },
-                                           {
-                                               "set":  2,
-                                               "weight":  "5 kg",
-                                               "reps":  20
-                                           },
-                                           {
-                                               "set":  3,
-                                               "weight":  "7.5 kg",
-                                               "reps":  14
-                                           }
-                                       ],
-                              "image":  "dumbbell_hammer_curl.gif",
-                              "startTime":  "10:06",
-                              "endTime":  "10:22",
-                              "duration":  "16 mins"
-                          }
-                      ]
-    }
+  {
+    "id": "workout_2026_09_11_8211",
+    "date": "2026-09-11",
+    "duration": "1 hr 2 mins",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "pec_deck_machine_flyes",
+        "exerciseName": "Pec Deck Machine Flyes",
+        "category": "Chest",
+        "variation": "Machine Pec Fly",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "5 plates",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "7 plates",
+            "reps": 10
+          },
+          {
+            "set": 4,
+            "weight": "9 plates",
+            "reps": 5
+          },
+          {
+            "set": 5,
+            "weight": "7 plates",
+            "reps": 10
+          },
+          {
+            "set": 6,
+            "weight": "5 plates",
+            "reps": 12
+          },
+          {
+            "set": 7,
+            "weight": "2 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Pec Deck Fly Machine.gif",
+        "startTime": "10:30",
+        "endTime": "10:37",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "decline_barbell_bench_press",
+        "exerciseName": "Decline Barbell Bench Press",
+        "category": "Chest",
+        "variation": "Decline Dumbbell (Lower Chest)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "10 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "12.5 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "15 kg",
+            "reps": 12
+          }
+        ],
+        "image": "decline_barbell_bench_press.jpg",
+        "startTime": "10:42",
+        "endTime": "10:50",
+        "duration": "8 mins"
+      },
+      {
+        "exerciseId": "seated_chest_press",
+        "exerciseName": "Seated Chest Press",
+        "category": "Chest",
+        "variation": "Machine / Selectorized",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "7.5 kg",
+            "reps": 10
+          }
+        ],
+        "image": "seated_chest_press.gif",
+        "startTime": "10:51",
+        "endTime": "10:58",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "barbell_bench_press",
+        "exerciseName": "Barbell Bench Press",
+        "category": "Chest",
+        "variation": "Mid chest",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 4,
+            "weight": "0 kg",
+            "reps": 15
+          }
+        ],
+        "image": "Barbell Bench Press.gif",
+        "startTime": "11:01",
+        "endTime": "11:10",
+        "duration": "9 mins"
+      },
+      {
+        "exerciseId": "seated_dumbbell_shoulder_press",
+        "exerciseName": "Seated Dumbbell Shoulder Press",
+        "category": "Shoulders",
+        "variation": "90-Degree Bench Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "7.5 kg",
+            "reps": 10
+          }
+        ],
+        "image": "Seated Dumbbell Shoulder Press.gif",
+        "startTime": "11:14",
+        "endTime": "11:20",
+        "duration": "6 mins"
+      },
+      {
+        "exerciseId": "cable_reverse_fly",
+        "exerciseName": "Cable Reverse Fly",
+        "category": "Shoulders",
+        "variation": "Rear Delt Cable Flyes / Crossover",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "0 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "0 plates",
+            "reps": 10
+          }
+        ],
+        "image": "Cable Reverse Fly.gif",
+        "startTime": "11:23",
+        "endTime": "11:28",
+        "duration": "5 mins"
+      },
+      {
+        "exerciseId": "dumbbell_lateral_raises",
+        "exerciseName": "Dumbbell Lateral Raises",
+        "category": "Shoulders",
+        "variation": "Side Delt Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "7.5 kg",
+            "reps": 6
+          },
+          {
+            "set": 4,
+            "weight": "5 kg",
+            "reps": 9
+          }
+        ],
+        "image": "dumbbell_lateral_raises.gif",
+        "startTime": "11:33",
+        "endTime": "11:40",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "barbell_upright_row",
+        "exerciseName": "Barbell Upright Row",
+        "category": "Shoulders",
+        "variation": "Barbell Lateral Delts / Traps",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "0 kg",
+            "reps": 15
+          }
+        ],
+        "image": "Barbell Upright Row.gif",
+        "startTime": "11:44",
+        "endTime": "11:57",
+        "duration": "13 mins"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_09_10_8778",
+    "date": "2026-09-10",
+    "duration": "56 mins",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "barbell_bent_over_row",
+        "exerciseName": "Barbell Bent-Over Row",
+        "category": "Back",
+        "variation": "Overhand Pronated Grip",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "0 kg",
+            "reps": 15
+          }
+        ],
+        "image": "Underhand Barbell Row.gif",
+        "startTime": "10:14",
+        "endTime": "10:21",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "seated_row_machine",
+        "exerciseName": "Seated Row Machine",
+        "category": "Back",
+        "variation": "Vertical/Close grip",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "15 kg",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "15 kg",
+            "reps": 20
+          },
+          {
+            "set": 3,
+            "weight": "25 kg",
+            "reps": 15
+          }
+        ],
+        "image": "Seated Row Machine.gif",
+        "startTime": "10:22",
+        "endTime": "10:29",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "lat_pull_down",
+        "exerciseName": "Lat Pull Down",
+        "category": "Back",
+        "variation": "Wide Grip Cable",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "7 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "8 plates",
+            "reps": 12
+          }
+        ],
+        "image": "lat_pull_down.gif",
+        "startTime": "10:31",
+        "endTime": "10:38",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "seated_cable_row",
+        "exerciseName": "Seated Cable Row",
+        "category": "Back",
+        "variation": "Neutral Grip Cable",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "7 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "9 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Seated Cable Row.gif",
+        "startTime": "10:39",
+        "endTime": "10:45",
+        "duration": "6 mins"
+      },
+      {
+        "exerciseId": "ez_bar_curl",
+        "exerciseName": "EZ Bar Curl",
+        "category": "Biceps",
+        "variation": "Standing Close grip",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "2.5 kg",
+            "reps": 10
+          },
+          {
+            "set": 3,
+            "weight": "5 kg",
+            "reps": 10
+          },
+          {
+            "set": 4,
+            "weight": "5 kg",
+            "reps": 10
+          }
+        ],
+        "image": "EZ Bar Curl.gif",
+        "startTime": "10:46",
+        "endTime": "10:59",
+        "duration": "13 mins"
+      },
+      {
+        "exerciseId": "dumbbell_hammer_curl",
+        "exerciseName": "Dumbbell Hammer Curl",
+        "category": "Biceps",
+        "variation": "Neutral Grip Brachialis",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "12.5 kg",
+            "reps": 8
+          }
+        ],
+        "image": "dumbbell_hammer_curl.gif",
+        "startTime": "11:01",
+        "endTime": "11:09",
+        "duration": "8 mins"
+      },
+      {
+        "exerciseId": "dumbbell_bicep_curl",
+        "exerciseName": "Dumbbell Bicep Curl",
+        "category": "Biceps",
+        "variation": "Sitting",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "12.5 kg",
+            "reps": 9
+          }
+        ],
+        "image": "dumbbell_bicep_curl.gif",
+        "startTime": "11:12",
+        "endTime": "11:20",
+        "duration": "8 mins"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_09_09_3141",
+    "date": "2026-09-09",
+    "duration": "52 mins",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "leg_press",
+        "exerciseName": "Leg Press",
+        "category": "Legs",
+        "variation": "45-Degree Incline Machine",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "20 kg",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "40 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "60 kg",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "80 kg",
+            "reps": 10
+          },
+          {
+            "set": 5,
+            "weight": "60 kg",
+            "reps": 15
+          },
+          {
+            "set": 6,
+            "weight": "40 kg",
+            "reps": 15
+          },
+          {
+            "set": 7,
+            "weight": "20 kg",
+            "reps": 15
+          },
+          {
+            "set": 8,
+            "weight": "0 kg",
+            "reps": 20
+          }
+        ],
+        "image": "legpress45-leg-press.gif",
+        "startTime": "10:24",
+        "endTime": "10:34",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "lunge",
+        "exerciseName": "Lunge",
+        "category": "Legs",
+        "variation": "Standard",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "Bodyweight",
+            "reps": 12
+          }
+        ],
+        "image": "Lunge.gif",
+        "startTime": "10:30",
+        "endTime": "10:44",
+        "duration": "14 mins"
+      },
+      {
+        "exerciseId": "leg_extension",
+        "exerciseName": "Leg Extension",
+        "category": "Legs",
+        "variation": "Machine Quad Isolation",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "3 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Leg Extension.gif",
+        "startTime": "10:45",
+        "endTime": "10:55",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "seated_dips_machine",
+        "exerciseName": "Seated Dips Machine",
+        "category": "Chest",
+        "variation": "Machine Dip / Selectorized (Chest & Triceps)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "6 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "8 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Seated Dips Machine.gif",
+        "startTime": "10:55",
+        "endTime": "10:59",
+        "duration": "4 mins"
+      },
+      {
+        "exerciseId": "overhead_dumbbell_tricep_extension",
+        "exerciseName": "Overhead Dumbbell Tricep Extension",
+        "category": "Triceps",
+        "variation": "Seated Single & Both Arm",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "10 kg",
+            "reps": 10
+          }
+        ],
+        "image": "Seated Dumbbell Tricep Extension.gif",
+        "startTime": "11:00",
+        "endTime": "11:06",
+        "duration": "6 mins"
+      },
+      {
+        "exerciseId": "straight_bar_tricep_pushdown",
+        "exerciseName": "Straight Bar Tricep Pushdown",
+        "category": "Triceps",
+        "variation": "Cable Overhand Straight Bar",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "4 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "5 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "6 plates",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "8 plates",
+            "reps": 5
+          },
+          {
+            "set": 5,
+            "weight": "6 plates",
+            "reps": 5
+          },
+          {
+            "set": 6,
+            "weight": "4 plates",
+            "reps": 10
+          },
+          {
+            "set": 7,
+            "weight": "3 plates",
+            "reps": 10
+          },
+          {
+            "set": 8,
+            "weight": "2 plates",
+            "reps": 10
+          }
+        ],
+        "image": "Cable Tricep Pushdown.gif",
+        "startTime": "11:10",
+        "endTime": "11:18",
+        "duration": "8 mins"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_09_08_8487",
+    "date": "2026-09-08",
+    "duration": "57 mins",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "lat_pull_down",
+        "exerciseName": "Lat Pull Down",
+        "category": "Back",
+        "variation": "Wide Grip Cable",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "2 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "4 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "6 plates",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "8 plates",
+            "reps": 10
+          }
+        ],
+        "image": "lat_pull_down.gif",
+        "startTime": "10:10",
+        "endTime": "10:20",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "high_pulley_cable_row",
+        "exerciseName": "High Pulley Cable Row",
+        "category": "Back",
+        "variation": "High Pulley Cable (Upper Back / Lats)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "55 kg",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "65 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "75 kg",
+            "reps": 15
+          }
+        ],
+        "image": "High Pulley Cable Row.gif",
+        "startTime": "10:20",
+        "endTime": "10:30",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "single_arm_dumbbell_row",
+        "exerciseName": "Single-Arm Dumbbell Row",
+        "category": "Back",
+        "variation": "Bench Supported Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "12.5 kg",
+            "reps": 11
+          }
+        ],
+        "image": "One Arm Dumbbell Row.gif",
+        "startTime": "10:32",
+        "endTime": "10:43",
+        "duration": "11 mins"
+      },
+      {
+        "exerciseId": "barbell_bent_over_row",
+        "exerciseName": "Barbell Bent-Over Row",
+        "category": "Back",
+        "variation": "Overhand Pronated Grip",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "0 kg",
+            "reps": 15
+          }
+        ],
+        "image": "Underhand Barbell Row.gif",
+        "startTime": "10:45",
+        "endTime": "10:51",
+        "duration": "6 mins"
+      },
+      {
+        "exerciseId": "cable_pullover",
+        "exerciseName": "Cable Pullover",
+        "category": "Back",
+        "variation": "Standing Cable Lat Pullover",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "2 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "4 plates",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "4 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Cable Pullover.gif",
+        "startTime": "10:54",
+        "endTime": "11:01",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "dumbbell_bicep_curl",
+        "exerciseName": "Dumbbell Bicep Curl",
+        "category": "Biceps",
+        "variation": "Sitting",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "12.5 kg",
+            "reps": 8
+          }
+        ],
+        "image": "dumbbell_bicep_curl.gif",
+        "startTime": "11:03",
+        "endTime": "11:10",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "cable_hammer_curl",
+        "exerciseName": "Cable Hammer Curl",
+        "category": "Biceps",
+        "variation": "Rope Attachment Neutral Grip",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "2 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "4 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Cable Hammer Curl.gif",
+        "startTime": "11:12",
+        "endTime": "11:18",
+        "duration": "6 mins"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_09_07_3895",
+    "date": "2026-09-07",
+    "duration": "1 hr 13 mins",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "dumbbell_bench_press",
+        "exerciseName": "Dumbbell Bench Press",
+        "category": "Chest",
+        "variation": "Flat Bench Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "2.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "7.5 kg",
+            "reps": 8
+          }
+        ],
+        "image": "Dumbbell Bench Press.gif",
+        "startTime": "09:52",
+        "endTime": "09:59",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "pec_deck_machine_flyes",
+        "exerciseName": "Pec Deck Machine Flyes",
+        "category": "Chest",
+        "variation": "Machine Pec Fly",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "4 plates",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "5 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "6 plates",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "8 plates",
+            "reps": 5
+          },
+          {
+            "set": 5,
+            "weight": "6 plates",
+            "reps": 20
+          },
+          {
+            "set": 6,
+            "weight": "4 plates",
+            "reps": 15
+          },
+          {
+            "set": 7,
+            "weight": "1 plate",
+            "reps": 20
+          }
+        ],
+        "image": "Pec Deck Fly Machine.gif",
+        "startTime": "10:01",
+        "endTime": "10:13",
+        "duration": "12 mins"
+      },
+      {
+        "exerciseId": "incline_dumbbell_press",
+        "exerciseName": "Incline Dumbbell Press",
+        "category": "Chest",
+        "variation": "Incline Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "12.5 kg",
+            "reps": 10
+          },
+          {
+            "set": 4,
+            "weight": "15 kg",
+            "reps": 8
+          }
+        ],
+        "image": "Incline Dumbbell Bench Press.gif",
+        "startTime": "10:16",
+        "endTime": "10:27",
+        "duration": "11 mins"
+      },
+      {
+        "exerciseId": "dumbbell_pullover",
+        "exerciseName": "Dumbbell Pullover",
+        "category": "Chest",
+        "variation": "Flat Bench / Cross-Bench (Chest & Lats)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "12.5 kg",
+            "reps": 10
+          }
+        ],
+        "image": "Dumbbell Pullover.gif",
+        "startTime": "10:29",
+        "endTime": "10:37",
+        "duration": "8 mins"
+      },
+      {
+        "exerciseId": "smith_machine_shoulder_press",
+        "exerciseName": "Smith Machine Shoulder Press",
+        "category": "Shoulders",
+        "variation": "Seated Smith Machine Overhead Press + lateral Raise",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "0 kg",
+            "reps": 15
+          }
+        ],
+        "image": "Smith Machine Shoulder Press.gif",
+        "startTime": "10:41",
+        "endTime": "10:46",
+        "duration": "5 mins"
+      },
+      {
+        "exerciseId": "dumbbell_lateral_raises",
+        "exerciseName": "Dumbbell Lateral Raises",
+        "category": "Shoulders",
+        "variation": "Side Delt Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "2.5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "2.5 kg",
+            "reps": 15
+          }
+        ],
+        "image": "Dumbbell Lateral Raise.gif",
+        "startTime": "10:46",
+        "endTime": "10:51",
+        "duration": "5 mins"
+      },
+      {
+        "exerciseId": "reverse_pec_deck_fly_machine",
+        "exerciseName": "Reverse Pec Deck Fly Machine",
+        "category": "Shoulders",
+        "variation": "Machine Rear Delt / Reverse Pec Flyes",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "2 plates",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "4 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Reverse Pec Deck Fly Machine.gif",
+        "startTime": "10:53",
+        "endTime": "10:58",
+        "duration": "5 mins"
+      },
+      {
+        "exerciseId": "shoulder_press_machine",
+        "exerciseName": "Shoulder Press Machine",
+        "category": "Shoulders",
+        "variation": "Machine Overhead Press",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "4 plates",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "4 plates",
+            "reps": 10
+          }
+        ],
+        "image": "Shoulder Press Machine.gif",
+        "startTime": "11:00",
+        "endTime": "11:10",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "barbell_shrug",
+        "exerciseName": "Barbell Shrug",
+        "category": "Shoulders",
+        "variation": "Upper Traps Barbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Barbell Only kg",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "Barbell Only kg",
+            "reps": 20
+          },
+          {
+            "set": 3,
+            "weight": "Barbell with 3 sec hold kg",
+            "reps": 20
+          },
+          {
+            "set": 4,
+            "weight": "Barbell with 3 sec hold kg",
+            "reps": 20
+          }
+        ],
+        "image": "Barbell Shrug.gif",
+        "startTime": "11:07",
+        "endTime": "11:17",
+        "duration": "10 mins"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_09_05_6689",
+    "date": "2026-09-05",
+    "duration": "1 hr 44 mins",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "hammer_bench_press",
+        "exerciseName": "Hammer Bench Press",
+        "category": "Chest",
+        "variation": "Hammer Strength / Machine Press",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "5 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Hammer Bench Press.gif",
+        "startTime": "09:19",
+        "endTime": "09:29",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "dumbbell_bench_press",
+        "exerciseName": "Dumbbell Bench Press",
+        "category": "Chest",
+        "variation": "Flat Bench Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "7.5 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "10 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Dumbbell Bench Press.gif",
+        "startTime": "09:29",
+        "endTime": "09:39",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "incline_dumbbell_press",
+        "exerciseName": "Incline Dumbbell Press",
+        "category": "Chest",
+        "variation": "Incline Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "2.5 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "2.5 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Incline Dumbbell Bench Press.gif",
+        "startTime": "09:39",
+        "endTime": "09:49",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "cable_upright_row",
+        "exerciseName": "Cable Upright Row",
+        "category": "Shoulders",
+        "variation": "Cable Attachment Lateral Delts / Traps",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "0 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "0 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Cable Upright Row.gif",
+        "startTime": "09:49",
+        "endTime": "09:54",
+        "duration": "5 mins"
+      },
+      {
+        "exerciseId": "cable_kneeling_high_to_low_fly",
+        "exerciseName": "Cable Kneeling High To Low Fly",
+        "category": "Chest",
+        "variation": "Kneeling High-to-Low Cable",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "2 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "2 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Cable Kneeling High To Low Fly.gif",
+        "startTime": "09:54",
+        "endTime": "10:00",
+        "duration": "6 mins"
+      },
+      {
+        "exerciseId": "dumbbell_lateral_raises",
+        "exerciseName": "Dumbbell Lateral Raises",
+        "category": "Shoulders",
+        "variation": "Side Delt Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "7.5 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "7.5 kg",
+            "reps": 12
+          }
+        ],
+        "image": "dumbbell_lateral_raises.gif",
+        "startTime": "10:00",
+        "endTime": "10:07",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "seated_dumbbell_shoulder_press",
+        "exerciseName": "Seated Dumbbell Shoulder Press",
+        "category": "Shoulders",
+        "variation": "90-Degree Bench Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Barbell kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "Barbell kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "Barbell kg",
+            "reps": 15
+          }
+        ],
+        "image": "Overhead Press.gif",
+        "startTime": "10:07",
+        "endTime": "10:15",
+        "duration": "8 mins"
+      },
+      {
+        "exerciseId": "low_pulley_cable_fly",
+        "exerciseName": "Low-pulley Cable Fly",
+        "category": "Chest",
+        "variation": "Low Pulley Cable Fly",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "2 plates",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "4 plates",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "4 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Low-pulley Cable Fly.gif",
+        "startTime": "10:15",
+        "endTime": "10:28",
+        "duration": "13 mins"
+      },
+      {
+        "exerciseId": "face_pulls",
+        "exerciseName": "Face Pulls",
+        "category": "Back",
+        "variation": "Cable Rope (Upper Back / Rear Delts)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "4 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Face Pull.gif",
+        "startTime": "10:28",
+        "endTime": "10:35",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "sumo_squat",
+        "exerciseName": "Sumo Squat",
+        "category": "Legs",
+        "variation": "Wide Stance Dumbbell / Kettlebell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "Bodyweight",
+            "reps": 12
+          }
+        ],
+        "image": "Sumo Squat.gif",
+        "startTime": "10:29",
+        "endTime": "10:39",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "leg_curl",
+        "exerciseName": "Leg Curl",
+        "category": "Legs",
+        "variation": "Lying Machine (Prone)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "15 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "20 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "25 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Leg Curl.gif",
+        "startTime": "10:39",
+        "endTime": "10:49",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "bodyweight_calf_raise",
+        "exerciseName": "Bodyweight Calf Raise",
+        "category": "Legs",
+        "variation": "Standing Bodyweight",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "Bodyweight",
+            "reps": 20
+          }
+        ],
+        "image": "Bodyweight Calf Raise.gif",
+        "startTime": "10:49",
+        "endTime": "10:57",
+        "duration": "8 mins"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_09_04_9246",
+    "date": "2026-09-04",
+    "duration": "",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "treadmill_running",
+        "exerciseName": "Treadmill Running",
+        "category": "Cardio",
+        "variation": "Incline & Interval Sprint",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 15
+          }
+        ],
+        "image": "treadmill_running.gif"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_09_03_0557",
+    "date": "2026-09-03",
+    "duration": "1 hr 8 mins",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "assisted_pull_up_machine",
+        "exerciseName": "Assisted Pull Up Machine",
+        "category": "Back",
+        "variation": "Counterweight Machine Assist",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "10 plates",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "10 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Assisted Pull Up Machine.gif",
+        "startTime": "10:00",
+        "endTime": "10:10",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "t_bar_row",
+        "exerciseName": "T-Bar Row",
+        "category": "Back",
+        "variation": "Landmine / Machine Chest Supported",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Barbell kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "Barbell kg",
+            "reps": 12
+          }
+        ],
+        "image": "T-bar Row Machine.gif",
+        "startTime": "10:10",
+        "endTime": "10:20",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "lat_pull_down",
+        "exerciseName": "Lat Pull Down",
+        "category": "Back",
+        "variation": "Wide Grip Cable",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "3 plates",
+            "reps": 12
+          }
+        ],
+        "image": "lat_pull_down.gif",
+        "startTime": "10:20",
+        "endTime": "10:30",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "one_arm_low_row",
+        "exerciseName": "One Arm Low Row",
+        "category": "Back",
+        "variation": "Single-Arm Cable / Machine Low Row",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "3 plates",
+            "reps": 12
+          }
+        ],
+        "image": "One Arm Low Row.gif",
+        "startTime": "10:30",
+        "endTime": "10:40",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "dumbbell_preacher_curl",
+        "exerciseName": "Dumbbell Preacher Curl",
+        "category": "Biceps",
+        "variation": "Single-Arm Preacher Bench",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "7.5 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "7.5 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Dumbbell Preacher Curl.gif",
+        "startTime": "10:55",
+        "endTime": "11:04",
+        "duration": "9 mins"
+      },
+      {
+        "exerciseId": "cable_rope_bicep_curl",
+        "exerciseName": "Cable Rope Bicep Curl",
+        "category": "Biceps",
+        "variation": "Low Pulley Constant Tension",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "3 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Cable Curl.gif",
+        "startTime": "11:04",
+        "endTime": "11:10",
+        "duration": "6 mins"
+      },
+      {
+        "exerciseId": "cross_body_hammer_curl",
+        "exerciseName": "Cross-Body Hammer Curl",
+        "category": "Biceps",
+        "variation": "Dumbbell Across Chest (Brachialis)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "5 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Cross-Body Hammer Curl.gif",
+        "startTime": "11:10",
+        "endTime": "11:23",
+        "duration": "13 mins"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_09_02_3143",
+    "date": "2026-09-02",
+    "duration": "",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "squats",
+        "exerciseName": "Squats",
+        "category": "Legs",
+        "variation": "Assistance for Balance",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "Bodyweight",
+            "reps": 12
+          }
+        ],
+        "image": "bodyweight-squat.gif"
+      },
+      {
+        "exerciseId": "leg_extension",
+        "exerciseName": "Leg Extension",
+        "category": "Legs",
+        "variation": "Machine Quad Isolation",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "6 plates",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "6 plates",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "6 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Leg Extension.gif"
+      },
+      {
+        "exerciseId": "lunge",
+        "exerciseName": "Lunge",
+        "category": "Legs",
+        "variation": "Static Bodyweight / Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "Bodyweight",
+            "reps": 12
+          }
+        ],
+        "image": "Lunge.gif"
+      },
+      {
+        "exerciseId": "leg_press",
+        "exerciseName": "Leg Press",
+        "category": "Legs",
+        "variation": "45-Degree Incline Machine",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "20 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "30 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "40 kg",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "45 kg",
+            "reps": 12
+          }
+        ],
+        "image": "legpress45-leg-press.gif"
+      },
+      {
+        "exerciseId": "bodyweight_calf_raise",
+        "exerciseName": "Bodyweight Calf Raise",
+        "category": "Legs",
+        "variation": "Standing Bodyweight",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "Bodyweight",
+            "reps": 20
+          }
+        ],
+        "image": "Bodyweight Calf Raise.gif"
+      },
+      {
+        "exerciseId": "overhead_dumbbell_tricep_extension",
+        "exerciseName": "Overhead Dumbbell Tricep Extension",
+        "category": "Triceps",
+        "variation": "Seated Single & Both Arm",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "7.5 kg",
+            "reps": 12
+          },
+          {
+            "set": 5,
+            "weight": "7.5 kg",
+            "reps": 12
+          },
+          {
+            "set": 6,
+            "weight": "7.5 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Seated Dumbbell Tricep Extension.gif"
+      },
+      {
+        "exerciseId": "straight_bar_tricep_pushdown",
+        "exerciseName": "Straight Bar Tricep Pushdown",
+        "category": "Triceps",
+        "variation": "Cable Overhand Straight Bar",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "3 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Cable Tricep Pushdown.gif"
+      },
+      {
+        "exerciseId": "wrist_curl",
+        "exerciseName": "Wrist Curl",
+        "category": "Biceps",
+        "variation": "Barbell / Dumbbell Forearm Flexion",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 20
+          }
+        ],
+        "image": "Wrist Curl.jpg"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_09_01_7313",
+    "date": "2026-09-01",
+    "duration": "1 hr 8 mins",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "lat_pull_down",
+        "exerciseName": "Lat Pull Down",
+        "category": "Back",
+        "variation": "Wide Grip Cable",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 11
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 11
+          },
+          {
+            "set": 3,
+            "weight": "3 plates",
+            "reps": 11
+          }
+        ],
+        "image": "lat_pull_down.gif",
+        "startTime": "09:30",
+        "endTime": "09:46",
+        "duration": "16 mins"
+      },
+      {
+        "exerciseId": "stiff_arm_pulldown",
+        "exerciseName": "Stiff Arm Pulldown",
+        "category": "Back",
+        "variation": "Straight-Arm Cable Lat Isolation",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "2 plates",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "2 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Stiff Arm Pulldown.gif",
+        "startTime": "09:46",
+        "endTime": "09:50",
+        "duration": "4 mins"
+      },
+      {
+        "exerciseId": "seated_cable_row",
+        "exerciseName": "Seated Cable Row",
+        "category": "Back",
+        "variation": "Neutral Grip Cable",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "40 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "50 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "60 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Seated Cable Row.gif",
+        "startTime": "09:50",
+        "endTime": "09:57",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "single_arm_dumbbell_row",
+        "exerciseName": "Single-Arm Dumbbell Row",
+        "category": "Back",
+        "variation": "Bench Supported Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "12 kg",
+            "reps": 10
+          }
+        ],
+        "image": "One Arm Dumbbell Row.gif",
+        "startTime": "09:57",
+        "endTime": "10:08",
+        "duration": "11 mins"
+      },
+      {
+        "exerciseId": "barbell_bent_over_row",
+        "exerciseName": "Barbell Bent-Over Row",
+        "category": "Back",
+        "variation": "Overhand Pronated Grip",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Barbell kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "Barbell kg",
+            "reps": 12
+          }
+        ],
+        "image": "Underhand Barbell Row.gif",
+        "startTime": "10:08",
+        "endTime": "10:18",
+        "duration": "10 mins"
+      },
+      {
+        "exerciseId": "ez_bar_curl",
+        "exerciseName": "EZ Bar Curl",
+        "category": "Biceps",
+        "variation": "Standing EZ-Bar Supinated",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "2.5 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "2.5 kg",
+            "reps": 12
+          }
+        ],
+        "image": "EZ Bar Curl.gif",
+        "startTime": "10:18",
+        "endTime": "10:29",
+        "duration": "11 mins"
+      },
+      {
+        "exerciseId": "cable_rope_bicep_curl",
+        "exerciseName": "Cable Rope Bicep Curl",
+        "category": "Biceps",
+        "variation": "Low Pulley Constant Tension",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Barbell kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "Barbell kg",
+            "reps": 12
+          }
+        ],
+        "image": "Cable Curl.gif",
+        "startTime": "10:29",
+        "endTime": "10:34",
+        "duration": "5 mins"
+      },
+      {
+        "exerciseId": "cable_hammer_curl",
+        "exerciseName": "Cable Hammer Curl",
+        "category": "Biceps",
+        "variation": "Rope Attachment Neutral Grip",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "5 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Cable Hammer Curl.gif",
+        "startTime": "10:34",
+        "endTime": "10:38",
+        "duration": "4 mins"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_08_31_6639",
+    "date": "2026-08-31",
+    "duration": "1 hr 20 mins",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "barbell_bench_press",
+        "exerciseName": "Barbell Bench Press",
+        "category": "Chest",
+        "variation": "Flat Barbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "0 kg",
+            "reps": 15
+          }
+        ],
+        "image": "Barbell Bench Press.gif",
+        "startTime": "09:15",
+        "endTime": "09:30",
+        "duration": "15 mins"
+      },
+      {
+        "exerciseId": "cable_chest_flyes",
+        "exerciseName": "Cable Chest Flyes",
+        "category": "Chest",
+        "variation": "Standard",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "2 plates",
+            "reps": 10
+          }
+        ],
+        "image": "Standing Cable Fly.gif",
+        "startTime": "09:30",
+        "endTime": "09:47",
+        "duration": "17 mins"
+      },
+      {
+        "exerciseId": "incline_dumbbell_press",
+        "exerciseName": "Incline Dumbbell Press",
+        "category": "Chest",
+        "variation": "Incline Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "10 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Incline Dumbbell Bench Press.gif",
+        "startTime": "09:47",
+        "endTime": "09:53",
+        "duration": "6 mins"
+      },
+      {
+        "exerciseId": "decline_barbell_bench_press",
+        "exerciseName": "Decline Barbell Bench Press",
+        "category": "Chest",
+        "variation": "Decline Barbell (Lower Chest)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bar Only kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "Bar Only kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "Bar Only kg",
+            "reps": 12
+          }
+        ],
+        "image": "Smith Machine Decline Bench Press.gif",
+        "startTime": "09:53",
+        "endTime": "10:00",
+        "duration": "7 mins"
+      },
+      {
+        "exerciseId": "seated_chest_press",
+        "exerciseName": "Seated Chest Press",
+        "category": "Chest",
+        "variation": "Machine / Selectorized",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "0 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "0 kg",
+            "reps": 12
+          }
+        ],
+        "image": "seated_chest_press.gif",
+        "startTime": "10:00",
+        "endTime": "10:14",
+        "duration": "14 mins"
+      },
+      {
+        "exerciseId": "shoulder_press_machine",
+        "exerciseName": "Shoulder Press Machine",
+        "category": "Shoulders",
+        "variation": "Machine Overhead Press",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Shoulder Press Machine.gif",
+        "startTime": "10:14",
+        "endTime": "10:19",
+        "duration": "5 mins"
+      },
+      {
+        "exerciseId": "dumbbell_lateral_raises",
+        "exerciseName": "Dumbbell Lateral Raises",
+        "category": "Shoulders",
+        "variation": "Side Delt Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 10
+          },
+          {
+            "set": 2,
+            "weight": "5 kg",
+            "reps": 10
+          }
+        ],
+        "image": "dumbbell_lateral_raises.gif",
+        "startTime": "10:19",
+        "endTime": "10:24",
+        "duration": "5 mins"
+      },
+      {
+        "exerciseId": "low_pulley_cable_fly",
+        "exerciseName": "Low-pulley Cable Fly",
+        "category": "Chest",
+        "variation": "Low Pulley Cable Fly",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Low-pulley Cable Fly.gif",
+        "startTime": "10:24",
+        "endTime": "10:28",
+        "duration": "4 mins"
+      },
+      {
+        "exerciseId": "dumbbell_front_raise",
+        "exerciseName": "Dumbbell Front Raise",
+        "category": "Shoulders",
+        "variation": "Front Delt Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "5 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Dumbbell Front Raise.gif",
+        "startTime": "10:28",
+        "endTime": "10:35",
+        "duration": "7 mins"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_08_29_7238",
+    "date": "2026-08-29",
+    "duration": "",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "squats",
+        "exerciseName": "Squats",
+        "category": "Legs",
+        "variation": "Assistance for Balance",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "Bodyweight",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "Bodyweight",
+            "reps": 15
+          }
+        ],
+        "image": "bodyweight-squat.gif"
+      },
+      {
+        "exerciseId": "leg_press",
+        "exerciseName": "Leg Press",
+        "category": "Legs",
+        "variation": "45-Degree Incline Machine",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "20 kg",
+            "reps": 7
+          }
+        ],
+        "image": "legpress45-leg-press.gif"
+      },
+      {
+        "exerciseId": "leg_extension",
+        "exerciseName": "Leg Extension",
+        "category": "Legs",
+        "variation": "Machine Quad Isolation",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "30 lbs",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "35 lbs",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "40 lbs",
+            "reps": 10
+          }
+        ],
+        "image": "Leg Extension.gif"
+      },
+      {
+        "exerciseId": "leg_curl",
+        "exerciseName": "Leg Curl",
+        "category": "Legs",
+        "variation": "Lying Machine (Prone)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "25 lbs",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "25 lbs",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "25 lbs",
+            "reps": 12
+          }
+        ],
+        "image": "Leg Curl.gif"
+      },
+      {
+        "exerciseId": "bodyweight_calf_raise",
+        "exerciseName": "Bodyweight Calf Raise",
+        "category": "Legs",
+        "variation": "Standing Bodyweight",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "Bodyweight",
+            "reps": 20
+          }
+        ],
+        "image": "Bodyweight Calf Raise.gif"
+      },
+      {
+        "exerciseId": "straight_bar_tricep_pushdown",
+        "exerciseName": "Straight Bar Tricep Pushdown",
+        "category": "Triceps",
+        "variation": "Cable Overhand Straight Bar",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "3 plates",
+            "reps": 12
+          }
+        ],
+        "image": "Cable Tricep Pushdown.gif"
+      },
+      {
+        "exerciseId": "ez_bar_skull_crushers",
+        "exerciseName": "EZ-Bar Skull Crushers",
+        "category": "Triceps",
+        "variation": "Lying Triceps Extension",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "0 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Skull Crusher.gif"
+      },
+      {
+        "exerciseId": "overhead_dumbbell_tricep_extension",
+        "exerciseName": "Overhead Dumbbell Tricep Extension",
+        "category": "Triceps",
+        "variation": "Seated Long Head Tricep",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "7.5 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Seated Dumbbell Tricep Extension.gif"
+      }
+    ]
+  },
+  {
+    "id": "workout_2026_08_27",
+    "date": "2026-08-27",
+    "duration": "1 hr 12 mins",
+    "notes": "Back and shoulders session with strict tempo.",
+    "exercises": [
+      {
+        "exerciseId": "lat_pull_down",
+        "exerciseName": "Lat Pull Down",
+        "category": "Back",
+        "variation": "Wide Grip Cable",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "6 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "6 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "6 plates",
+            "reps": 15
+          }
+        ],
+        "image": "lat_pull_down.gif",
+        "startTime": "09:10",
+        "endTime": "09:25",
+        "duration": "15 mins"
+      },
+      {
+        "exerciseId": "seated_chest_press",
+        "exerciseName": "Seated Chest Press",
+        "category": "Chest",
+        "variation": "Machine / Selectorized",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "0 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "0 kg",
+            "reps": 15
+          }
+        ],
+        "image": "Vertical Chest Press.gif",
+        "startTime": "09:25",
+        "endTime": "09:40",
+        "duration": "15 mins"
+      },
+      {
+        "exerciseId": "dumbbell_lateral_raises",
+        "exerciseName": "Dumbbell Lateral Raises",
+        "category": "Shoulders",
+        "variation": "Side Delt Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "5 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "5 kg",
+            "reps": 10
+          }
+        ],
+        "image": "Dumbbell Lateral Raise.gif",
+        "startTime": "09:40",
+        "endTime": "09:49",
+        "duration": "9 mins"
+      },
+      {
+        "exerciseId": "dumbbell_bicep_curl",
+        "exerciseName": "Dumbbell Bicep Curl",
+        "category": "Biceps",
+        "variation": "Standing",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "5 kg",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "7.5 kg",
+            "reps": 10
+          }
+        ],
+        "image": "dumbbell_bicep_curl.gif",
+        "startTime": "09:49",
+        "endTime": "10:06",
+        "duration": "17 mins"
+      },
+      {
+        "exerciseId": "dumbbell_hammer_curl",
+        "exerciseName": "Dumbbell Hammer Curl",
+        "category": "Biceps",
+        "variation": "Neutral Grip Brachialis",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "5 kg",
+            "reps": 20
+          },
+          {
+            "set": 3,
+            "weight": "7.5 kg",
+            "reps": 14
+          }
+        ],
+        "image": "dumbbell_hammer_curl.gif",
+        "startTime": "10:06",
+        "endTime": "10:22",
+        "duration": "16 mins"
+      }
+    ]
+  }
 ]
