@@ -1,5 +1,318 @@
 ﻿[
   {
+    "id": "workout_2026_09_12_9858",
+    "date": "2026-09-12",
+    "duration": "",
+    "notes": "",
+    "exercises": [
+      {
+        "exerciseId": "leg_press",
+        "exerciseName": "Leg Press",
+        "category": "Legs",
+        "variation": "45-Degree Incline Machine",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "20 kg",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "40 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "60 kg",
+            "reps": 10
+          },
+          {
+            "set": 4,
+            "weight": "80 kg",
+            "reps": 8
+          },
+          {
+            "set": 5,
+            "weight": "60 kg",
+            "reps": 12
+          },
+          {
+            "set": 6,
+            "weight": "40 kg",
+            "reps": 15
+          }
+        ],
+        "image": "legpress45-leg-press.gif"
+      },
+      {
+        "exerciseId": "sumo_squat",
+        "exerciseName": "Sumo Squat",
+        "category": "Legs",
+        "variation": "Wide Stance Dumbbell / Kettlebell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "Bodyweight",
+            "reps": 12
+          }
+        ],
+        "image": "Sumo Squat.gif"
+      },
+      {
+        "exerciseId": "lunge",
+        "exerciseName": "Lunge",
+        "category": "Legs",
+        "variation": "Static Bodyweight / Dumbbell",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "Bodyweight",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "Bodyweight",
+            "reps": 12
+          }
+        ],
+        "image": "Lunge.gif"
+      },
+      {
+        "exerciseId": "leg_extension",
+        "exerciseName": "Leg Extension",
+        "category": "Legs",
+        "variation": "Machine Quad Isolation",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "3 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "3 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "3 plates",
+            "reps": 15
+          },
+          {
+            "set": 4,
+            "weight": "3 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Leg Extension.gif"
+      },
+      {
+        "exerciseId": "leg_curl",
+        "exerciseName": "Leg Curl",
+        "category": "Legs",
+        "variation": "Lying Machine (Prone)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "15 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "20 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "25 kg",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "25 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Leg Curl.gif"
+      },
+      {
+        "exerciseId": "bodyweight_calf_raise",
+        "exerciseName": "Bodyweight Calf Raise",
+        "category": "Legs",
+        "variation": "Standing Bodyweight",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "Bodyweight",
+            "reps": 20
+          },
+          {
+            "set": 2,
+            "weight": "Bodyweight",
+            "reps": 20
+          },
+          {
+            "set": 3,
+            "weight": "Bodyweight",
+            "reps": 20
+          },
+          {
+            "set": 4,
+            "weight": "Bodyweight",
+            "reps": 20
+          }
+        ],
+        "image": "Bodyweight Calf Raise.gif"
+      },
+      {
+        "exerciseId": "seated_dips_machine",
+        "exerciseName": "Seated Dips Machine",
+        "category": "Chest",
+        "variation": "Machine Dip / Selectorized (Chest & Triceps)",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "5 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "6 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "8 plates",
+            "reps": 15
+          },
+          {
+            "set": 4,
+            "weight": "8 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Seated Dips Machine.gif"
+      },
+      {
+        "exerciseId": "overhead_dumbbell_tricep_extension",
+        "exerciseName": "Overhead Dumbbell Tricep Extension",
+        "category": "Triceps",
+        "variation": "Seated Single & Both Arm",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "7.5 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "10 kg",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "10 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Seated Dumbbell Tricep Extension.gif"
+      },
+      {
+        "exerciseId": "ez_bar_skull_crushers",
+        "exerciseName": "EZ-Bar Skull Crushers",
+        "category": "Triceps",
+        "variation": "Lying Triceps Extension",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "0 kg",
+            "reps": 12
+          },
+          {
+            "set": 2,
+            "weight": "0 kg",
+            "reps": 12
+          },
+          {
+            "set": 3,
+            "weight": "0 kg",
+            "reps": 12
+          }
+        ],
+        "image": "Skull Crusher.gif"
+      },
+      {
+        "exerciseId": "straight_bar_tricep_pushdown",
+        "exerciseName": "Straight Bar Tricep Pushdown",
+        "category": "Triceps",
+        "variation": "Cable Overhand Straight Bar",
+        "sets": [
+          {
+            "set": 1,
+            "weight": "4 plates",
+            "reps": 15
+          },
+          {
+            "set": 2,
+            "weight": "5 plates",
+            "reps": 15
+          },
+          {
+            "set": 3,
+            "weight": "6 plates",
+            "reps": 12
+          },
+          {
+            "set": 4,
+            "weight": "8 plates",
+            "reps": 5
+          },
+          {
+            "set": 5,
+            "weight": "6 plates",
+            "reps": 8
+          },
+          {
+            "set": 6,
+            "weight": "4 plates",
+            "reps": 15
+          }
+        ],
+        "image": "Cable Tricep Pushdown.gif"
+      }
+    ]
+  },
+  {
     "id": "workout_2026_09_11_8211",
     "date": "2026-09-11",
     "duration": "1 hr 2 mins",
